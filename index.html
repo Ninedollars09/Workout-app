@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workout — Tampapon</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0a0c;--bg3:#18181f;
+    --surface:#1e1e28;--surface2:#252532;--border:#2a2a38;
+    --orange:#ff6b2b;--orange2:#ff8c55;--amber:#ffb83d;
+    --green:#3ecf6e;--blue:#4da6ff;--red:#ff4d6d;
+    --text:#f0f0f8;--text2:#9898b0;--text3:#5a5a72;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Sarabun',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;}
+  body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 50% at 50% -10%,#ff6b2b18,transparent),radial-gradient(ellipse 40% 30% at 90% 80%,#4da6ff0d,transparent);pointer-events:none;z-index:0;}
+  .container{max-width:520px;margin:0 auto;padding:0 16px 100px;position:relative;z-index:1;}
+
+  /* HEADER */
+  .header{padding:28px 0 20px;display:flex;align-items:center;justify-content:space-between;}
+  .header-left h1{font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:900;letter-spacing:-.5px;line-height:1;}
+  .header-left h1 span{color:var(--orange);}
+  .header-left p{color:var(--text2);font-size:13px;margin-top:4px;}
+  .header-badge{background:var(--orange);color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:13px;padding:6px 12px;border-radius:20px;letter-spacing:.5px;}
+
+  /* WEEK STRIP */
+  .week-strip{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:20px;}
+  .day-btn{background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:7px 4px 6px;cursor:pointer;text-align:center;transition:all .2s;position:relative;overflow:hidden;}
+  .day-btn:hover{border-color:var(--orange);transform:translateY(-2px);}
+  .day-btn.active{background:var(--orange);border-color:var(--orange);box-shadow:0 4px 20px #ff6b2b50;}
+  .day-btn.today:not(.active)::after{content:'';position:absolute;bottom:4px;left:50%;transform:translateX(-50%);width:4px;height:4px;background:var(--orange);border-radius:50%;}
+  .day-name{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:0;color:var(--text2);line-height:1;}
+  .day-btn.active .day-name{color:#fff;}
+  .day-icon{display:flex;align-items:center;justify-content:center;margin:3px auto 2px;font-size:15px;line-height:1;}
+  .day-level{width:5px;height:5px;border-radius:50%;margin:3px auto 0;}
+  .lvl-medium{background:var(--amber);}.lvl-light{background:var(--green);}
+  .lvl-basketball{background:var(--orange);}.lvl-full{background:var(--blue);}.lvl-rest{background:var(--text3);}
+
+  /* STATS */
+  .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px;}
+  .stat-card{background:var(--surface);border:1.5px solid var(--border);border-radius:14px;padding:14px;text-align:center;}
+  .stat-val{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:900;line-height:1;color:var(--orange);}
+  .stat-lbl{font-size:11px;color:var(--text3);margin-top:4px;font-weight:500;}
+
+  .section-label{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:0;color:var(--text3);text-transform:uppercase;margin-bottom:10px;}
+
+  /* WORKOUT CARD */
+  .workout-card{background:var(--surface);border:1.5px solid var(--border);border-radius:20px;overflow:hidden;margin-bottom:14px;}
+  .wc-header{padding:16px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border);}
+  .wc-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+  .wc-info h2{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;letter-spacing:-.3px;line-height:1.1;}
+  .wc-info p{color:var(--text2);font-size:13px;margin-top:2px;}
+  .wc-meta{display:flex;gap:8px;padding:10px 20px;border-bottom:1px solid var(--border);background:var(--bg3);flex-wrap:wrap;}
+  .meta-chip{background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:4px 10px;font-size:12px;color:var(--text2);font-weight:500;}
+  .meta-chip.hi{color:var(--orange);border-color:#ff6b2b40;background:#ff6b2b10;}
+
+  .phase-label{padding:8px 20px;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;color:var(--text3);text-transform:uppercase;background:var(--bg3);border-bottom:1px solid var(--border);border-top:1px solid var(--border);}
+
+  /* EXERCISE GROUP */
+  .ex-group{border-bottom:1px solid var(--border);}
+  .ex-group:last-child{border-bottom:none;}
+  .ex-header{display:flex;align-items:center;justify-content:space-between;padding:12px 20px 6px;gap:10px;}
+  .ex-header-info{flex:1;min-width:0;}
+  .ex-header-name{font-size:14px;font-weight:600;color:var(--text);line-height:1.3;}
+  .ex-header-sub{display:flex;align-items:center;gap:6px;margin-top:3px;flex-wrap:wrap;}
+  .ex-header-note{font-size:12px;color:var(--text3);}
+  .rest-badge{display:inline-flex;align-items:center;gap:3px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:2px 7px;font-size:11px;color:var(--text2);font-weight:600;white-space:nowrap;}
+  .rest-badge.long{color:var(--amber);border-color:#ffb83d30;background:#ffb83d0c;}
+  .rest-badge.short{color:var(--blue);border-color:#4da6ff30;background:#4da6ff0c;}
+  .rest-badge.none{color:var(--text3);border-color:var(--border);}
+  .ex-header-count{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;color:var(--orange);white-space:nowrap;flex-shrink:0;}
+
+  /* SET ROWS */
+  .sets-container{padding:4px 20px 12px;display:flex;flex-direction:column;gap:6px;}
+  .set-row{display:flex;align-items:center;gap:10px;background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:10px 14px;cursor:pointer;transition:all .18s;user-select:none;}
+  .set-row:hover{border-color:var(--orange);background:#ff6b2b08;}
+  .set-row.done{opacity:.4;border-color:var(--green);background:#3ecf6e08;}
+  .set-check{width:22px;height:22px;border-radius:7px;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s;}
+  .set-row.done .set-check{background:var(--green);border-color:var(--green);}
+  .set-check svg{opacity:0;transition:opacity .15s;}
+  .set-row.done .set-check svg{opacity:1;}
+  .set-label{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:0;color:var(--text3);flex-shrink:0;min-width:44px;}
+  .set-row.done .set-label{color:var(--green);}
+  .set-reps{font-size:13px;color:var(--text2);flex:1;}
+  .set-row.done .set-reps{text-decoration:line-through;}
+
+  /* REST COUNTDOWN */
+  .rest-countdown{display:none;align-items:center;gap:10px;background:linear-gradient(135deg,#1a1a2a,#1e1e30);border:1px solid var(--amber);border-radius:10px;padding:10px 14px;margin:0 20px 6px;animation:slideDown .2s ease;}
+  .rest-countdown.active{display:flex;}
+  @keyframes slideDown{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:translateY(0);}}
+  .rc-icon{flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+  .rc-icon svg{width:20px;height:20px;fill:var(--amber);}
+  .rc-text{flex:1;}
+  .rc-label{font-size:11px;color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:1px;}
+  .rc-time{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:900;color:var(--amber);line-height:1;letter-spacing:-1px;}
+  .rc-time.urgent{color:var(--red);animation:pulse .5s ease infinite alternate;}
+  .rc-time.go{color:var(--green);}
+  @keyframes pulse{from{opacity:1;}to{opacity:.5;}}
+  .rc-skip{background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:12px;font-weight:600;padding:5px 10px;cursor:pointer;white-space:nowrap;transition:all .15s;}
+  .rc-skip:hover{border-color:var(--orange);color:var(--orange);}
+  .rc-bar-wrap{height:3px;background:var(--border);border-radius:4px;margin-top:4px;}
+  .rc-bar{height:100%;background:var(--amber);border-radius:4px;transition:width 1s linear;}
+
+  /* PROGRESS */
+  .prog-wrap{background:var(--bg3);padding:12px 20px;border-top:1px solid var(--border);}
+  .prog-header{display:flex;justify-content:space-between;margin-bottom:8px;}
+  .prog-header span{font-size:12px;color:var(--text2);}
+  .prog-header strong{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;color:var(--orange);}
+  .prog-bar{height:5px;background:var(--border);border-radius:10px;overflow:hidden;}
+  .prog-fill{height:100%;background:linear-gradient(90deg,var(--orange),var(--amber));border-radius:10px;transition:width .4s cubic-bezier(.4,0,.2,1);}
+
+  /* COMPLETE */
+  .complete-btn{width:100%;padding:14px;background:linear-gradient(135deg,var(--orange),var(--amber));border:none;border-radius:14px;color:#fff;font-family:'Sarabun',sans-serif;font-size:16px;font-weight:700;letter-spacing:0;cursor:pointer;margin-top:4px;transition:all .2s;box-shadow:0 4px 20px #ff6b2b40;}
+  .complete-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px #ff6b2b60;}
+  .complete-btn:active{transform:scale(.98);}
+  .complete-btn.completed{background:linear-gradient(135deg,var(--green),#2ea855);box-shadow:0 4px 20px #3ecf6e40;}
+  .reset-day-btn{width:100%;padding:11px;background:transparent;border:1.5px solid var(--border);border-radius:14px;color:var(--text3);font-family:'Sarabun',sans-serif;font-size:14px;font-weight:600;letter-spacing:0;cursor:pointer;margin-top:8px;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px;}
+  .reset-day-btn:hover{border-color:var(--red);color:var(--red);background:#ff4d6d08;}
+  .reset-day-btn:active{transform:scale(.98);}
+  .confirm-row{display:flex;align-items:center;gap:8px;margin-top:6px;padding:10px 14px;background:var(--surface);border:1.5px solid var(--red);border-radius:14px;}
+  .confirm-row span{flex:1;font-size:13px;color:var(--red);font-weight:600;}
+  .confirm-yes{background:var(--red);border:none;border-radius:10px;color:#fff;font-size:13px;font-weight:700;padding:7px 16px;cursor:pointer;font-family:'Barlow Condensed',sans-serif;letter-spacing:.3px;}
+  .confirm-yes:hover{opacity:.85;}
+  .confirm-no{background:var(--surface2);border:1px solid var(--border);border-radius:10px;color:var(--text2);font-size:13px;font-weight:600;padding:7px 14px;cursor:pointer;}
+  .confirm-no:hover{border-color:var(--text2);}
+
+  /* REST DAY */
+  .rest-card{background:var(--surface);border:1.5px solid var(--border);border-radius:20px;padding:40px 20px;text-align:center;}
+  .rest-icon{display:flex;align-items:center;justify-content:center;margin:0 auto 20px;width:64px;height:64px;border-radius:20px;background:var(--surface2);}
+  .rest-icon svg{width:36px;height:36px;fill:var(--text3);}
+  .rest-card h2{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:800;margin-bottom:8px;}
+  .rest-card p{color:var(--text2);font-size:14px;line-height:1.6;}
+
+  /* TIMER FAB */
+  .timer-fab{position:fixed;bottom:24px;right:20px;width:58px;height:58px;background:var(--orange);border:none;border-radius:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px #ff6b2b60;transition:transform .2s,box-shadow .2s;z-index:100;}
+  .timer-fab:hover{transform:scale(1.08);}
+  .timer-fab:active{transform:scale(.96);}
+  .timer-fab svg{width:26px;height:26px;fill:#fff;}
+
+  .timer-panel{position:fixed;bottom:92px;right:20px;background:var(--surface);border:1.5px solid var(--border);border-radius:24px;padding:20px 18px 18px;width:240px;box-shadow:0 20px 60px #00000090;z-index:99;display:none;animation:slideUp .2s ease;}
+  .timer-panel.open{display:block;}
+  @keyframes slideUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+  .timer-lbl{text-align:center;font-size:10px;color:var(--text3);margin-bottom:12px;letter-spacing:1.5px;font-weight:700;text-transform:uppercase;}
+  .timer-display{font-family:'Barlow Condensed',sans-serif;font-size:58px;font-weight:900;text-align:center;line-height:1;color:var(--orange);letter-spacing:-2px;margin-bottom:14px;transition:color .2s;}
+  .timer-display.counting{color:var(--amber);}
+  .timer-display.done{color:var(--green);}
+  .timer-bar-wrap{height:3px;background:var(--border);border-radius:4px;margin-bottom:14px;overflow:hidden;}
+  .timer-bar{height:100%;background:linear-gradient(90deg,var(--orange),var(--amber));border-radius:4px;width:100%;transition:width 1s linear;}
+
+  /* TIME PICKER */
+  .time-picker{display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:14px;}
+  .time-picker.hidden{display:none;}
+  .tp-col{display:flex;flex-direction:column;align-items:center;gap:4px;}
+  .tp-lbl{font-size:10px;color:var(--text3);font-weight:700;letter-spacing:1px;text-transform:uppercase;}
+  .tp-adj{display:flex;align-items:center;gap:6px;}
+  .tp-btn{width:28px;height:28px;border-radius:8px;border:1px solid var(--border);background:var(--bg3);color:var(--text2);font-size:16px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;line-height:1;padding:0;}
+  .tp-btn:hover{border-color:var(--orange);color:var(--orange);background:#ff6b2b10;}
+  .tp-btn:active{transform:scale(.9);}
+  .tp-val{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:900;color:var(--text);min-width:36px;text-align:center;line-height:1;}
+  .tp-sep{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:900;color:var(--text3);line-height:1;margin-top:14px;}
+  .timer-presets{display:flex;gap:5px;margin-bottom:12px;flex-wrap:wrap;}
+  .preset-btn{flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:11px;font-weight:600;padding:5px 3px;cursor:pointer;transition:all .15s;min-width:0;}
+  .preset-btn:hover{border-color:var(--orange);color:var(--orange);}
+  .preset-btn.active-pre{border-color:var(--orange);color:var(--orange);background:#ff6b2b12;}
+  .timer-controls{display:flex;gap:8px;}
+  .t-btn{flex:1;padding:10px;border:none;border-radius:12px;font-size:14px;font-weight:700;cursor:pointer;transition:all .15s;font-family:'Barlow Condensed',sans-serif;letter-spacing:.5px;}
+  .t-btn.start{background:var(--orange);color:#fff;box-shadow:0 4px 14px #ff6b2b40;}
+  .t-btn.start:hover{background:var(--orange2);}
+  .t-btn.reset{background:var(--surface2);color:var(--text2);}
+  .t-btn.reset:hover{background:var(--border);}
+
+  .motto{text-align:center;font-size:11px;color:var(--text3);letter-spacing:1px;text-transform:uppercase;padding:16px 0 8px;}
+  .fade-in{animation:fadeIn .25s ease;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+  ::-webkit-scrollbar{width:4px;}
+  ::-webkit-scrollbar-track{background:var(--bg);}
+  ::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px;}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="header-left">
+      <h1>TRAIN <span>HARD</span></h1>
+      <p id="dateDisplay"></p>
+    </div>
+  </div>
+  <div class="week-strip" id="weekStrip"></div>
+  <div class="stats-row">
+    <div class="stat-card"><div class="stat-val" id="statCompleted">0</div><div class="stat-lbl">วันครบสัปดาห์นี้</div></div>
+    <div class="stat-card"><div class="stat-val" id="statTotal">0</div><div class="stat-lbl">เซตทั้งหมดวันนี้</div></div>
+    <div class="stat-card"><div class="stat-val" id="statDone">0</div><div class="stat-lbl">เซตเสร็จแล้ว ✓</div></div>
+  </div>
+  <div class="section-label" id="contentLabel">โปรแกรมวันนี้</div>
+  <div id="workoutContent" class="fade-in"></div>
+  <div class="motto">GUARD / WING • 178cm / 75kg • 3x3 BASKETBALL</div>
+</div>
+
+<!-- TIMER FAB -->
+<button class="timer-fab" onclick="toggleTimer()">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="13" r="8" stroke="white" stroke-width="2"/>
+    <path d="M12 9v4l2.5 2.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+    <path d="M9 2h6M12 2v3" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  </svg>
+</button>
+
+<!-- TIMER PANEL -->
+<div class="timer-panel" id="timerPanel">
+  <div class="timer-lbl">REST TIMER</div>
+  <div class="timer-display" id="timerDisplay">1:00</div>
+  <div class="timer-bar-wrap"><div class="timer-bar" id="timerBar"></div></div>
+  <div class="time-picker" id="timePicker">
+    <div class="tp-col">
+      <div class="tp-lbl">นาที</div>
+      <div class="tp-adj">
+        <button class="tp-btn" onclick="adjTime('m',-1)">−</button>
+        <div class="tp-val" id="tpMin">1</div>
+        <button class="tp-btn" onclick="adjTime('m',1)">+</button>
+      </div>
+    </div>
+    <div class="tp-sep">:</div>
+    <div class="tp-col">
+      <div class="tp-lbl">วินาที</div>
+      <div class="tp-adj">
+        <button class="tp-btn" onclick="adjTime('s',-5)">−</button>
+        <div class="tp-val" id="tpSec">00</div>
+        <button class="tp-btn" onclick="adjTime('s',5)">+</button>
+      </div>
+    </div>
+  </div>
+  <div class="timer-presets" id="timerPresets">
+    <button class="preset-btn" id="pre30"  onclick="quickSet(30)">30s</button>
+    <button class="preset-btn" id="pre45"  onclick="quickSet(45)">45s</button>
+    <button class="preset-btn" id="pre60"  onclick="quickSet(60)">1m</button>
+    <button class="preset-btn" id="pre90"  onclick="quickSet(90)">1:30</button>
+    <button class="preset-btn" id="pre120" onclick="quickSet(120)">2m</button>
+  </div>
+  <div class="timer-controls">
+    <button class="t-btn start" id="timerStartBtn" onclick="startStopTimer()">▶ เริ่ม</button>
+    <button class="t-btn reset" onclick="resetTimer()">↺</button>
+  </div>
+</div>
+
+<script>
+const DAY_ICONS = ["☁️","🦵","💪","🏀","💆","⚡","🏋️"];
+
+const DAYS_SHORT = ["อา.","จ.","อ.","พ.","พฤ.","ศ.","ส."];
+const DAYS_FULL  = ["อาทิตย์","จันทร์","อังคาร","พุธ","พฤหัสฯ","ศุกร์","เสาร์"];
+
+function restLabel(s){
+  if(!s) return {text:"ไม่มีพัก", cls:"none"};
+  if(s>=90) return {text:`พัก ${s} วิ`, cls:"long"};
+  return {text:`พัก ${s} วิ`, cls:"short"};
+}
+
+// ════════════════════════════════════════════════════
+// SCHEDULE DATA
+// ════════════════════════════════════════════════════
+const S = {
+  1:{name:"ขา + Core",icon:"🦵",level:"medium",levelText:"🟡 กลาง",duration:"40 นาที",focus:"พลังขา • ระเบิดพลัง",color:"#ffb83d",
+    phases:[
+      {label:"WARM-UP",exercises:[
+        {name:"เชือกกระโดด Warm-up",sets:1,reps:"3 นาที",note:"จังหวะสม่ำเสมอ",rest:0},
+      ]},
+      {label:"MAIN",exercises:[
+        {name:"Bodyweight Squat",      sets:3,reps:"15 ครั้ง", note:"ลงช้า 3 วิ ขึ้นเร็ว",         rest:60},
+        {name:"DB Step-up onto Bench", sets:3,reps:"10/ข้าง",  note:"ก้าวขึ้นควบคุม",              rest:60},
+        {name:"Jump Squat",            sets:3,reps:"8 ครั้ง",  note:"ลง Half-squat → กระโดดสุด",  rest:90},
+        {name:"Barbell / Goblet Squat",sets:3,reps:"12 ครั้ง", note:"60–65% 1RM",                  rest:90},
+        {name:"Plank",                 sets:3,reps:"40 วินาที",note:"สะโพกไม่ตก",                  rest:45},
+        {name:"Dead Bug",              sets:3,reps:"8/ข้าง",   note:"หลังติดพื้น",                 rest:45},
+      ]},
+      {label:"COOL-DOWN",exercises:[
+        {name:"เชือกกระโดด Cool-down",    sets:1,reps:"2 นาที",note:"ช้าลงเรื่อยๆ", rest:0},
+        {name:"Foam Roller — น่อง + Quad",sets:1,reps:"5 นาที",note:"กลิ้งช้าๆ",    rest:0},
+      ]},
+    ]
+  },
+  2:{name:"ท่อนบน เบา",icon:"💪",level:"light",levelText:"🟢 เบา",duration:"35 นาที",focus:"ไหล่ • อก • หลัง",color:"#3ecf6e",
+    phases:[
+      {label:"WARM-UP",exercises:[
+        {name:"เชือกกระโดด Warm-up",sets:1,reps:"2 นาที",note:"เบาๆ เตรียมข้อต่อ",rest:0},
+      ]},
+      {label:"MAIN",exercises:[
+        {name:"Push-up Board — Wide Grip",sets:3,reps:"10 ครั้ง",note:"ควบคุม ไม่เร็ว",       rest:60},
+        {name:"DB One-Arm Row",           sets:3,reps:"10/ข้าง", note:"วางเข่าบนม้านั่ง",     rest:60},
+        {name:"DB Shoulder Press (เบา)",  sets:3,reps:"12 ครั้ง",note:"เบากว่าปกติ 20%",     rest:60},
+        {name:"DB Lateral Raise",         sets:3,reps:"12 ครั้ง",note:"ยกช้า 2 วิ ลงช้า 2 วิ",rest:45},
+        {name:"Push-up Board — Triceps",  sets:2,reps:"10 ครั้ง",note:"เสริม Elbow Lock",     rest:45},
+      ]},
+      {label:"COOL-DOWN",exercises:[
+        {name:"Wrist Circles + Finger Stretch",sets:1,reps:"3 นาที",note:"สำคัญมากก่อนบาส",       rest:0},
+        {name:"Foam Roller — ไหล่ + หลัง",    sets:1,reps:"5 นาที",note:"เตรียมร่างกายก่อนพุธ",  rest:0},
+      ]},
+    ]
+  },
+  3:{name:"บาสเก็ตบอล 3x3",icon:"🏀",level:"basketball",levelText:"🏀 Game Day",duration:"15 นาที + เกม",focus:"Warm-up → Game Day",color:"#ff6b2b",
+    phases:[
+      {label:"PRE-GAME WARM-UP",exercises:[
+        {name:"Hip Circle + Leg Swing",    sets:1,  reps:"2 นาที",  note:"คลายข้อสะโพกและเข่า",  rest:0},
+        {name:"Ankle Mobility (Wall Drill)",sets:1,  reps:"10/ข้าง", note:"สำคัญมากก่อนกระโดด",  rest:0},
+        {name:"Lateral Shuffle เบาๆ",      sets:1,  reps:"2 นาที",  note:"Defensive Stance",      rest:0},
+        {name:"Layup / Shooting Warm-up",  sets:1,  reps:"5 นาที",  note:"ยิงง่ายๆ ก่อนเกม",     rest:0},
+      ]},
+      {label:"GAME",exercises:[
+        {name:"เกม 3x3",sets:"—",reps:"เต็มเกม",note:"มุ่งมั่น อ่านเกม สนุก!",rest:0},
+      ]},
+      {label:"POST-GAME",exercises:[
+        {name:"Foam Roller — ทั้งตัว",   sets:1,reps:"10 นาที",note:"หลังเกมสำคัญมาก", rest:0},
+        {name:"Static Stretch ขา/สะโพก",sets:1,reps:"5 นาที", note:"ยืดค้าง 45 วิ",   rest:0},
+      ]},
+    ]
+  },
+  4:{name:"Active Recovery",icon:"💆",level:"light",levelText:"🟢 เบา",duration:"30 นาที",focus:"Foam Roller • Stretch",color:"#3ecf6e",
+    phases:[
+      {label:"RECOVERY",exercises:[
+        {name:"เดินเร็ว / เชือกกระโดดเบา",     sets:1,reps:"5 นาที",    note:"เพิ่มเลือดไหลเวียน",  rest:0},
+        {name:"Foam Roller — น่อง + IT Band", sets:1,reps:"5 นาที",    note:"จุดที่ปวดหลังบาส",   rest:0},
+        {name:"Foam Roller — Quad + Glute",   sets:1,reps:"5 นาที",    note:"ค้างนิ่ง 5–10 วิ",   rest:0},
+        {name:"Hip Flexor Stretch (Lunge)",    sets:2,reps:"45 วิ/ข้าง",note:"ยืดกล้ามเนื้อหน้าขา",rest:30},
+        {name:"Hamstring Stretch",             sets:2,reps:"45 วิ/ข้าง",note:"นอนหรือยืนก้มแตะ",   rest:30},
+        {name:"Thoracic Rotation",             sets:2,reps:"10/ข้าง",   note:"นอนตะแคง หมุนลำตัว", rest:30},
+        {name:"Child's Pose + Cat-Cow",        sets:1,reps:"3 นาที",    note:"ปลดล็อกหลังล่าง",    rest:0},
+      ]},
+    ]
+  },
+  5:{name:"Full Body",icon:"⚡",level:"full",levelText:"🟡 กลาง",duration:"45 นาที",focus:"Compound • HIIT",color:"#4da6ff",
+    phases:[
+      {label:"WARM-UP",exercises:[
+        {name:"เชือกกระโดด Warm-up",sets:1,reps:"3 นาที",note:"จังหวะกลาง",rest:0},
+      ]},
+      {label:"MAIN",exercises:[
+        {name:"Barbell Romanian Deadlift",sets:3,reps:"10 ครั้ง",  note:"เน้น Hamstring/Glute",    rest:90},
+        {name:"DB Incline Bench Press",   sets:3,reps:"10 ครั้ง",  note:"Incline 30–45°",          rest:90},
+        {name:"DB Walking Lunge",         sets:3,reps:"10/ข้าง",   note:"ก้าวเดิน",               rest:60},
+        {name:"Push-up Board Max (70%)",  sets:3,reps:"ไม่จนล้า",  note:"หยุดก่อนฟอร์มพัง",       rest:60},
+        {name:"Ab Wheel / Plank",         sets:3,reps:"10 / 40วิ", note:"เลือกตาม level",          rest:45},
+      ]},
+      {label:"FINISHER",exercises:[
+        {name:"เชือกกระโดด HIIT",    sets:4,reps:"30วิออน / 30วิพัก",note:"เร็วสุดใน 30 วิ", rest:30},
+        {name:"Foam Roller — ทั้งตัว",sets:1,reps:"5 นาที",          note:"ก่อนวันเสาร์",    rest:0},
+      ]},
+    ]
+  },
+  6:{name:"ขา + ทักษะบาส",icon:"🏋️",level:"medium",levelText:"🟡 กลาง",duration:"40 นาที",focus:"Deadlift • Agility • Footwork",color:"#ffb83d",
+    phases:[
+      {label:"WARM-UP",exercises:[
+        {name:"เชือกกระโดด Single + Double",sets:1,reps:"4 นาที",note:"ฝึก Timing",rest:0},
+      ]},
+      {label:"STRENGTH",exercises:[
+        {name:"Barbell / DB Deadlift (กลาง)",sets:3,reps:"8 ครั้ง", note:"65–70% 1RM",             rest:90},
+        {name:"DB Reverse Lunge",            sets:3,reps:"10/ข้าง",note:"ก้าวถอยหลัง ป้องกันเข่า",rest:60},
+      ]},
+      {label:"BASKETBALL SKILLS",exercises:[
+        {name:"Defensive Slide Drill",             sets:3,reps:"30 วินาที",note:"Athletic Stance เลื่อนซ้าย-ขวา",rest:30},
+        {name:"Shadow Dribble + Direction Change",  sets:3,reps:"60 วินาที",note:"จินตนาการคู่ต่อสู้",           rest:30},
+        {name:"Shooting Form (Wall)",               sets:3,reps:"10 ครั้ง", note:"โฟกัส Follow-through",         rest:30},
+      ]},
+      {label:"COOL-DOWN",exercises:[
+        {name:"เชือกกระโดดปิดท้าย",     sets:2,reps:"1 นาที",note:"เร็วปานกลาง",     rest:30},
+        {name:"Foam Roller + Stretch ยาว",sets:1,reps:"8 นาที",note:"ยืดทุกกล้ามที่ใช้",rest:0},
+      ]},
+    ]
+  },
+  0:{name:"Active Rest",icon:"☁️",level:"rest",levelText:"🟢 เบามาก",duration:"20 นาที",focus:"เดินเร็ว • ยืดเบาๆ",color:"#5a5a72",isRest:true,
+    phases:[
+      {label:"ACTIVE REST",exercises:[
+        {name:"เดินเร็ว",         sets:1,reps:"10–15 นาที",note:"ออกไปข้างนอกถ้าได้",      rest:0},
+        {name:"Full Body Stretch",sets:1,reps:"10 นาที",   note:"ยืดทุกส่วน ค้าง 30–45 วิ",rest:0},
+        {name:"Foam Roller เบาๆ", sets:1,reps:"5 นาที",   note:"จุดที่รู้สึกตึง",          rest:0},
+      ]},
+    ]
+  },
+};
+
+// ════════════════════════════════════════════════════
+// STATE  — FIX #2: persist setsDone per day in localStorage
+// ════════════════════════════════════════════════════
+let selectedDay = new Date().getDay();
+let completedDays = JSON.parse(localStorage.getItem('cd5') || '{}');
+
+// Load/save sets for a specific day
+function setsKey(day){ return 'sets_' + day; }
+function loadSets(day){ return JSON.parse(localStorage.getItem(setsKey(day)) || '{}'); }
+function saveSets(day, obj){ localStorage.setItem(setsKey(day), JSON.stringify(obj)); }
+// Current day's sets (loaded fresh each selectDay)
+let setsDone = {};
+
+// Active inline rest countdowns
+let activeRests = {};
+
+// ─── HELPERS ─────────────────────────────────────────────────
+function totalSets(day){
+  let t=0;
+  S[day].phases.forEach(ph=>ph.exercises.forEach(ex=>{
+    t += (ex.sets==="—"||ex.sets===1) ? 1 : ex.sets;
+  }));
+  return t;
+}
+function doneSets(day){
+  return Object.values(setsDone).filter(v=>v).length;
+}
+function dateKey(day){
+  const t=new Date(), d=new Date(t);
+  d.setDate(d.getDate() + (day - t.getDay()));
+  return d.toISOString().split('T')[0] + '_' + day;
+}
+function checkSVG(){
+  return `<svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>`;
+}
+
+// ─── INIT ─────────────────────────────────────────────────────
+function init(){
+  const t = new Date();
+  document.getElementById('dateDisplay').textContent =
+    t.toLocaleDateString('th-TH',{weekday:'long',day:'numeric',month:'long'});
+  renderStrip();
+  selectDay(selectedDay);
+}
+
+function renderStrip(){
+  const strip = document.getElementById('weekStrip'), today = new Date().getDay();
+  strip.innerHTML = '';
+  [1,2,3,4,5,6,0].forEach(d=>{
+    const p = S[d], btn = document.createElement('div');
+    btn.className = 'day-btn' + (d===today?' today':'') + (d===selectedDay?' active':'');
+    btn.onclick = ()=>selectDay(d);
+    btn.innerHTML = `
+      <div class="day-name">${DAYS_SHORT[d]}</div>
+      <div class="day-icon">${DAY_ICONS[d]}</div>
+      <div class="day-level lvl-${p.level}"></div>`;
+    strip.appendChild(btn);
+  });
+}
+
+function selectDay(day){
+  // Stop any running inline rests
+  Object.values(activeRests).forEach(r=>clearInterval(r.interval));
+  activeRests = {};
+  selectedDay = day;
+  // FIX #2: load persisted sets for this day
+  setsDone = loadSets(day);
+  renderStrip();
+  renderWorkout(day);
+}
+
+// ─── RENDER WORKOUT ────────────────────────────────────────────
+function renderWorkout(day){
+  const plan = S[day], content = document.getElementById('workoutContent');
+  content.className = 'fade-in';
+  document.getElementById('contentLabel').textContent = 'โปรแกรมวัน' + DAYS_FULL[day];
+
+  if(plan.isRest){
+    content.innerHTML = `
+      <div class="rest-card">
+        <div class="rest-icon">☁️</div>
+        <h2>วันพักผ่อน</h2>
+        <p>เดิน ยืดเบาๆ ให้ร่างกายฟื้นฟู<br>พักผ่อนให้เพียงพอก่อนสัปดาห์ใหม่</p>
+      </div>`;
+    updateStats(day); return;
+  }
+
+  let html = '', tot = 0;
+  plan.phases.forEach((phase, pi)=>{
+    html += `<div class="phase-label">${phase.label}</div>`;
+    phase.exercises.forEach((ex, ei)=>{
+      const n = (ex.sets==="—"||ex.sets===1) ? 1 : ex.sets;
+      const isSingle = (ex.sets==="—"||ex.sets===1);
+      tot += n;
+      const rl = restLabel(ex.rest);
+      const rcId = `rc_${day}_${pi}_${ei}`;
+      let rows = '';
+      for(let si=0; si<n; si++){
+        const key = `${day}_${pi}_${ei}_${si}`;
+        const isDone = !!setsDone[key];
+        rows += `<div class="set-row${isDone?' done':''}" id="sr_${key}" onclick="toggleSet('${key}',${day},${pi},${ei},${si},${n},${ex.rest})">
+          <div class="set-check">${checkSVG()}</div>
+          <div class="set-label">${isSingle?'—':'SET '+(si+1)}</div>
+          <div class="set-reps">${ex.reps}</div>
+        </div>`;
+      }
+      html += `<div class="ex-group">
+        <div class="ex-header">
+          <div class="ex-header-info">
+            <div class="ex-header-name">${ex.name}</div>
+            <div class="ex-header-sub">
+              ${ex.note?`<span class="ex-header-note">${ex.note}</span>`:''}
+              <span class="rest-badge ${rl.cls}">⏱ ${rl.text}</span>
+            </div>
+          </div>
+          ${!isSingle?`<div class="ex-header-count">${ex.sets} เซต</div>`:''}
+        </div>
+        <div class="sets-container">${rows}</div>
+        <div class="rest-countdown" id="${rcId}">
+          <div class="rc-icon"><svg viewBox="0 0 24 24" fill="var(--amber)"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm.5-13H11v6l4.8 2.9.7-1.2-4-2.3V7z"/></svg></div>
+          <div class="rc-text">
+            <div class="rc-label">กำลังพัก</div>
+            <div class="rc-time" id="rct_${rcId}">—</div>
+            <div class="rc-bar-wrap"><div class="rc-bar" id="rcb_${rcId}" style="width:100%"></div></div>
+          </div>
+          <button class="rc-skip" onclick="skipRest('${rcId}')">ข้าม</button>
+        </div>
+      </div>`;
+    });
+  });
+
+  const isDone = completedDays[dateKey(day)];
+  const done = doneSets(day);
+  const pct = tot > 0 ? (done/tot)*100 : 0;
+
+  content.innerHTML = `
+    <div class="workout-card">
+      <div class="wc-header">
+        <div class="wc-icon" style="background:${plan.color}20;color:${plan.color}">${plan.icon}</div>
+        <div class="wc-info"><h2 style="color:${plan.color}">${plan.name}</h2><p>${plan.focus}</p></div>
+      </div>
+      <div class="wc-meta">
+        <span class="meta-chip hi">⏱ ${plan.duration}</span>
+        <span class="meta-chip">${plan.levelText}</span>
+        <span class="meta-chip" id="setChip">${done} / ${tot} เซต</span>
+      </div>
+      ${html}
+      <div class="prog-wrap">
+        <div class="prog-header"><span>ความคืบหน้า</span><strong id="progText">${done}/${tot}</strong></div>
+        <div class="prog-bar"><div class="prog-fill" id="progFill" style="width:${pct}%"></div></div>
+      </div>
+    </div>
+    <button class="complete-btn ${isDone?'completed':''}" id="completeBtn" onclick="markComplete(${day})">
+      ${isDone?'✓ วันนี้เสร็จแล้ว!':'✅ บันทึกว่าออกกำลังกายครบ'}
+    </button>
+    <button class="reset-day-btn" id="resetDayBtn" onclick="askReset(${day})">
+      🔄 รีเซตเซตทั้งหมดของวันนี้
+    </button>
+    <div class="confirm-row" id="confirmRow" style="display:none">
+      <span>ยืนยันรีเซต?</span>
+      <button class="confirm-yes" onclick="resetDay(${day})">ยืนยัน</button>
+      <button class="confirm-no" onclick="cancelReset()">ยกเลิก</button>
+    </div>`;
+
+  updateStats(day);
+}
+
+// ─── TOGGLE SET ───────────────────────────────────────────────
+function toggleSet(key, day, pi, ei, si, totalSetCount, restSec){
+  setsDone[key] = !setsDone[key];
+  // FIX #2: persist immediately
+  saveSets(day, setsDone);
+
+  const row = document.getElementById('sr_' + key);
+  if(row) row.classList.toggle('done', !!setsDone[key]);
+
+  const rcId = `rc_${day}_${pi}_${ei}`;
+  const isLastSet = (si === totalSetCount - 1);
+
+  if(setsDone[key]){
+    if(restSec > 0 && !isLastSet) startRestCountdown(rcId, restSec);
+  } else {
+    stopRest(rcId);
+  }
+  refreshProgress(day);
+}
+
+// ─── INLINE REST COUNTDOWN ────────────────────────────────────
+function startRestCountdown(rcId, totalSec){
+  stopRest(rcId);
+  const el = document.getElementById(rcId);
+  if(!el) return;
+  el.classList.add('active');
+  let remaining = totalSec;
+  updateRestUI(rcId, remaining, totalSec);
+  const interval = setInterval(()=>{
+    remaining--;
+    updateRestUI(rcId, remaining, totalSec);
+    if(remaining <= 0){
+      clearInterval(interval);
+      delete activeRests[rcId];
+      const timeEl = document.getElementById('rct_' + rcId);
+      const barEl  = document.getElementById('rcb_' + rcId);
+      if(timeEl){ timeEl.className='rc-time go'; timeEl.textContent='GO!'; }
+      if(barEl)  barEl.style.width = '100%';
+      if(navigator.vibrate) navigator.vibrate([200,100,200]);
+      setTimeout(()=>{ const e=document.getElementById(rcId); if(e) e.classList.remove('active'); }, 1500);
+    }
+  }, 1000);
+  activeRests[rcId] = {interval, remaining, total: totalSec};
+}
+
+function updateRestUI(rcId, remaining, total){
+  const timeEl = document.getElementById('rct_' + rcId);
+  const barEl  = document.getElementById('rcb_' + rcId);
+  if(!timeEl) return;
+  const m = Math.floor(remaining/60), s = remaining % 60;
+  timeEl.textContent = `${m}:${s.toString().padStart(2,'0')}`;
+  timeEl.className = 'rc-time' + (remaining<=10?' urgent':'');
+  if(barEl) barEl.style.width = ((remaining/total)*100) + '%';
+}
+
+function stopRest(rcId){
+  if(activeRests[rcId]){ clearInterval(activeRests[rcId].interval); delete activeRests[rcId]; }
+  const el = document.getElementById(rcId);
+  if(el) el.classList.remove('active');
+}
+function skipRest(rcId){ stopRest(rcId); }
+
+// ─── PROGRESS ─────────────────────────────────────────────────
+function refreshProgress(day){
+  const tot = totalSets(day), done = doneSets(day), pct = tot>0?(done/tot)*100:0;
+  const fill = document.getElementById('progFill');
+  const text = document.getElementById('progText');
+  const chip = document.getElementById('setChip');
+  if(fill) fill.style.width = pct + '%';
+  if(text) text.textContent = `${done}/${tot}`;
+  if(chip) chip.textContent = `${done} / ${tot} เซต`;
+  updateStats(day);
+}
+
+function updateStats(day){
+  document.getElementById('statCompleted').textContent = Object.values(completedDays).filter(v=>v).length;
+  const plan = S[day];
+  if(plan && !plan.isRest){
+    document.getElementById('statTotal').textContent = totalSets(day);
+    document.getElementById('statDone').textContent  = doneSets(day);
+  } else {
+    document.getElementById('statTotal').textContent = '—';
+    document.getElementById('statDone').textContent  = '—';
+  }
+}
+
+function askReset(day){
+  const btn = document.getElementById('resetDayBtn');
+  const row = document.getElementById('confirmRow');
+  if(btn) btn.style.display = 'none';
+  if(row) row.style.display = 'flex';
+}
+
+function cancelReset(){
+  const btn = document.getElementById('resetDayBtn');
+  const row = document.getElementById('confirmRow');
+  if(btn) btn.style.display = '';
+  if(row) row.style.display = 'none';
+}
+
+function resetDay(day){
+  // Stop any running rests
+  Object.values(activeRests).forEach(r=>clearInterval(r.interval));
+  activeRests = {};
+  // Clear sets
+  setsDone = {};
+  saveSets(day, setsDone);
+  // Clear completed flag
+  const k = dateKey(day);
+  completedDays[k] = false;
+  localStorage.setItem('cd5', JSON.stringify(completedDays));
+  // Full re-select to reload state cleanly
+  selectDay(day);
+}
+
+function markComplete(day){
+  const k = dateKey(day);
+  completedDays[k] = !completedDays[k];
+  localStorage.setItem('cd5', JSON.stringify(completedDays));
+  const btn = document.getElementById('completeBtn');
+  if(completedDays[k]){ btn.textContent='✓ วันนี้เสร็จแล้ว!'; btn.classList.add('completed'); }
+  else { btn.textContent='✅ บันทึกว่าออกกำลังกายครบ'; btn.classList.remove('completed'); }
+  updateStats(day);
+}
+
+// ════════════════════════════════════════════════════
+// MANUAL TIMER — FIX #1: reset clears GO! properly
+// ════════════════════════════════════════════════════
+let tInt=null, tSec=60, tOn=false, tTotal=60;
+let tPickMin=1, tPickSec=0;
+
+function toggleTimer(){
+  document.getElementById('timerPanel').classList.toggle('open');
+}
+
+function adjTime(unit, delta){
+  if(tOn) return;
+  if(unit==='m'){
+    tPickMin = Math.max(0, Math.min(99, tPickMin + delta));
+  } else {
+    tPickSec = Math.max(0, Math.min(55, tPickSec + delta));
+    tPickSec = Math.round(tPickSec/5)*5;
+    if(tPickSec >= 60) tPickSec = 55;
+  }
+  if(tPickMin===0 && tPickSec===0) tPickSec = 5;
+  syncPicker();
+}
+
+function syncPicker(){
+  document.getElementById('tpMin').textContent = tPickMin;
+  document.getElementById('tpSec').textContent = tPickSec.toString().padStart(2,'0');
+  tTotal = tPickMin*60 + tPickSec;
+  tSec   = tTotal;
+  renderTimerDisplay();
+  updateTimerBar(1);
+  clearActivePreset();
+}
+
+function quickSet(s){
+  if(tOn) return;
+  tTotal=s; tSec=s;
+  tPickMin=Math.floor(s/60); tPickSec=s%60;
+  document.getElementById('tpMin').textContent = tPickMin;
+  document.getElementById('tpSec').textContent = tPickSec.toString().padStart(2,'0');
+  renderTimerDisplay();
+  updateTimerBar(1);
+  clearActivePreset();
+  const map={30:'pre30',45:'pre45',60:'pre60',90:'pre90',120:'pre120'};
+  if(map[s]){ const el=document.getElementById(map[s]); if(el) el.classList.add('active-pre'); }
+}
+
+function clearActivePreset(){
+  ['pre30','pre45','pre60','pre90','pre120'].forEach(id=>{
+    const el=document.getElementById(id); if(el) el.classList.remove('active-pre');
+  });
+}
+
+function startStopTimer(){
+  if(tOn){
+    clearInterval(tInt); tOn=false;
+    document.getElementById('timerStartBtn').textContent = '▶ ต่อ';
+    document.getElementById('timerDisplay').className = 'timer-display';
+    showPicker(true);
+  } else {
+    // FIX #1: if display showed GO!, reset tSec first
+    if(tSec <= 0){ tSec=tTotal; updateTimerBar(1); }
+    tOn=true;
+    document.getElementById('timerStartBtn').textContent = '⏸ หยุด';
+    document.getElementById('timerDisplay').className = 'timer-display counting';
+    showPicker(false);
+    tInt = setInterval(()=>{
+      tSec--;
+      renderTimerDisplay();
+      updateTimerBar(tSec/tTotal);
+      if(tSec<=0){
+        clearInterval(tInt); tOn=false;
+        document.getElementById('timerDisplay').className = 'timer-display done';
+        document.getElementById('timerDisplay').textContent = 'GO!';
+        document.getElementById('timerStartBtn').textContent = '▶ เริ่ม';
+        updateTimerBar(0);
+        showPicker(true);
+        if(navigator.vibrate) navigator.vibrate([200,100,200]);
+      }
+    },1000);
+  }
+}
+
+function resetTimer(){
+  clearInterval(tInt); tOn=false;
+  tSec = tTotal;
+  document.getElementById('timerStartBtn').textContent = '▶ เริ่ม';
+  // FIX #1: always force className and text — no guard on 'GO!'
+  document.getElementById('timerDisplay').className = 'timer-display';
+  renderTimerDisplay();   // always writes m:ss, never guarded
+  updateTimerBar(1);
+  showPicker(true);
+}
+
+function showPicker(show){
+  const picker  = document.getElementById('timePicker');
+  const presets = document.getElementById('timerPresets');
+  if(picker)  picker.classList.toggle('hidden', !show);
+  if(presets) presets.style.display = show ? 'flex' : 'none';
+}
+
+function updateTimerBar(ratio){
+  const bar = document.getElementById('timerBar');
+  if(bar) bar.style.width = (ratio*100) + '%';
+}
+
+// FIX #1: renderTimerDisplay — NEVER has a guard; always writes m:ss
+function renderTimerDisplay(){
+  const m = Math.floor(tSec/60), s = tSec%60;
+  document.getElementById('timerDisplay').textContent = `${m}:${s.toString().padStart(2,'0')}`;
+}
+
+init();
+</script>
+</body>
+</html>
