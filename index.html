@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="th">
 <head>
 <meta charset="UTF-8">
@@ -25,245 +26,275 @@
     --text3: #8B8A82;
     --text4: #B0AEA3;
 
-    /* Claude coral accent */
-    --accent: #C96442;
-    --accent-hover: #B5573A;
-    --accent-soft: #E8A084;
-    --accent-bg: #F5E4DA;
-    --accent-tint: #FAF1EB;
+```
+/* Claude coral accent */
+--accent: #C96442;
+--accent-hover: #B5573A;
+--accent-soft: #E8A084;
+--accent-bg: #F5E4DA;
+--accent-tint: #FAF1EB;
 
-    /* Functional */
-    --success: #6A8E5A;
-    --success-bg: #E5EDDF;
-    --warn: #B5894A;
-    --warn-bg: #F0E5D2;
-    --info: #5C7E9C;
-    --danger: #B05050;
+/* Functional */
+--success: #6A8E5A;
+--success-bg: #E5EDDF;
+--warn: #B5894A;
+--warn-bg: #F0E5D2;
+--info: #5C7E9C;
+--danger: #B05050;
 
-    --shadow-sm: 0 1px 2px rgba(60,50,30,.04);
-    --shadow: 0 2px 8px rgba(60,50,30,.06);
-    --shadow-lg: 0 8px 32px rgba(60,50,30,.10);
-  }
+--shadow-sm: 0 1px 2px rgba(60,50,30,.04);
+--shadow: 0 2px 8px rgba(60,50,30,.06);
+--shadow-lg: 0 8px 32px rgba(60,50,30,.10);
+```
 
-  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
-  html,body{font-family:'Sarabun','Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;}
-  body{padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom);}
+}
 
-  .serif{font-family:'Source Serif 4',Georgia,serif;font-weight:600;letter-spacing:-.01em;}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{font-family:‘Sarabun’,‘Inter’,sans-serif;background:var(–bg);color:var(–text);min-height:100vh;-webkit-font-smoothing:antialiased;}
+body{padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom);}
 
-  .container{max-width:540px;margin:0 auto;padding:0 18px 110px;}
+.serif{font-family:‘Source Serif 4’,Georgia,serif;font-weight:600;letter-spacing:-.01em;}
 
-  /* ───── HEADER ───── */
-  .header{padding:24px 0 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
-  .header-title{flex:1;min-width:0;}
-  .header-title h1{font-family:'Source Serif 4',Georgia,serif;font-size:30px;font-weight:600;letter-spacing:-.02em;line-height:1;color:var(--text);}
-  .header-title h1 em{font-style:italic;color:var(--accent);font-weight:500;}
-  .header-title p{color:var(--text3);font-size:13px;margin-top:6px;font-weight:400;}
+.container{max-width:540px;margin:0 auto;padding:0 18px 110px;}
 
-  .header-actions{display:flex;gap:8px;align-items:center;flex-shrink:0;}
-  .icon-btn{width:38px;height:38px;background:var(--surface);border:1px solid var(--border);border-radius:11px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .15s;color:var(--text2);}
-  .icon-btn:hover{border-color:var(--border-strong);color:var(--text);background:var(--surface2);}
-  .icon-btn:active{transform:scale(.94);}
-  .icon-btn svg{width:18px;height:18px;}
+/* ───── HEADER ───── */
+.header{padding:24px 0 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.header-title{flex:1;min-width:0;}
+.header-title h1{font-family:‘Source Serif 4’,Georgia,serif;font-size:30px;font-weight:600;letter-spacing:-.02em;line-height:1;color:var(–text);}
+.header-title h1 em{font-style:italic;color:var(–accent);font-weight:500;}
+.header-title p{color:var(–text3);font-size:13px;margin-top:6px;font-weight:400;}
 
-  .streak-chip{display:flex;align-items:center;gap:6px;background:var(--accent-tint);border:1px solid var(--accent-bg);padding:6px 11px 6px 9px;border-radius:20px;font-size:13px;font-weight:600;color:var(--accent);cursor:pointer;transition:all .15s;}
-  .streak-chip:hover{background:var(--accent-bg);}
-  .streak-chip span:first-child{font-size:14px;}
+.header-actions{display:flex;gap:8px;align-items:center;flex-shrink:0;}
+.icon-btn{width:38px;height:38px;background:var(–surface);border:1px solid var(–border);border-radius:11px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .15s;color:var(–text2);}
+.icon-btn:hover{border-color:var(–border-strong);color:var(–text);background:var(–surface2);}
+.icon-btn:active{transform:scale(.94);}
+.icon-btn svg{width:18px;height:18px;}
 
-  /* ───── WEEK STRIP ───── */
-  .week-strip{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:18px;}
-  .day-btn{background:var(--surface);border:1px solid var(--border);border-radius:13px;padding:9px 4px 7px;cursor:pointer;text-align:center;transition:all .18s;position:relative;}
-  .day-btn:hover{border-color:var(--border-strong);background:var(--surface2);}
-  .day-btn.active{background:var(--text);border-color:var(--text);color:#FAF9F5;box-shadow:var(--shadow);}
-  .day-btn.active .day-name,.day-btn.active .day-icon{color:#FAF9F5;}
-  .day-btn.today:not(.active)::after{content:'';position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:4px;height:4px;background:var(--accent);border-radius:50%;}
-  .day-btn.completed:not(.active){background:var(--success-bg);border-color:#C5D4B7;}
-  .day-name{font-family:'Inter',sans-serif;font-size:10.5px;font-weight:600;letter-spacing:.3px;color:var(--text3);line-height:1;text-transform:uppercase;}
-  .day-icon{font-size:16px;line-height:1;margin:5px 0 4px;color:var(--text);}
-  .day-level{width:5px;height:5px;border-radius:50%;margin:0 auto;}
-  .lvl-medium{background:var(--warn);}.lvl-light{background:var(--success);}
-  .lvl-basketball{background:var(--accent);}.lvl-full{background:var(--info);}.lvl-rest{background:var(--text4);}
+.streak-chip{display:flex;align-items:center;gap:6px;background:var(–accent-tint);border:1px solid var(–accent-bg);padding:6px 11px 6px 9px;border-radius:20px;font-size:13px;font-weight:600;color:var(–accent);cursor:pointer;transition:all .15s;}
+.streak-chip:hover{background:var(–accent-bg);}
+.streak-chip svg{width:14px;height:14px;flex-shrink:0;}
 
-  /* ───── STATS ───── */
-  .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:22px;}
-  .stat-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:13px 10px;text-align:center;}
-  .stat-val{font-family:'Source Serif 4',Georgia,serif;font-size:26px;font-weight:600;line-height:1;color:var(--text);}
-  .stat-val.accent{color:var(--accent);}
-  .stat-lbl{font-size:11px;color:var(--text3);margin-top:5px;font-weight:500;letter-spacing:.2px;}
+/* ───── WEEK STRIP ───── */
+.week-strip{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:18px;}
+.day-btn{background:var(–surface);border:1px solid var(–border);border-radius:13px;padding:9px 4px 7px;cursor:pointer;text-align:center;transition:all .18s;position:relative;}
+.day-btn:hover{border-color:var(–border-strong);background:var(–surface2);}
+.day-btn.active{background:var(–text);border-color:var(–text);color:#FAF9F5;box-shadow:var(–shadow);}
+.day-btn.active .day-name,.day-btn.active .day-icon{color:#FAF9F5;}
+.day-btn.today:not(.active){border-color:var(–accent);}
+.day-btn.today:not(.active) .day-name{color:var(–accent);}
+.day-btn.today::after{content:’’;position:absolute;top:6px;right:6px;width:5px;height:5px;background:var(–accent);border-radius:50%;box-shadow:0 0 0 2px var(–surface);}
+.day-btn.today.active::after{box-shadow:0 0 0 2px var(–text);}
+.day-btn.completed:not(.active){background:var(–success-bg);border-color:#C5D4B7;}
+.day-btn.completed.today:not(.active){border-color:var(–accent);}
+.day-name{font-family:‘Inter’,sans-serif;font-size:10.5px;font-weight:600;letter-spacing:.3px;color:var(–text3);line-height:1;text-transform:uppercase;}
+.day-icon{display:flex;align-items:center;justify-content:center;margin:6px 0 4px;color:var(–text);}
+.day-icon svg{width:18px;height:18px;}
+.day-level{width:5px;height:5px;border-radius:50%;margin:0 auto;}
+.lvl-medium{background:var(–warn);}.lvl-light{background:var(–success);}
+.lvl-basketball{background:var(–accent);}.lvl-full{background:var(–info);}.lvl-rest{background:var(–text4);}
 
-  .section-label{font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:.5px;color:var(--text3);text-transform:uppercase;margin-bottom:11px;display:flex;align-items:center;gap:8px;}
-  .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+/* ───── STATS ───── */
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:22px;}
+.stat-card{background:var(–surface);border:1px solid var(–border);border-radius:14px;padding:13px 10px;text-align:center;}
+.stat-val{font-family:‘Source Serif 4’,Georgia,serif;font-size:26px;font-weight:600;line-height:1;color:var(–text);}
+.stat-val.accent{color:var(–accent);}
+.stat-lbl{font-size:11px;color:var(–text3);margin-top:5px;font-weight:500;letter-spacing:.2px;}
 
-  /* ───── WORKOUT CARD ───── */
-  .workout-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden;margin-bottom:14px;box-shadow:var(--shadow-sm);}
-  .wc-header{padding:18px 20px;display:flex;align-items:flex-start;gap:13px;}
-  .wc-icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;background:var(--surface3);}
-  .wc-info{flex:1;min-width:0;}
-  .wc-info h2{font-family:'Source Serif 4',Georgia,serif;font-size:22px;font-weight:600;letter-spacing:-.02em;line-height:1.15;color:var(--text);}
-  .wc-info p{color:var(--text2);font-size:13.5px;margin-top:3px;}
-  .wc-meta{display:flex;gap:7px;padding:10px 20px 14px;flex-wrap:wrap;}
-  .meta-chip{background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:4px 10px;font-size:12px;color:var(--text2);font-weight:500;}
-  .meta-chip.hi{color:var(--accent);border-color:var(--accent-bg);background:var(--accent-tint);font-weight:600;}
+.section-label{font-family:‘Inter’,sans-serif;font-size:11px;font-weight:600;letter-spacing:.5px;color:var(–text3);text-transform:uppercase;margin-bottom:11px;display:flex;align-items:center;gap:8px;}
+.section-label::after{content:’’;flex:1;height:1px;background:var(–border);}
 
-  .phase-label{padding:13px 20px 7px;font-family:'Inter',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.8px;color:var(--text3);text-transform:uppercase;border-top:1px solid var(--border);}
+/* ───── WORKOUT CARD ───── */
+.workout-card{background:var(–surface);border:1px solid var(–border);border-radius:18px;overflow:hidden;margin-bottom:14px;box-shadow:var(–shadow-sm);}
+.wc-header{padding:18px 20px;display:flex;align-items:flex-start;gap:13px;}
+.wc-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:var(–surface3);color:var(–text);}
+.wc-icon svg{width:24px;height:24px;}
+.wc-info{flex:1;min-width:0;}
+.wc-info h2{font-family:‘Source Serif 4’,Georgia,serif;font-size:22px;font-weight:600;letter-spacing:-.02em;line-height:1.15;color:var(–text);}
+.wc-info p{color:var(–text2);font-size:13.5px;margin-top:3px;}
+.wc-meta{display:flex;gap:7px;padding:10px 20px 14px;flex-wrap:wrap;}
+.meta-chip{background:var(–surface2);border:1px solid var(–border);border-radius:20px;padding:4px 10px;font-size:12px;color:var(–text2);font-weight:500;display:inline-flex;align-items:center;gap:5px;}
+.meta-chip svg{width:12px;height:12px;flex-shrink:0;}
+.meta-chip.hi{color:var(–accent);border-color:var(–accent-bg);background:var(–accent-tint);font-weight:600;}
 
-  /* ───── EXERCISE GROUP ───── */
-  .ex-group{padding-bottom:6px;}
-  .ex-header{display:flex;align-items:flex-start;justify-content:space-between;padding:8px 20px 6px;gap:10px;}
-  .ex-header-info{flex:1;min-width:0;}
-  .ex-header-name{font-size:14.5px;font-weight:600;color:var(--text);line-height:1.35;}
-  .ex-header-sub{display:flex;align-items:center;gap:7px;margin-top:4px;flex-wrap:wrap;}
-  .ex-header-note{font-size:12.5px;color:var(--text3);}
-  .rest-badge{display:inline-flex;align-items:center;gap:3px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:2px 8px;font-size:11px;color:var(--text2);font-weight:500;white-space:nowrap;}
-  .rest-badge.long{color:var(--warn);border-color:#E5D6B6;background:var(--warn-bg);}
-  .rest-badge.short{color:var(--info);border-color:#CAD5DF;background:#E8EDF2;}
-  .rest-badge.none{color:var(--text4);}
-  .ex-header-count{font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:var(--accent);white-space:nowrap;flex-shrink:0;background:var(--accent-tint);padding:3px 9px;border-radius:20px;border:1px solid var(--accent-bg);}
+.phase-label{padding:13px 20px 7px;font-family:‘Inter’,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.8px;color:var(–text3);text-transform:uppercase;border-top:1px solid var(–border);}
 
-  /* ───── SET ROWS ───── */
-  .sets-container{padding:4px 20px 8px;display:flex;flex-direction:column;gap:5px;}
-  .set-row{display:flex;align-items:center;gap:11px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:9px 13px;cursor:pointer;transition:all .15s;user-select:none;}
-  .set-row:hover{border-color:var(--accent);background:var(--accent-tint);}
-  .set-row.done{opacity:.55;border-color:#C5D4B7;background:var(--success-bg);}
-  .set-check{width:20px;height:20px;border-radius:6px;border:1.5px solid var(--border-strong);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s;background:var(--surface);}
-  .set-row.done .set-check{background:var(--success);border-color:var(--success);}
-  .set-check svg{opacity:0;transition:opacity .15s;}
-  .set-row.done .set-check svg{opacity:1;}
-  .set-label{font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:.4px;color:var(--text3);flex-shrink:0;min-width:42px;text-transform:uppercase;}
-  .set-row.done .set-label{color:var(--success);}
-  .set-reps{font-size:13px;color:var(--text);flex:1;}
-  .set-row.done .set-reps{text-decoration:line-through;color:var(--text2);}
+/* ───── EXERCISE GROUP ───── */
+.ex-group{padding-bottom:6px;}
+.ex-header{display:flex;align-items:flex-start;justify-content:space-between;padding:8px 20px 6px;gap:10px;}
+.ex-header-info{flex:1;min-width:0;}
+.ex-header-name{font-size:14.5px;font-weight:600;color:var(–text);line-height:1.35;}
+.ex-header-sub{display:flex;align-items:center;gap:7px;margin-top:4px;flex-wrap:wrap;}
+.ex-header-note{font-size:12.5px;color:var(–text3);}
+.rest-badge{display:inline-flex;align-items:center;gap:3px;background:var(–surface2);border:1px solid var(–border);border-radius:20px;padding:2px 8px;font-size:11px;color:var(–text2);font-weight:500;white-space:nowrap;}
+.rest-badge.long{color:var(–warn);border-color:#E5D6B6;background:var(–warn-bg);}
+.rest-badge.short{color:var(–info);border-color:#CAD5DF;background:#E8EDF2;}
+.rest-badge.none{color:var(–text4);}
+.ex-header-count{font-family:‘Inter’,sans-serif;font-size:12px;font-weight:600;color:var(–accent);white-space:nowrap;flex-shrink:0;background:var(–accent-tint);padding:3px 9px;border-radius:20px;border:1px solid var(–accent-bg);}
 
-  /* ───── INLINE REST COUNTDOWN ───── */
-  .rest-countdown{display:none;align-items:center;gap:11px;background:var(--warn-bg);border:1px solid #E5D6B6;border-radius:11px;padding:10px 14px;margin:0 20px 6px;animation:slideDown .2s ease;}
-  .rest-countdown.active{display:flex;}
-  @keyframes slideDown{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:translateY(0);}}
-  .rc-icon svg{width:18px;height:18px;fill:var(--warn);}
-  .rc-text{flex:1;}
-  .rc-label{font-size:10.5px;color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:.6px;}
-  .rc-time{font-family:'Source Serif 4',Georgia,serif;font-size:24px;font-weight:600;color:var(--warn);line-height:1;letter-spacing:-.02em;margin-top:1px;}
-  .rc-time.urgent{color:var(--danger);animation:pulse .55s ease infinite alternate;}
-  .rc-time.go{color:var(--success);}
-  @keyframes pulse{from{opacity:1;}to{opacity:.5;}}
-  .rc-skip{background:var(--surface);border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:12px;font-weight:500;padding:5px 11px;cursor:pointer;white-space:nowrap;transition:all .12s;}
-  .rc-skip:hover{border-color:var(--text2);color:var(--text);}
-  .rc-bar-wrap{height:3px;background:rgba(181,137,74,.18);border-radius:4px;margin-top:4px;}
-  .rc-bar{height:100%;background:var(--warn);border-radius:4px;transition:width 1s linear;}
+/* ───── SET ROWS ───── */
+.sets-container{padding:4px 20px 8px;display:flex;flex-direction:column;gap:5px;}
+.set-row{display:flex;align-items:center;gap:11px;background:var(–surface2);border:1px solid var(–border);border-radius:10px;padding:9px 13px;cursor:pointer;transition:all .15s;user-select:none;}
+.set-row:hover{border-color:var(–accent);background:var(–accent-tint);}
+.set-row.done{opacity:.55;border-color:#C5D4B7;background:var(–success-bg);}
+.set-check{width:20px;height:20px;border-radius:6px;border:1.5px solid var(–border-strong);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s;background:var(–surface);}
+.set-row.done .set-check{background:var(–success);border-color:var(–success);}
+.set-check svg{opacity:0;transition:opacity .15s;}
+.set-row.done .set-check svg{opacity:1;}
+.set-label{font-family:‘Inter’,sans-serif;font-size:11px;font-weight:600;letter-spacing:.4px;color:var(–text3);flex-shrink:0;min-width:42px;text-transform:uppercase;}
+.set-row.done .set-label{color:var(–success);}
+.set-reps{font-size:13px;color:var(–text);flex:1;}
+.set-row.done .set-reps{text-decoration:line-through;color:var(–text2);}
 
-  /* ───── PROGRESS ───── */
-  .prog-wrap{padding:14px 20px;border-top:1px solid var(--border);background:var(--surface2);}
-  .prog-header{display:flex;justify-content:space-between;margin-bottom:8px;align-items:baseline;}
-  .prog-header span{font-size:12.5px;color:var(--text2);font-weight:500;}
-  .prog-header strong{font-family:'Source Serif 4',Georgia,serif;font-size:15px;font-weight:600;color:var(--accent);}
-  .prog-bar{height:5px;background:var(--surface3);border-radius:10px;overflow:hidden;}
-  .prog-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-soft));border-radius:10px;transition:width .4s cubic-bezier(.4,0,.2,1);}
+/* ───── INLINE REST COUNTDOWN ───── */
+.rest-countdown{display:none;align-items:center;gap:11px;background:var(–warn-bg);border:1px solid #E5D6B6;border-radius:11px;padding:10px 14px;margin:0 20px 6px;animation:slideDown .2s ease;}
+.rest-countdown.active{display:flex;}
+@keyframes slideDown{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:translateY(0);}}
+.rc-icon svg{width:18px;height:18px;fill:var(–warn);}
+.rc-text{flex:1;}
+.rc-label{font-size:10.5px;color:var(–text3);font-weight:600;text-transform:uppercase;letter-spacing:.6px;}
+.rc-time{font-family:‘Source Serif 4’,Georgia,serif;font-size:24px;font-weight:600;color:var(–warn);line-height:1;letter-spacing:-.02em;margin-top:1px;}
+.rc-time.urgent{color:var(–danger);animation:pulse .55s ease infinite alternate;}
+.rc-time.go{color:var(–success);}
+@keyframes pulse{from{opacity:1;}to{opacity:.5;}}
+.rc-skip{background:var(–surface);border:1px solid var(–border);border-radius:8px;color:var(–text2);font-size:12px;font-weight:500;padding:5px 11px;cursor:pointer;white-space:nowrap;transition:all .12s;}
+.rc-skip:hover{border-color:var(–text2);color:var(–text);}
+.rc-bar-wrap{height:3px;background:rgba(181,137,74,.18);border-radius:4px;margin-top:4px;}
+.rc-bar{height:100%;background:var(–warn);border-radius:4px;transition:width 1s linear;}
 
-  /* ───── COMPLETE / RESET ───── */
-  .complete-btn{width:100%;padding:14px;background:var(--accent);border:none;border-radius:13px;color:#fff;font-family:'Inter',sans-serif;font-size:15px;font-weight:600;letter-spacing:.1px;cursor:pointer;margin-top:4px;transition:all .15s;box-shadow:var(--shadow);}
-  .complete-btn:hover{background:var(--accent-hover);transform:translateY(-1px);box-shadow:var(--shadow-lg);}
-  .complete-btn:active{transform:scale(.98);}
-  .complete-btn.completed{background:var(--success);}
-  .complete-btn.completed:hover{background:#5C7D4F;}
+/* ───── PROGRESS ───── */
+.prog-wrap{padding:14px 20px;border-top:1px solid var(–border);background:var(–surface2);}
+.prog-header{display:flex;justify-content:space-between;margin-bottom:8px;align-items:baseline;}
+.prog-header span{font-size:12.5px;color:var(–text2);font-weight:500;}
+.prog-header strong{font-family:‘Source Serif 4’,Georgia,serif;font-size:15px;font-weight:600;color:var(–accent);}
+.prog-bar{height:5px;background:var(–surface3);border-radius:10px;overflow:hidden;}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(–accent),var(–accent-soft));border-radius:10px;transition:width .4s cubic-bezier(.4,0,.2,1);}
 
-  .reset-day-btn{width:100%;padding:11px;background:transparent;border:1px solid var(--border);border-radius:13px;color:var(--text3);font-family:'Inter',sans-serif;font-size:13px;font-weight:500;cursor:pointer;margin-top:8px;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:6px;}
-  .reset-day-btn:hover{border-color:var(--danger);color:var(--danger);}
-  .confirm-row{display:flex;align-items:center;gap:8px;margin-top:8px;padding:10px 13px;background:var(--surface);border:1px solid var(--danger);border-radius:13px;}
-  .confirm-row span{flex:1;font-size:13px;color:var(--danger);font-weight:500;}
-  .confirm-yes{background:var(--danger);border:none;border-radius:9px;color:#fff;font-size:13px;font-weight:600;padding:7px 14px;cursor:pointer;font-family:'Inter',sans-serif;}
-  .confirm-no{background:var(--surface2);border:1px solid var(--border);border-radius:9px;color:var(--text2);font-size:13px;font-weight:500;padding:7px 13px;cursor:pointer;}
+/* ───── COMPLETE / RESET ───── */
+.complete-btn{width:100%;padding:14px;background:var(–accent);border:none;border-radius:13px;color:#fff;font-family:‘Inter’,sans-serif;font-size:15px;font-weight:600;letter-spacing:.1px;cursor:pointer;margin-top:4px;transition:all .15s;box-shadow:var(–shadow);}
+.complete-btn:hover{background:var(–accent-hover);transform:translateY(-1px);box-shadow:var(–shadow-lg);}
+.complete-btn:active{transform:scale(.98);}
+.complete-btn.completed{background:var(–success);}
+.complete-btn.completed:hover{background:#5C7D4F;}
 
-  /* ───── REST DAY ───── */
-  .rest-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:48px 22px;text-align:center;box-shadow:var(--shadow-sm);}
-  .rest-icon{display:flex;align-items:center;justify-content:center;margin:0 auto 18px;width:60px;height:60px;border-radius:18px;background:var(--surface3);font-size:28px;}
-  .rest-card h2{font-family:'Source Serif 4',Georgia,serif;font-size:26px;font-weight:600;margin-bottom:8px;letter-spacing:-.01em;}
-  .rest-card h2 em{font-style:italic;color:var(--accent);}
-  .rest-card p{color:var(--text2);font-size:14px;line-height:1.65;}
+.reset-day-btn{width:100%;padding:11px;background:transparent;border:1px solid var(–border);border-radius:13px;color:var(–text3);font-family:‘Inter’,sans-serif;font-size:13px;font-weight:500;cursor:pointer;margin-top:8px;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:6px;}
+.reset-day-btn:hover{border-color:var(–danger);color:var(–danger);}
+.confirm-row{display:flex;align-items:center;gap:8px;margin-top:8px;padding:10px 13px;background:var(–surface);border:1px solid var(–danger);border-radius:13px;}
+.confirm-row span{flex:1;font-size:13px;color:var(–danger);font-weight:500;}
+.confirm-yes{background:var(–danger);border:none;border-radius:9px;color:#fff;font-size:13px;font-weight:600;padding:7px 14px;cursor:pointer;font-family:‘Inter’,sans-serif;}
+.confirm-no{background:var(–surface2);border:1px solid var(–border);border-radius:9px;color:var(–text2);font-size:13px;font-weight:500;padding:7px 13px;cursor:pointer;}
 
-  /* ───── TIMER FAB ───── */
-  .timer-fab{position:fixed;bottom:24px;right:20px;width:54px;height:54px;background:var(--text);border:none;border-radius:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(31,31,30,.25);transition:transform .15s,box-shadow .15s;z-index:100;}
-  .timer-fab:hover{transform:scale(1.06);box-shadow:0 8px 28px rgba(31,31,30,.35);}
-  .timer-fab:active{transform:scale(.95);}
-  .timer-fab svg{width:24px;height:24px;fill:#FAF9F5;}
+/* ───── REST DAY ───── */
+.rest-card{background:var(–surface);border:1px solid var(–border);border-radius:18px;padding:48px 22px;text-align:center;box-shadow:var(–shadow-sm);}
+.rest-icon{display:flex;align-items:center;justify-content:center;margin:0 auto 18px;width:60px;height:60px;border-radius:18px;background:var(–surface3);color:var(–text2);}
+.rest-icon svg{width:32px;height:32px;}
+.rest-card h2{font-family:‘Source Serif 4’,Georgia,serif;font-size:26px;font-weight:600;margin-bottom:8px;letter-spacing:-.01em;}
+.rest-card h2 em{font-style:italic;color:var(–accent);}
+.rest-card p{color:var(–text2);font-size:14px;line-height:1.65;}
 
-  .timer-panel{position:fixed;bottom:88px;right:20px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:18px 16px 16px;width:240px;box-shadow:var(--shadow-lg);z-index:99;display:none;animation:slideUp .2s ease;}
-  .timer-panel.open{display:block;}
-  @keyframes slideUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
-  .timer-lbl{text-align:center;font-size:10px;color:var(--text3);margin-bottom:10px;letter-spacing:1.2px;font-weight:600;text-transform:uppercase;}
-  .timer-display{font-family:'Source Serif 4',Georgia,serif;font-size:54px;font-weight:600;text-align:center;line-height:1;color:var(--text);letter-spacing:-.02em;margin-bottom:12px;transition:color .2s;}
-  .timer-display.counting{color:var(--accent);}
-  .timer-display.done{color:var(--success);}
-  .timer-bar-wrap{height:3px;background:var(--border);border-radius:4px;margin-bottom:12px;overflow:hidden;}
-  .timer-bar{height:100%;background:var(--accent);border-radius:4px;width:100%;transition:width 1s linear;}
+/* ───── TIMER FAB ───── */
+.timer-fab{position:fixed;bottom:24px;right:20px;width:54px;height:54px;background:var(–text);border:none;border-radius:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(31,31,30,.25);transition:transform .15s,box-shadow .15s;z-index:100;}
+.timer-fab:hover{transform:scale(1.06);box-shadow:0 8px 28px rgba(31,31,30,.35);}
+.timer-fab:active{transform:scale(.95);}
+.timer-fab svg{width:24px;height:24px;fill:#FAF9F5;}
+.timer-fab.running::after{content:’’;position:absolute;top:7px;right:7px;width:10px;height:10px;border-radius:50%;background:var(–accent);border:2px solid var(–text);animation:pulse 1.4s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.45;}}
 
-  .time-picker{display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:12px;}
-  .time-picker.hidden{display:none;}
-  .tp-col{display:flex;flex-direction:column;align-items:center;gap:4px;}
-  .tp-lbl{font-size:9.5px;color:var(--text3);font-weight:600;letter-spacing:.7px;text-transform:uppercase;}
-  .tp-adj{display:flex;align-items:center;gap:5px;}
-  .tp-btn{width:26px;height:26px;border-radius:8px;border:1px solid var(--border);background:var(--surface2);color:var(--text2);font-size:15px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;padding:0;}
-  .tp-btn:hover{border-color:var(--accent);color:var(--accent);}
-  .tp-val{font-family:'Source Serif 4',Georgia,serif;font-size:24px;font-weight:600;color:var(--text);min-width:32px;text-align:center;}
-  .tp-sep{font-family:'Source Serif 4',Georgia,serif;font-size:24px;font-weight:600;color:var(--text4);margin-top:13px;}
-  .timer-presets{display:flex;gap:4px;margin-bottom:11px;flex-wrap:wrap;}
-  .preset-btn{flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:11px;font-weight:500;padding:5px 3px;cursor:pointer;transition:all .12s;min-width:0;font-family:'Inter',sans-serif;}
-  .preset-btn:hover{border-color:var(--accent);color:var(--accent);}
-  .preset-btn.active-pre{border-color:var(--accent);color:var(--accent);background:var(--accent-tint);}
-  .timer-controls{display:flex;gap:8px;}
-  .t-btn{flex:1;padding:9px;border:none;border-radius:11px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;}
-  .t-btn.start{background:var(--accent);color:#fff;}
-  .t-btn.start:hover{background:var(--accent-hover);}
-  .t-btn.reset{background:var(--surface2);color:var(--text2);border:1px solid var(--border);}
-  .t-btn.reset:hover{background:var(--surface3);}
+.timer-panel{position:fixed;bottom:88px;right:20px;background:var(–surface);border:1px solid var(–border);border-radius:20px;padding:14px 16px 16px;width:260px;box-shadow:var(–shadow-lg);z-index:99;display:none;animation:slideUp .2s ease;}
+.timer-panel.open{display:block;}
+@keyframes slideUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
 
-  /* ───── MODAL ───── */
-  .modal-backdrop{position:fixed;inset:0;background:rgba(31,31,30,.45);backdrop-filter:blur(4px);z-index:200;display:none;align-items:flex-end;justify-content:center;padding:20px;animation:fadeIn .18s ease;}
-  .modal-backdrop.open{display:flex;}
-  @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
-  .modal{background:var(--bg);border-radius:22px 22px 0 0;width:100%;max-width:540px;max-height:85vh;overflow-y:auto;box-shadow:var(--shadow-lg);animation:modalUp .25s cubic-bezier(.4,0,.2,1);}
-  @keyframes modalUp{from{transform:translateY(20px);opacity:0;}to{transform:translateY(0);opacity:1;}}
-  .modal-header{position:sticky;top:0;background:var(--bg);padding:18px 20px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;z-index:5;}
-  .modal-header h2{font-family:'Source Serif 4',Georgia,serif;font-size:22px;font-weight:600;letter-spacing:-.01em;}
-  .modal-close{width:32px;height:32px;background:var(--surface);border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text2);}
-  .modal-close:hover{color:var(--text);background:var(--surface2);}
-  .modal-body{padding:18px 20px 26px;}
+/* Mode tabs */
+.timer-tabs{display:flex;gap:4px;background:var(–surface3);border-radius:11px;padding:3px;margin-bottom:14px;}
+.t-tab{flex:1;background:transparent;border:none;border-radius:9px;color:var(–text3);font-size:12px;font-weight:600;padding:7px 6px;cursor:pointer;font-family:‘Inter’,sans-serif;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:5px;position:relative;}
+.t-tab:hover{color:var(–text);}
+.t-tab.active{background:var(–surface);color:var(–text);box-shadow:var(–shadow-sm);}
+.t-tab svg{width:14px;height:14px;flex-shrink:0;}
+.t-tab .tab-dot{width:6px;height:6px;border-radius:50%;background:var(–accent);display:none;animation:pulse 1.4s ease-in-out infinite;}
+.t-tab.has-running .tab-dot{display:inline-block;}
 
-  /* History grid */
-  .hist-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px;}
-  .hist-stat{background:var(--surface);border:1px solid var(--border);border-radius:13px;padding:12px;text-align:center;}
-  .hist-stat-val{font-family:'Source Serif 4',Georgia,serif;font-size:24px;font-weight:600;color:var(--accent);line-height:1;}
-  .hist-stat-lbl{font-size:11px;color:var(--text3);margin-top:4px;font-weight:500;}
+.timer-mode{display:none;}
+.timer-mode.active{display:block;}
 
-  .hist-section-label{font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:.5px;color:var(--text3);text-transform:uppercase;margin:18px 0 10px;}
-  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:12px;}
-  .cal-head{font-family:'Inter',sans-serif;font-size:10px;font-weight:600;letter-spacing:.4px;color:var(--text4);text-transform:uppercase;text-align:center;padding:4px 0 6px;}
-  .cal-cell{aspect-ratio:1;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--text3);font-weight:500;background:var(--surface2);border:1px solid transparent;position:relative;cursor:pointer;transition:all .12s;}
-  .cal-cell:hover{border-color:var(--border-strong);}
-  .cal-cell.today{border-color:var(--accent);font-weight:700;color:var(--accent);}
-  .cal-cell.completed{background:var(--success);color:#fff;font-weight:600;}
-  .cal-cell.partial{background:var(--accent-bg);color:var(--accent);font-weight:600;}
-  .cal-cell.empty{background:transparent;cursor:default;}
-  .cal-cell.empty:hover{border-color:transparent;}
+.timer-lbl{text-align:center;font-size:10px;color:var(–text3);margin-bottom:10px;letter-spacing:1.2px;font-weight:600;text-transform:uppercase;}
+.timer-display{font-family:‘Source Serif 4’,Georgia,serif;font-size:54px;font-weight:600;text-align:center;line-height:1;color:var(–text);letter-spacing:-.02em;margin-bottom:12px;transition:color .2s;font-variant-numeric:tabular-nums;}
+.timer-display.counting{color:var(–accent);}
+.timer-display.done{color:var(–success);}
+.timer-bar-wrap{height:3px;background:var(–border);border-radius:4px;margin-bottom:12px;overflow:hidden;}
+.timer-bar{height:100%;background:var(–accent);border-radius:4px;width:100%;transition:width 1s linear;}
 
-  .cal-legend{display:flex;gap:12px;margin-top:12px;justify-content:center;flex-wrap:wrap;}
-  .legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text3);}
-  .legend-dot{width:10px;height:10px;border-radius:3px;}
+.workout-sub{text-align:center;font-family:‘Source Serif 4’,Georgia,serif;font-style:italic;font-size:12px;color:var(–text4);margin-bottom:14px;margin-top:-4px;}
 
-  .modal-btn{width:100%;padding:12px;background:var(--accent);border:none;border-radius:11px;color:#fff;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;cursor:pointer;margin-top:10px;}
-  .modal-btn:hover{background:var(--accent-hover);}
-  .modal-btn.secondary{background:var(--surface);color:var(--text);border:1px solid var(--border);}
-  .modal-btn.secondary:hover{background:var(--surface2);}
+.time-picker{display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:12px;}
+.time-picker.hidden{display:none;}
+.tp-col{display:flex;flex-direction:column;align-items:center;gap:4px;}
+.tp-lbl{font-size:9.5px;color:var(–text3);font-weight:600;letter-spacing:.7px;text-transform:uppercase;}
+.tp-adj{display:flex;align-items:center;gap:5px;}
+.tp-btn{width:26px;height:26px;border-radius:8px;border:1px solid var(–border);background:var(–surface2);color:var(–text2);font-size:15px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;padding:0;}
+.tp-btn:hover{border-color:var(–accent);color:var(–accent);}
+.tp-val{font-family:‘Source Serif 4’,Georgia,serif;font-size:24px;font-weight:600;color:var(–text);min-width:32px;text-align:center;}
+.tp-sep{font-family:‘Source Serif 4’,Georgia,serif;font-size:24px;font-weight:600;color:var(–text4);margin-top:13px;}
+.timer-presets{display:flex;gap:4px;margin-bottom:11px;flex-wrap:wrap;}
+.preset-btn{flex:1;background:var(–surface2);border:1px solid var(–border);border-radius:8px;color:var(–text2);font-size:11px;font-weight:500;padding:5px 3px;cursor:pointer;transition:all .12s;min-width:0;font-family:‘Inter’,sans-serif;}
+.preset-btn:hover{border-color:var(–accent);color:var(–accent);}
+.preset-btn.active-pre{border-color:var(–accent);color:var(–accent);background:var(–accent-tint);}
+.timer-controls{display:flex;gap:8px;}
+.t-btn{flex:1;padding:9px;border:none;border-radius:11px;font-size:13px;font-weight:600;cursor:pointer;font-family:‘Inter’,sans-serif;}
+.t-btn.start{background:var(–accent);color:#fff;}
+.t-btn.start:hover{background:var(–accent-hover);}
+.t-btn.reset{background:var(–surface2);color:var(–text2);border:1px solid var(–border);}
+.t-btn.reset:hover{background:var(–surface3);}
 
-  .toast{position:fixed;bottom:88px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--text);color:#FAF9F5;padding:11px 18px;border-radius:13px;font-size:13.5px;font-weight:500;z-index:300;opacity:0;transition:all .25s cubic-bezier(.4,0,.2,1);box-shadow:var(--shadow-lg);max-width:90%;text-align:center;}
-  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+/* ───── MODAL ───── */
+.modal-backdrop{position:fixed;inset:0;background:rgba(31,31,30,.45);backdrop-filter:blur(4px);z-index:200;display:none;align-items:flex-end;justify-content:center;padding:20px;animation:fadeIn .18s ease;}
+.modal-backdrop.open{display:flex;}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+.modal{background:var(–bg);border-radius:22px 22px 0 0;width:100%;max-width:540px;max-height:85vh;overflow-y:auto;box-shadow:var(–shadow-lg);animation:modalUp .25s cubic-bezier(.4,0,.2,1);}
+@keyframes modalUp{from{transform:translateY(20px);opacity:0;}to{transform:translateY(0);opacity:1;}}
+.modal-header{position:sticky;top:0;background:var(–bg);padding:18px 20px 14px;border-bottom:1px solid var(–border);display:flex;align-items:center;justify-content:space-between;z-index:5;}
+.modal-header h2{font-family:‘Source Serif 4’,Georgia,serif;font-size:22px;font-weight:600;letter-spacing:-.01em;}
+.modal-close{width:32px;height:32px;background:var(–surface);border:1px solid var(–border);border-radius:10px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(–text2);}
+.modal-close:hover{color:var(–text);background:var(–surface2);}
+.modal-body{padding:18px 20px 26px;}
 
-  .motto{text-align:center;font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-size:12.5px;color:var(--text4);padding:18px 0 6px;}
+/* History grid */
+.hist-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px;}
+.hist-stat{background:var(–surface);border:1px solid var(–border);border-radius:13px;padding:12px;text-align:center;}
+.hist-stat-val{font-family:‘Source Serif 4’,Georgia,serif;font-size:24px;font-weight:600;color:var(–accent);line-height:1;display:inline-flex;align-items:center;gap:5px;}
+.hist-stat-val svg{width:17px;height:17px;}
+.hist-stat-lbl{font-size:11px;color:var(–text3);margin-top:4px;font-weight:500;}
 
-  .fade-in{animation:fadeIn .22s ease;}
+.hist-section-label{font-family:‘Inter’,sans-serif;font-size:11px;font-weight:600;letter-spacing:.5px;color:var(–text3);text-transform:uppercase;margin:18px 0 10px;}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;background:var(–surface);border:1px solid var(–border);border-radius:14px;padding:12px;}
+.cal-head{font-family:‘Inter’,sans-serif;font-size:10px;font-weight:600;letter-spacing:.4px;color:var(–text4);text-transform:uppercase;text-align:center;padding:4px 0 6px;}
+.cal-cell{aspect-ratio:1;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(–text3);font-weight:500;background:var(–surface2);border:1px solid transparent;position:relative;cursor:pointer;transition:all .12s;}
+.cal-cell:hover{border-color:var(–border-strong);}
+.cal-cell.today{border-color:var(–accent);font-weight:700;color:var(–accent);}
+.cal-cell.completed{background:var(–success);color:#fff;font-weight:600;}
+.cal-cell.partial{background:var(–accent-bg);color:var(–accent);font-weight:600;}
+.cal-cell.empty{background:transparent;cursor:default;}
+.cal-cell.empty:hover{border-color:transparent;}
 
-  ::-webkit-scrollbar{width:5px;}
-  ::-webkit-scrollbar-track{background:transparent;}
-  ::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:4px;}
+.cal-legend{display:flex;gap:12px;margin-top:12px;justify-content:center;flex-wrap:wrap;}
+.legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(–text3);}
+.legend-dot{width:10px;height:10px;border-radius:3px;}
+
+.modal-btn{width:100%;padding:12px;background:var(–accent);border:none;border-radius:11px;color:#fff;font-family:‘Inter’,sans-serif;font-size:14px;font-weight:600;cursor:pointer;margin-top:10px;}
+.modal-btn:hover{background:var(–accent-hover);}
+.modal-btn.secondary{background:var(–surface);color:var(–text);border:1px solid var(–border);}
+.modal-btn.secondary:hover{background:var(–surface2);}
+
+.toast{position:fixed;bottom:88px;left:50%;transform:translateX(-50%) translateY(20px);background:var(–text);color:#FAF9F5;padding:11px 18px;border-radius:13px;font-size:13.5px;font-weight:500;z-index:300;opacity:0;transition:all .25s cubic-bezier(.4,0,.2,1);box-shadow:var(–shadow-lg);max-width:90%;text-align:center;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+.motto{text-align:center;font-family:‘Source Serif 4’,Georgia,serif;font-style:italic;font-size:12.5px;color:var(–text4);padding:18px 0 6px;}
+
+.fade-in{animation:fadeIn .22s ease;}
+
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(–border-strong);border-radius:4px;}
 </style>
+
 </head>
 <body>
 <div class="container">
@@ -274,7 +305,8 @@
     </div>
     <div class="header-actions">
       <div class="streak-chip" onclick="openModal('historyModal')">
-        <span>🔥</span><span id="streakNum">0</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3A2.5 2.5 0 0 0 8.5 14.5Z"/></svg>
+        <span id="streakNum">0</span>
       </div>
       <button class="icon-btn" onclick="openModal('historyModal')" title="ประวัติ">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
@@ -296,6 +328,7 @@
 </div>
 
 <!-- TIMER FAB -->
+
 <button class="timer-fab" onclick="toggleTimer()">
   <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="12" cy="13" r="8" stroke="#FAF9F5" stroke-width="2"/>
@@ -305,43 +338,72 @@
 </button>
 
 <!-- TIMER PANEL -->
+
 <div class="timer-panel" id="timerPanel">
-  <div class="timer-lbl">Rest Timer</div>
-  <div class="timer-display" id="timerDisplay">1:00</div>
-  <div class="timer-bar-wrap"><div class="timer-bar" id="timerBar"></div></div>
-  <div class="time-picker" id="timePicker">
-    <div class="tp-col">
-      <div class="tp-lbl">นาที</div>
-      <div class="tp-adj">
-        <button class="tp-btn" onclick="adjTime('m',-1)">−</button>
-        <div class="tp-val" id="tpMin">1</div>
-        <button class="tp-btn" onclick="adjTime('m',1)">+</button>
+  <div class="timer-tabs">
+    <button class="t-tab active" id="tabRest" onclick="switchTimerMode('rest')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h12M7 2v4a5 5 0 0 0 10 0V2M7 22v-4a5 5 0 0 1 10 0v4M6 22h12"/></svg>
+      พัก <span class="tab-dot"></span>
+    </button>
+    <button class="t-tab" id="tabWorkout" onclick="switchTimerMode('workout')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M9 2h6M12 2v3M10.5 11l3.5 2-3.5 2z" fill="currentColor"/></svg>
+      ออกกำลัง <span class="tab-dot"></span>
+    </button>
+  </div>
+
+  <!-- REST MODE (count down) -->
+
+  <div class="timer-mode active" id="modeRest">
+    <div class="timer-lbl">Rest Timer</div>
+    <div class="timer-display" id="timerDisplay">1:00</div>
+    <div class="timer-bar-wrap"><div class="timer-bar" id="timerBar"></div></div>
+    <div class="time-picker" id="timePicker">
+      <div class="tp-col">
+        <div class="tp-lbl">นาที</div>
+        <div class="tp-adj">
+          <button class="tp-btn" onclick="adjTime('m',-1)">−</button>
+          <div class="tp-val" id="tpMin">1</div>
+          <button class="tp-btn" onclick="adjTime('m',1)">+</button>
+        </div>
+      </div>
+      <div class="tp-sep">:</div>
+      <div class="tp-col">
+        <div class="tp-lbl">วินาที</div>
+        <div class="tp-adj">
+          <button class="tp-btn" onclick="adjTime('s',-5)">−</button>
+          <div class="tp-val" id="tpSec">00</div>
+          <button class="tp-btn" onclick="adjTime('s',5)">+</button>
+        </div>
       </div>
     </div>
-    <div class="tp-sep">:</div>
-    <div class="tp-col">
-      <div class="tp-lbl">วินาที</div>
-      <div class="tp-adj">
-        <button class="tp-btn" onclick="adjTime('s',-5)">−</button>
-        <div class="tp-val" id="tpSec">00</div>
-        <button class="tp-btn" onclick="adjTime('s',5)">+</button>
-      </div>
+    <div class="timer-presets" id="timerPresets">
+      <button class="preset-btn" id="pre30"  onclick="quickSet(30)">30s</button>
+      <button class="preset-btn" id="pre45"  onclick="quickSet(45)">45s</button>
+      <button class="preset-btn" id="pre60"  onclick="quickSet(60)">1m</button>
+      <button class="preset-btn" id="pre90"  onclick="quickSet(90)">1:30</button>
+      <button class="preset-btn" id="pre120" onclick="quickSet(120)">2m</button>
+    </div>
+    <div class="timer-controls">
+      <button class="t-btn start" id="timerStartBtn" onclick="startStopRest()">▶ เริ่ม</button>
+      <button class="t-btn reset" onclick="resetRest()">↺</button>
     </div>
   </div>
-  <div class="timer-presets" id="timerPresets">
-    <button class="preset-btn" id="pre30"  onclick="quickSet(30)">30s</button>
-    <button class="preset-btn" id="pre45"  onclick="quickSet(45)">45s</button>
-    <button class="preset-btn" id="pre60"  onclick="quickSet(60)">1m</button>
-    <button class="preset-btn" id="pre90"  onclick="quickSet(90)">1:30</button>
-    <button class="preset-btn" id="pre120" onclick="quickSet(120)">2m</button>
-  </div>
-  <div class="timer-controls">
-    <button class="t-btn start" id="timerStartBtn" onclick="startStopTimer()">▶ เริ่ม</button>
-    <button class="t-btn reset" onclick="resetTimer()">↺</button>
+
+  <!-- WORKOUT MODE (count up / stopwatch) -->
+
+  <div class="timer-mode" id="modeWorkout">
+    <div class="timer-lbl">Workout Stopwatch</div>
+    <div class="timer-display" id="workoutDisplay">0:00</div>
+    <div class="workout-sub">นับเวลาออกกำลังทั้งหมด</div>
+    <div class="timer-controls">
+      <button class="t-btn start" id="workoutStartBtn" onclick="startStopWorkout()">▶ เริ่ม</button>
+      <button class="t-btn reset" onclick="resetWorkout()">↺</button>
+    </div>
   </div>
 </div>
 
 <!-- HISTORY MODAL -->
+
 <div class="modal-backdrop" id="historyModal" onclick="if(event.target===this)closeModal('historyModal')">
   <div class="modal">
     <div class="modal-header">
@@ -357,7 +419,34 @@
 <div class="toast" id="toast"></div>
 
 <script>
-const DAY_ICONS = ["☁️","🦵","💪","🏀","💆","⚡","🏋️"];
+// ════════════════════════════════════════════════════
+// SVG ICON LIBRARY — minimal, consistent stroke style
+// ════════════════════════════════════════════════════
+const ICONS = {
+  // Day icons (thematic)
+  moon:       '<path d="M20.5 14.5A9 9 0 1 1 9.5 3.5a7 7 0 0 0 11 11Z"/>',
+  kettlebell: '<path d="M10 5V4a2 2 0 0 1 4 0v1"/><path d="M8.8 5.5h6.4l.6 2.2A5.5 5.5 0 1 1 8.2 7.7Z"/>',
+  dumbbell:   '<path d="M4 10v4M6.5 8v8M8 12h8M17.5 8v8M20 10v4"/>',
+  basketball: '<circle cx="12" cy="12" r="9"/><path d="M3.2 12h17.6"/><path d="M5.5 5.5c3.5 3.5 3.5 9.5 0 13"/><path d="M18.5 5.5c-3.5 3.5-3.5 9.5 0 13"/>',
+  leaf:       '<path d="M17 4c-7 0-12 5-12 12a4 4 0 0 0 8 0c0-6 2-10 4-12Z"/><path d="M5 19l8-8"/>',
+  bolt:       '<path d="M13 2L4 14h7l-2 8 9-12h-7z"/>',
+  barbell:    '<path d="M3 9v6M5.5 7v10M8 10v4M16 10v4M18.5 7v10M21 9v6M8 12h8"/>',
+
+  // UI icons
+  flame:      '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3A2.5 2.5 0 0 0 8.5 14.5Z"/>',
+  clock:      '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  check:      '<path d="M5 12l5 5L20 7"/>',
+};
+
+// Day → icon key map (by day number 0–6)
+const DAY_ICONS = ["moon","kettlebell","dumbbell","basketball","leaf","bolt","barbell"];
+
+function svgIcon(key, opts){
+  const path = ICONS[key]; if(!path) return '';
+  const fill = (opts&&opts.fill) ? 'currentColor' : 'none';
+  return `<svg viewBox="0 0 24 24" fill="${fill}" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${path}</svg>`;
+}
+
 const DAYS_SHORT = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
 const DAYS_FULL  = ["อาทิตย์","จันทร์","อังคาร","พุธ","พฤหัสฯ","ศุกร์","เสาร์"];
 
@@ -371,7 +460,7 @@ function restLabel(s){
 // SCHEDULE DATA
 // ════════════════════════════════════════════════════
 const S = {
-  1:{name:"ขา + Core",icon:"🦵",level:"medium",levelText:"กลาง",duration:"40 นาที",focus:"พลังขา · ระเบิดพลัง",
+  1:{name:"ขา + Core",icon:"kettlebell",level:"medium",levelText:"กลาง",duration:"40 นาที",focus:"พลังขา · ระเบิดพลัง",
     phases:[
       {label:"Warm-up",exercises:[
         {name:"เชือกกระโดด Warm-up",sets:1,reps:"3 นาที",note:"จังหวะสม่ำเสมอ",rest:0},
@@ -390,7 +479,7 @@ const S = {
       ]},
     ]
   },
-  2:{name:"ท่อนบน เบา",icon:"💪",level:"light",levelText:"เบา",duration:"35 นาที",focus:"ไหล่ · อก · หลัง",
+  2:{name:"ท่อนบน เบา",icon:"dumbbell",level:"light",levelText:"เบา",duration:"35 นาที",focus:"ไหล่ · อก · หลัง",
     phases:[
       {label:"Warm-up",exercises:[
         {name:"เชือกกระโดด Warm-up",sets:1,reps:"2 นาที",note:"เบาๆ เตรียมข้อต่อ",rest:0},
@@ -408,7 +497,7 @@ const S = {
       ]},
     ]
   },
-  3:{name:"บาสเก็ตบอล 3x3",icon:"🏀",level:"basketball",levelText:"Game Day",duration:"15 นาที + เกม",focus:"Warm-up → Game Day",
+  3:{name:"บาสเก็ตบอล 3x3",icon:"basketball",level:"basketball",levelText:"Game Day",duration:"15 นาที + เกม",focus:"Warm-up → Game Day",
     phases:[
       {label:"Pre-Game Warm-up",exercises:[
         {name:"Hip Circle + Leg Swing",    sets:1,  reps:"2 นาที",  note:"คลายข้อสะโพกและเข่า",  rest:0},
@@ -425,7 +514,7 @@ const S = {
       ]},
     ]
   },
-  4:{name:"Active Recovery",icon:"💆",level:"light",levelText:"เบา",duration:"30 นาที",focus:"Foam Roller · Stretch",
+  4:{name:"Active Recovery",icon:"leaf",level:"light",levelText:"เบา",duration:"30 นาที",focus:"Foam Roller · Stretch",
     phases:[
       {label:"Recovery",exercises:[
         {name:"เดินเร็ว / เชือกกระโดดเบา",     sets:1,reps:"5 นาที",    note:"เพิ่มเลือดไหลเวียน",  rest:0},
@@ -438,7 +527,7 @@ const S = {
       ]},
     ]
   },
-  5:{name:"Full Body",icon:"⚡",level:"full",levelText:"กลาง",duration:"45 นาที",focus:"Compound · HIIT",
+  5:{name:"Full Body",icon:"bolt",level:"full",levelText:"กลาง",duration:"45 นาที",focus:"Compound · HIIT",
     phases:[
       {label:"Warm-up",exercises:[
         {name:"เชือกกระโดด Warm-up",sets:1,reps:"3 นาที",note:"จังหวะกลาง",rest:0},
@@ -456,7 +545,7 @@ const S = {
       ]},
     ]
   },
-  6:{name:"ขา + ทักษะบาส",icon:"🏋️",level:"medium",levelText:"กลาง",duration:"40 นาที",focus:"Deadlift · Agility · Footwork",
+  6:{name:"ขา + ทักษะบาส",icon:"barbell",level:"medium",levelText:"กลาง",duration:"40 นาที",focus:"Deadlift · Agility · Footwork",
     phases:[
       {label:"Warm-up",exercises:[
         {name:"เชือกกระโดด Single + Double",sets:1,reps:"4 นาที",note:"ฝึก Timing",rest:0},
@@ -476,7 +565,7 @@ const S = {
       ]},
     ]
   },
-  0:{name:"Active Rest",icon:"☁️",level:"rest",levelText:"เบามาก",duration:"20 นาที",focus:"เดินเร็ว · ยืดเบาๆ",isRest:true,
+  0:{name:"Active Rest",icon:"moon",level:"rest",levelText:"เบามาก",duration:"20 นาที",focus:"เดินเร็ว · ยืดเบาๆ",isRest:true,
     phases:[
       {label:"Active Rest",exercises:[
         {name:"เดินเร็ว",         sets:1,reps:"10–15 นาที",note:"ออกไปข้างนอกถ้าได้",      rest:0},
@@ -578,7 +667,7 @@ function renderStrip(){
     btn.onclick = ()=>selectDay(d);
     btn.innerHTML = `
       <div class="day-name">${DAYS_SHORT[d]}</div>
-      <div class="day-icon">${DAY_ICONS[d]}</div>
+      <div class="day-icon">${svgIcon(DAY_ICONS[d])}</div>
       <div class="day-level lvl-${p.level}"></div>`;
     strip.appendChild(btn);
   });
@@ -602,7 +691,7 @@ function renderWorkout(day){
   if(plan.isRest){
     content.innerHTML = `
       <div class="rest-card">
-        <div class="rest-icon">☁️</div>
+        <div class="rest-icon">${svgIcon('moon')}</div>
         <h2>วัน<em>พักผ่อน</em></h2>
         <p>เดิน ยืดเบาๆ ให้ร่างกายฟื้นฟู<br>พักผ่อนให้เพียงพอก่อนสัปดาห์ใหม่</p>
       </div>`;
@@ -660,11 +749,11 @@ function renderWorkout(day){
   content.innerHTML = `
     <div class="workout-card">
       <div class="wc-header">
-        <div class="wc-icon">${plan.icon}</div>
+        <div class="wc-icon">${svgIcon(plan.icon)}</div>
         <div class="wc-info"><h2>${plan.name}</h2><p>${plan.focus}</p></div>
       </div>
       <div class="wc-meta">
-        <span class="meta-chip hi">⏱ ${plan.duration}</span>
+        <span class="meta-chip hi">${svgIcon('clock')}${plan.duration}</span>
         <span class="meta-chip">${plan.levelText}</span>
         <span class="meta-chip" id="setChip">${done} / ${tot} เซต</span>
       </div>
@@ -812,7 +901,7 @@ function markComplete(day){
   if(completedDays[k]){
     btn.textContent='✓ วันนี้เสร็จแล้ว!';
     btn.classList.add('completed');
-    toast('🔥 บันทึกเรียบร้อย!');
+    toast('บันทึกเรียบร้อย!');
   } else {
     btn.textContent='บันทึกว่าออกกำลังกายครบ';
     btn.classList.remove('completed');
@@ -823,14 +912,30 @@ function markComplete(day){
 }
 
 // ════════════════════════════════════════════════════
-// MANUAL TIMER
+// MANUAL TIMER — two modes (rest countdown + workout stopwatch)
 // ════════════════════════════════════════════════════
+let currentTimerMode = 'rest';
+
+// REST timer state (count down)
 let tInt=null, tSec=60, tOn=false, tTotal=60;
 let tPickMin=1, tPickSec=0;
+
+// WORKOUT stopwatch state (count up)
+let wInt=null, wSec=0, wOn=false;
 
 function toggleTimer(){
   document.getElementById('timerPanel').classList.toggle('open');
 }
+
+function switchTimerMode(mode){
+  currentTimerMode = mode;
+  document.getElementById('tabRest').classList.toggle('active', mode==='rest');
+  document.getElementById('tabWorkout').classList.toggle('active', mode==='workout');
+  document.getElementById('modeRest').classList.toggle('active', mode==='rest');
+  document.getElementById('modeWorkout').classList.toggle('active', mode==='workout');
+}
+
+// ─── REST TIMER (count down) ─────────────────────────
 function adjTime(unit, delta){
   if(tOn) return;
   if(unit==='m'){
@@ -848,8 +953,8 @@ function syncPicker(){
   document.getElementById('tpSec').textContent = tPickSec.toString().padStart(2,'0');
   tTotal = tPickMin*60 + tPickSec;
   tSec   = tTotal;
-  renderTimerDisplay();
-  updateTimerBar(1);
+  renderRestDisplay();
+  updateRestBar(1);
   clearActivePreset();
 }
 function quickSet(s){
@@ -858,8 +963,8 @@ function quickSet(s){
   tPickMin=Math.floor(s/60); tPickSec=s%60;
   document.getElementById('tpMin').textContent = tPickMin;
   document.getElementById('tpSec').textContent = tPickSec.toString().padStart(2,'0');
-  renderTimerDisplay();
-  updateTimerBar(1);
+  renderRestDisplay();
+  updateRestBar(1);
   clearActivePreset();
   const map={30:'pre30',45:'pre45',60:'pre60',90:'pre90',120:'pre120'};
   if(map[s]){ const el=document.getElementById(map[s]); if(el) el.classList.add('active-pre'); }
@@ -869,42 +974,45 @@ function clearActivePreset(){
     const el=document.getElementById(id); if(el) el.classList.remove('active-pre');
   });
 }
-function startStopTimer(){
+function startStopRest(){
   if(tOn){
     clearInterval(tInt); tOn=false;
     document.getElementById('timerStartBtn').textContent = '▶ ต่อ';
     document.getElementById('timerDisplay').className = 'timer-display';
     showPicker(true);
   } else {
-    if(tSec <= 0){ tSec=tTotal; updateTimerBar(1); }
+    if(tSec <= 0){ tSec=tTotal; updateRestBar(1); }
     tOn=true;
     document.getElementById('timerStartBtn').textContent = '⏸ หยุด';
     document.getElementById('timerDisplay').className = 'timer-display counting';
     showPicker(false);
     tInt = setInterval(()=>{
       tSec--;
-      renderTimerDisplay();
-      updateTimerBar(tSec/tTotal);
+      renderRestDisplay();
+      updateRestBar(tSec/tTotal);
       if(tSec<=0){
         clearInterval(tInt); tOn=false;
         document.getElementById('timerDisplay').className = 'timer-display done';
         document.getElementById('timerDisplay').textContent = 'GO!';
         document.getElementById('timerStartBtn').textContent = '▶ เริ่ม';
-        updateTimerBar(0);
+        updateRestBar(0);
         showPicker(true);
+        updateFabIndicator();
         if(navigator.vibrate) navigator.vibrate([200,100,200]);
       }
     },1000);
   }
+  updateFabIndicator();
 }
-function resetTimer(){
+function resetRest(){
   clearInterval(tInt); tOn=false;
   tSec = tTotal;
   document.getElementById('timerStartBtn').textContent = '▶ เริ่ม';
   document.getElementById('timerDisplay').className = 'timer-display';
-  renderTimerDisplay();
-  updateTimerBar(1);
+  renderRestDisplay();
+  updateRestBar(1);
   showPicker(true);
+  updateFabIndicator();
 }
 function showPicker(show){
   const picker  = document.getElementById('timePicker');
@@ -912,13 +1020,58 @@ function showPicker(show){
   if(picker)  picker.classList.toggle('hidden', !show);
   if(presets) presets.style.display = show ? 'flex' : 'none';
 }
-function updateTimerBar(ratio){
+function updateRestBar(ratio){
   const bar = document.getElementById('timerBar');
   if(bar) bar.style.width = (ratio*100) + '%';
 }
-function renderTimerDisplay(){
+function renderRestDisplay(){
   const m = Math.floor(tSec/60), s = tSec%60;
   document.getElementById('timerDisplay').textContent = `${m}:${s.toString().padStart(2,'0')}`;
+}
+
+// ─── WORKOUT STOPWATCH (count up) ────────────────────
+function startStopWorkout(){
+  const btn = document.getElementById('workoutStartBtn');
+  const disp = document.getElementById('workoutDisplay');
+  if(wOn){
+    clearInterval(wInt); wOn=false;
+    btn.textContent = '▶ ต่อ';
+    disp.className = 'timer-display';
+  } else {
+    wOn=true;
+    btn.textContent = '⏸ หยุด';
+    disp.className = 'timer-display counting';
+    wInt = setInterval(()=>{
+      wSec++;
+      renderWorkoutDisplay();
+    },1000);
+  }
+  updateFabIndicator();
+}
+function resetWorkout(){
+  clearInterval(wInt); wOn=false;
+  wSec = 0;
+  document.getElementById('workoutStartBtn').textContent = '▶ เริ่ม';
+  document.getElementById('workoutDisplay').className = 'timer-display';
+  renderWorkoutDisplay();
+  updateFabIndicator();
+}
+function renderWorkoutDisplay(){
+  const h = Math.floor(wSec/3600);
+  const m = Math.floor((wSec%3600)/60);
+  const s = wSec%60;
+  const str = h > 0
+    ? `${h}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`
+    : `${m}:${s.toString().padStart(2,'0')}`;
+  document.getElementById('workoutDisplay').textContent = str;
+}
+
+// ─── FAB + TAB RUNNING INDICATORS ────────────────────
+function updateFabIndicator(){
+  const fab = document.querySelector('.timer-fab');
+  if(fab) fab.classList.toggle('running', tOn || wOn);
+  document.getElementById('tabRest').classList.toggle('has-running', tOn);
+  document.getElementById('tabWorkout').classList.toggle('has-running', wOn);
 }
 
 // ════════════════════════════════════════════════════
@@ -955,7 +1108,7 @@ function renderHistory(){
 
   let html = `
     <div class="hist-stats">
-      <div class="hist-stat"><div class="hist-stat-val">🔥 ${streak}</div><div class="hist-stat-lbl">วันต่อเนื่อง</div></div>
+      <div class="hist-stat"><div class="hist-stat-val">${svgIcon('flame')}${streak}</div><div class="hist-stat-lbl">วันต่อเนื่อง</div></div>
       <div class="hist-stat"><div class="hist-stat-val">${totalCompleted}</div><div class="hist-stat-lbl">รวมทั้งหมด</div></div>
       <div class="hist-stat"><div class="hist-stat-val">${bestStreak}</div><div class="hist-stat-lbl">สถิติดีสุด</div></div>
     </div>
@@ -1018,5 +1171,6 @@ function toast(msg){
 
 init();
 </script>
+
 </body>
 </html>
