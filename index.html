@@ -2,1154 +2,1517 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<link rel="apple-touch-icon" href="data:image/png;base64,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">
-<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Train">
-<meta name="theme-color" content="#F0EEE6">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Train — Tampapon</title>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="GYMNET">
+<meta name="theme-color" content="#07070b">
+<link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%2307070b'/><rect x='6' y='6' width='88' height='88' fill='none' stroke='%23fcee0a' stroke-width='3'/><text x='50' y='44' font-family='Arial Black,sans-serif' font-size='28' font-weight='900' fill='%23fcee0a' text-anchor='middle' letter-spacing='2'>GYM</text><text x='50' y='72' font-family='Arial,monospace' font-size='14' font-weight='700' fill='%2300f0ff' text-anchor='middle' letter-spacing='3'>//NET</text></svg>">
+<title>GYMNET // TRAINING PROTOCOL</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&family=Orbitron:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{
-    /* Claude warm palette */
-    --bg: #F0EEE6;
-    --surface: #FAF9F5;
-    --surface2: #F5F3EC;
-    --surface3: #EDEAE0;
-    --border: #E2DED1;
-    --border-strong: #CFC9B7;
-    --text: #1F1F1E;
-    --text2: #5C5B57;
-    --text3: #8B8A82;
-    --text4: #B0AEA3;
+:root{
+  --bg: #07070b;
+  --bg-1: #0d0d14;
+  --bg-2: #14141e;
+  --bg-3: #1c1c2a;
+  --bg-4: #25253a;
+  --border: #2a2a3e;
+  --border-2: #3a3a52;
+  --border-bright: #4a4a6a;
+  --text: #e8e8f5;
+  --text-dim: #9090a8;
+  --text-dimmer: #5a5a72;
+  --yellow: #fcee0a;
+  --yellow-dark: #c2b610;
+  --yellow-glow: rgba(252,238,10,.4);
+  --cyan: #00f0ff;
+  --cyan-dark: #00a8c4;
+  --cyan-glow: rgba(0,240,255,.35);
+  --magenta: #ff003c;
+  --magenta-2: #ff2070;
+  --magenta-glow: rgba(255,0,60,.4);
+  --done: #00ff88;
+  --done-glow: rgba(0,255,136,.3);
+  --warn: #ff8800;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 
-    /* Claude coral accent */
-    --accent: #C96442;
-    --accent-hover: #B5573A;
-    --accent-soft: #E8A084;
-    --accent-bg: #F5E4DA;
-    --accent-tint: #FAF1EB;
+@keyframes glitch-slide{
+  0%,100%{transform:translateX(0)}
+  20%{transform:translateX(-1px)}
+  40%{transform:translateX(1px)}
+  60%{transform:translateX(-.5px)}
+  80%{transform:translateX(.5px)}
+}
+@keyframes flicker{
+  0%,100%{opacity:1}
+  41%,43%{opacity:.92}
+  42%{opacity:.4}
+  62%,64%{opacity:.95}
+  63%{opacity:.55}
+}
+@keyframes pulse-glow{
+  0%,100%{box-shadow:0 0 0 0 var(--yellow-glow), 0 0 12px var(--yellow-glow)}
+  50%{box-shadow:0 0 0 4px transparent, 0 0 24px var(--yellow-glow)}
+}
+@keyframes scan{
+  0%{transform:translateY(-100%)}
+  100%{transform:translateY(100vh)}
+}
+@keyframes pulse-dot{
+  0%,100%{opacity:1;box-shadow:0 0 8px var(--yellow)}
+  50%{opacity:.4;box-shadow:0 0 2px var(--yellow)}
+}
 
-    /* Functional */
-    --success: #6A8E5A;
-    --success-bg: #E5EDDF;
-    --warn: #B5894A;
-    --warn-bg: #F0E5D2;
-    --info: #5C7E9C;
-    --danger: #B05050;
+html,body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Kanit','Sarabun',-apple-system,sans-serif;
+  font-weight:400;line-height:1.5;
+  min-height:100vh;min-height:100dvh;
+  -webkit-font-smoothing:antialiased;
+}
+body{
+  background:
+    radial-gradient(800px 400px at 80% 0%, rgba(252,238,10,.06) 0%, transparent 60%),
+    radial-gradient(700px 500px at 0% 100%, rgba(0,240,255,.05) 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-1) 100%);
+  background-attachment:fixed;
+  padding:env(safe-area-inset-top) env(safe-area-inset-right) calc(env(safe-area-inset-bottom) + 16px) env(safe-area-inset-left);
+  position:relative;
+  overflow-x:hidden;
+}
+/* CRT scanline grid */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:1;
+  background-image:
+    linear-gradient(rgba(255,255,255,.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.012) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image:radial-gradient(ellipse at center, rgba(0,0,0,.8), transparent 80%);
+}
+/* Scanline overlay */
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:2;
+  background:repeating-linear-gradient(180deg, transparent 0, transparent 2px, rgba(0,0,0,.06) 2px, rgba(0,0,0,.06) 3px);
+  opacity:.5;
+}
 
-    --shadow-sm: 0 1px 2px rgba(60,50,30,.04);
-    --shadow: 0 2px 8px rgba(60,50,30,.06);
-    --shadow-lg: 0 8px 32px rgba(60,50,30,.10);
-  }
+.tech{font-family:'Orbitron',-apple-system,sans-serif;font-weight:700;letter-spacing:1.5px}
+.mono{font-family:'JetBrains Mono',monospace;font-variant-numeric:tabular-nums}
 
-  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
-  html,body{font-family:'Sarabun','Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;}
-  body{padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom);}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+.app{max-width:520px;margin:0 auto;padding:18px 18px 80px;position:relative;z-index:3}
 
-  .serif{font-family:'Source Serif 4',Georgia,serif;font-weight:600;letter-spacing:-.01em;}
+/* ============= HEADER ============= */
+.header{padding:8px 4px 18px;position:relative}
+.eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--cyan);font-weight:700;
+  display:flex;align-items:center;gap:8px;
+}
+.eyebrow .dot{display:inline-block;width:6px;height:6px;background:var(--yellow);border-radius:50%;animation:pulse-dot 1.6s ease-in-out infinite}
+.eyebrow .bracket{color:var(--text-dimmer)}
+.eyebrow .id{color:var(--text-dim)}
 
-  .container{max-width:540px;margin:0 auto;padding:0 18px 110px;}
+h1{
+  font-family:'Orbitron',sans-serif;
+  font-size:30px;font-weight:800;line-height:1;letter-spacing:1px;
+  margin-top:10px;text-transform:uppercase;
+  background:linear-gradient(180deg,var(--text) 0%,var(--text-dim) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+h1 .accent{
+  color:var(--yellow);background:none;-webkit-text-fill-color:var(--yellow);
+  text-shadow:0 0 20px var(--yellow-glow), 0 0 4px var(--yellow-glow);
+  font-style:italic;font-weight:900;
+}
+.tagline{
+  color:var(--text-dim);font-size:11.5px;margin-top:8px;
+  font-family:'JetBrains Mono',monospace;letter-spacing:.3px;
+  display:flex;align-items:center;gap:8px;
+}
+.tagline::before{content:'>>';color:var(--yellow);font-weight:700}
 
-  /* ───── HEADER ───── */
-  .header{padding:24px 0 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
-  .header-title{flex:1;min-width:0;}
-  .header-title h1{font-family:'Source Serif 4',Georgia,serif;font-size:30px;font-weight:600;letter-spacing:-.02em;line-height:1;color:var(--text);}
-  .header-title h1 em{font-style:italic;color:var(--accent);font-weight:500;}
-  .header-title p{color:var(--text3);font-size:13px;margin-top:6px;font-weight:400;}
+/* ============= STREAK STRIP ============= */
+.streak-strip{
+  display:flex;gap:0;margin:20px 0 16px;
+  background:var(--bg-2);
+  border:1px solid var(--border);
+  clip-path:polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+  position:relative;
+}
+.streak-strip::before{
+  content:'';position:absolute;top:0;left:0;width:3px;height:24px;
+  background:var(--yellow);box-shadow:0 0 8px var(--yellow-glow);
+}
+.stat{flex:1;text-align:center;padding:14px 8px;position:relative}
+.stat + .stat::before{
+  content:'';position:absolute;left:0;top:20%;height:60%;width:1px;
+  background:var(--border);
+}
+.stat-val{
+  font-family:'Orbitron',sans-serif;font-size:24px;font-weight:800;
+  color:var(--text);line-height:1;letter-spacing:.5px;
+}
+.stat-val.coral{color:var(--yellow);text-shadow:0 0 10px var(--yellow-glow)}
+.stat-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:9.5px;letter-spacing:1.8px;text-transform:uppercase;
+  color:var(--text-dim);margin-top:6px;font-weight:600;
+}
 
-  .header-actions{display:flex;gap:8px;align-items:center;flex-shrink:0;}
-  .icon-btn{width:38px;height:38px;background:var(--surface);border:1px solid var(--border);border-radius:11px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .15s;color:var(--text2);}
-  .icon-btn:hover{border-color:var(--border-strong);color:var(--text);background:var(--surface2);}
-  .icon-btn:active{transform:scale(.94);}
-  .icon-btn svg{width:18px;height:18px;}
+/* ============= SESSION BAR (Stopwatch + Timer) ============= */
+.session-bar{
+  padding:10px 14px 12px;margin-bottom:14px;
+  background:var(--bg-2);
+  border:1px solid var(--border);border-left:3px solid var(--cyan);
+  clip-path:polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+  position:sticky;top:8px;z-index:50;
+  transition:all .2s;
+}
+.session-bar.running{
+  background:linear-gradient(135deg,#1a1a0a 0%,#0a0a14 100%);
+  border-color:var(--yellow);border-left-color:var(--yellow);
+  box-shadow:0 0 24px rgba(252,238,10,.15);
+}
+.session-bar.timer-mode{border-left-color:var(--magenta)}
+.session-bar.timer-mode.running{
+  border-color:var(--magenta);border-left-color:var(--magenta);
+  box-shadow:0 0 24px var(--magenta-glow);
+  background:linear-gradient(135deg,#1a0a14 0%,#0a0a14 100%);
+}
 
-  .streak-chip{display:flex;align-items:center;gap:6px;background:var(--accent-tint);border:1px solid var(--accent-bg);padding:6px 11px 6px 9px;border-radius:20px;font-size:13px;font-weight:600;color:var(--accent);cursor:pointer;transition:all .15s;}
-  .streak-chip:hover{background:var(--accent-bg);}
-  .streak-chip svg{width:14px;height:14px;flex-shrink:0;}
+.mode-tabs{
+  display:flex;gap:0;margin-bottom:10px;
+  border-bottom:1px solid var(--border);
+}
+.mode-tab{
+  flex:1;padding:6px 4px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;letter-spacing:1.8px;font-weight:700;text-transform:uppercase;
+  color:var(--text-dim);
+  background:transparent;border:none;border-bottom:2px solid transparent;
+  transition:all .15s;cursor:pointer;
+}
+.mode-tab.active{color:var(--yellow);border-bottom-color:var(--yellow);text-shadow:0 0 8px var(--yellow-glow)}
+.session-bar.timer-mode .mode-tab.active{color:var(--magenta);border-bottom-color:var(--magenta);text-shadow:0 0 8px var(--magenta-glow)}
 
-  /* ───── WEEK STRIP ───── */
-  .week-strip{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:18px;}
-  .day-btn{background:var(--surface);border:1px solid var(--border);border-radius:13px;padding:9px 4px 7px;cursor:pointer;text-align:center;transition:all .18s;position:relative;}
-  .day-btn:hover{border-color:var(--border-strong);background:var(--surface2);}
-  .day-btn.active{background:var(--text);border-color:var(--text);color:#FAF9F5;box-shadow:var(--shadow);}
-  .day-btn.active .day-name,.day-btn.active .day-icon{color:#FAF9F5;}
-  .day-btn.today:not(.active){border-color:var(--accent);}
-  .day-btn.today:not(.active) .day-name{color:var(--accent);}
-  .day-btn.today::after{content:'';position:absolute;top:6px;right:6px;width:5px;height:5px;background:var(--accent);border-radius:50%;box-shadow:0 0 0 2px var(--surface);}
-  .day-btn.today.active::after{box-shadow:0 0 0 2px var(--text);}
-  .day-btn.completed:not(.active){background:var(--success-bg);border-color:#C5D4B7;}
-  .day-btn.completed.today:not(.active){border-color:var(--accent);}
-  .day-name{font-family:'Inter',sans-serif;font-size:10.5px;font-weight:600;letter-spacing:.3px;color:var(--text3);line-height:1;text-transform:uppercase;}
-  .day-icon{display:flex;align-items:center;justify-content:center;margin:6px 0 4px;color:var(--text);}
-  .day-icon svg{width:18px;height:18px;}
-  .day-level{width:5px;height:5px;border-radius:50%;margin:0 auto;}
-  .lvl-medium{background:var(--warn);}.lvl-light{background:var(--success);}
-  .lvl-basketball{background:var(--accent);}.lvl-full{background:var(--info);}.lvl-rest{background:var(--text4);}
+.sw-row{display:flex;align-items:center;justify-content:space-between}
+.sw-left{display:flex;flex-direction:column;gap:2px}
+.sw-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:9.5px;letter-spacing:1.8px;text-transform:uppercase;
+  color:var(--text-dim);font-weight:600;
+}
+.session-bar.running .sw-label{color:var(--yellow);animation:flicker 4s infinite}
+.session-bar.timer-mode.running .sw-label{color:var(--magenta)}
+.sw-time{
+  font-family:'Orbitron',sans-serif;font-weight:700;
+  font-size:24px;line-height:1;letter-spacing:1px;color:var(--text);
+  font-variant-numeric:tabular-nums;
+}
+.session-bar.running .sw-time{color:var(--yellow);text-shadow:0 0 12px var(--yellow-glow)}
+.session-bar.timer-mode.running .sw-time{color:var(--magenta);text-shadow:0 0 14px var(--magenta-glow)}
+.session-bar.timer-finished .sw-time{color:var(--done);text-shadow:0 0 14px var(--done-glow);animation:flicker 1s infinite}
 
-  /* ───── STATS ───── */
-  .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:22px;}
-  .stat-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:13px 10px;text-align:center;}
-  .stat-val{font-family:'Source Serif 4',Georgia,serif;font-size:26px;font-weight:600;line-height:1;color:var(--text);}
-  .stat-val.accent{color:var(--accent);}
-  .stat-lbl{font-size:11px;color:var(--text3);margin-top:5px;font-weight:500;letter-spacing:.2px;}
+.sw-controls{display:flex;gap:8px}
+.sw-btn{
+  width:36px;height:36px;border-radius:0;
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--border-2);background:var(--bg-3);
+  transition:all .15s;
+  clip-path:polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+}
+.sw-btn:active{transform:scale(.92)}
+.sw-btn svg{width:13px;height:13px;color:var(--text)}
+.sw-btn.primary{background:var(--yellow);border-color:var(--yellow);box-shadow:0 0 12px var(--yellow-glow)}
+.sw-btn.primary svg{color:var(--bg)}
+.session-bar.timer-mode .sw-btn.primary{background:var(--magenta);border-color:var(--magenta);box-shadow:0 0 12px var(--magenta-glow)}
+.session-bar.running .sw-btn.primary{background:var(--bg);border-color:var(--yellow)}
+.session-bar.running .sw-btn.primary svg{color:var(--yellow)}
+.session-bar.timer-mode.running .sw-btn.primary{background:var(--bg);border-color:var(--magenta)}
+.session-bar.timer-mode.running .sw-btn.primary svg{color:var(--magenta)}
 
-  .section-label{font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:.5px;color:var(--text3);text-transform:uppercase;margin-bottom:11px;display:flex;align-items:center;gap:8px;}
-  .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+/* Timer presets */
+.timer-presets{
+  display:none;gap:5px;margin-top:10px;
+  padding-top:10px;border-top:1px dashed var(--border);
+}
+.session-bar.timer-mode .timer-presets{display:flex;flex-wrap:wrap}
+.preset-btn{
+  flex:1;min-width:50px;padding:6px 4px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;font-weight:700;letter-spacing:.5px;
+  background:var(--bg-3);border:1px solid var(--border-2);color:var(--text);
+  cursor:pointer;transition:all .15s;
+  clip-path:polygon(0 0, calc(100% - 4px) 0, 100% 4px, 100% 100%, 4px 100%, 0 calc(100% - 4px));
+}
+.preset-btn:active{transform:scale(.94)}
+.preset-btn.active{
+  background:var(--magenta);border-color:var(--magenta);color:var(--text);
+  box-shadow:0 0 10px var(--magenta-glow);
+}
 
-  /* ───── WORKOUT CARD ───── */
-  .workout-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden;margin-bottom:14px;box-shadow:var(--shadow-sm);}
-  .wc-header{padding:18px 20px;display:flex;align-items:flex-start;gap:13px;}
-  .wc-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:var(--surface3);color:var(--text);}
-  .wc-icon svg{width:24px;height:24px;}
-  .wc-info{flex:1;min-width:0;}
-  .wc-info h2{font-family:'Source Serif 4',Georgia,serif;font-size:22px;font-weight:600;letter-spacing:-.02em;line-height:1.15;color:var(--text);}
-  .wc-info p{color:var(--text2);font-size:13.5px;margin-top:3px;}
-  .wc-meta{display:flex;gap:7px;padding:10px 20px 14px;flex-wrap:wrap;}
-  .meta-chip{background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:4px 10px;font-size:12px;color:var(--text2);font-weight:500;display:inline-flex;align-items:center;gap:5px;}
-  .meta-chip svg{width:12px;height:12px;flex-shrink:0;}
-  .meta-chip.hi{color:var(--accent);border-color:var(--accent-bg);background:var(--accent-tint);font-weight:600;}
+/* ============= DAY TABS ============= */
+.day-tabs{display:flex;gap:4px;margin-bottom:18px;overflow-x:auto;scrollbar-width:none;padding:2px}
+.day-tabs::-webkit-scrollbar{display:none}
+.day-tab{
+  flex:1;min-width:54px;padding:9px 4px;
+  background:var(--bg-2);border:1px solid var(--border);
+  display:flex;flex-direction:column;align-items:center;gap:3px;
+  transition:all .2s ease;position:relative;
+  clip-path:polygon(0 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%);
+}
+.day-tab.active{
+  background:var(--yellow);border-color:var(--yellow);
+  box-shadow:0 0 16px var(--yellow-glow);
+}
+.day-tab.active .dn, .day-tab.active .dnum{color:var(--bg)}
+.day-tab.active .ico svg{color:var(--bg)}
+.day-tab.today:not(.active){
+  border-color:var(--cyan);
+  box-shadow:inset 0 0 0 1px var(--cyan), 0 0 8px var(--cyan-glow);
+}
+.day-tab.today:not(.active) .dn{color:var(--cyan)}
+.day-tab.today:not(.active) .ico svg{color:var(--cyan)}
+.dn{
+  font-family:'JetBrains Mono',monospace;
+  font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;
+  color:var(--text-dim);
+}
+.dnum{
+  font-family:'Orbitron',sans-serif;font-size:17px;font-weight:700;
+  color:var(--text);letter-spacing:.5px;
+}
+.day-tab .ico{margin-top:1px}
+.day-tab .ico svg{width:17px;height:17px;stroke-width:1.8;color:var(--text-dim)}
+.day-tab .check-dot{
+  position:absolute;top:5px;right:5px;width:6px;height:6px;
+  background:var(--done);box-shadow:0 0 6px var(--done-glow);display:none;
+}
+.day-tab.completed .check-dot{display:block}
+.day-tab.active.completed .check-dot{background:var(--bg)}
 
-  .phase-label{padding:13px 20px 7px;font-family:'Inter',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.8px;color:var(--text3);text-transform:uppercase;border-top:1px solid var(--border);}
+/* ============= WORKOUT CARD ============= */
+.card{
+  background:var(--bg-2);
+  border:1px solid var(--border);
+  position:relative;
+  clip-path:polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+}
+/* Yellow caution stripe corner */
+.card::before{
+  content:'';position:absolute;top:0;right:0;width:80px;height:3px;
+  background:repeating-linear-gradient(90deg, var(--yellow) 0, var(--yellow) 8px, var(--bg) 8px, var(--bg) 14px);
+  z-index:2;
+}
+.card-head{
+  padding:22px 22px 18px;
+  border-bottom:1px solid var(--border);
+  position:relative;background:var(--bg-2);
+}
+.card-icon-big{
+  width:46px;height:46px;display:flex;align-items:center;justify-content:center;
+  margin-bottom:12px;background:var(--accent,var(--yellow));position:relative;
+  clip-path:polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  box-shadow:0 0 18px var(--accent-glow,var(--yellow-glow));
+}
+.card-icon-big svg{width:24px;height:24px;color:var(--bg);stroke-width:2}
 
-  /* ───── EXERCISE GROUP ───── */
-  .ex-group{padding-bottom:6px;}
-  .ex-header{display:flex;align-items:flex-start;justify-content:space-between;padding:8px 20px 6px;gap:10px;}
-  .ex-header-info{flex:1;min-width:0;}
-  .ex-header-name{font-size:14.5px;font-weight:600;color:var(--text);line-height:1.35;}
-  .ex-header-sub{display:flex;align-items:center;gap:7px;margin-top:4px;flex-wrap:wrap;}
-  .ex-header-note{font-size:12.5px;color:var(--text3);}
-  .rest-badge{display:inline-flex;align-items:center;gap:3px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:2px 8px;font-size:11px;color:var(--text2);font-weight:500;white-space:nowrap;}
-  .rest-badge.long{color:var(--warn);border-color:#E5D6B6;background:var(--warn-bg);}
-  .rest-badge.short{color:var(--info);border-color:#CAD5DF;background:#E8EDF2;}
-  .rest-badge.none{color:var(--text4);}
-  .ex-header-count{font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:var(--accent);white-space:nowrap;flex-shrink:0;background:var(--accent-tint);padding:3px 9px;border-radius:20px;border:1px solid var(--accent-bg);}
+.card-day-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--cyan);font-weight:600;
+  display:flex;align-items:center;gap:6px;
+}
+.card-day-label::before{content:'//';color:var(--text-dimmer)}
+.card-day-label .today-tag{
+  margin-left:6px;padding:1px 6px;background:var(--magenta);color:var(--text);
+  font-size:8.5px;letter-spacing:1.5px;
+}
+.card-title{
+  font-family:'Orbitron',sans-serif;font-size:26px;font-weight:800;line-height:1.05;
+  margin-top:6px;letter-spacing:.5px;text-transform:uppercase;
+  color:var(--text);
+}
+.card-focus{
+  font-size:12.5px;color:var(--text-dim);margin-top:6px;font-weight:300;
+  font-family:'JetBrains Mono',monospace;letter-spacing:.2px;
+}
+.card-focus::before{content:'> ';color:var(--yellow)}
 
-  /* ───── SET ROWS ───── */
-  .sets-container{padding:4px 20px 8px;display:flex;flex-direction:column;gap:5px;}
-  .set-row{display:flex;align-items:center;gap:11px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:9px 13px;cursor:pointer;transition:all .15s;user-select:none;}
-  .set-row:hover{border-color:var(--accent);background:var(--accent-tint);}
-  .set-row.done{opacity:.55;border-color:#C5D4B7;background:var(--success-bg);}
-  .set-check{width:20px;height:20px;border-radius:6px;border:1.5px solid var(--border-strong);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s;background:var(--surface);}
-  .set-row.done .set-check{background:var(--success);border-color:var(--success);}
-  .set-check svg{opacity:0;transition:opacity .15s;}
-  .set-row.done .set-check svg{opacity:1;}
-  .set-label{font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:.4px;color:var(--text3);flex-shrink:0;min-width:42px;text-transform:uppercase;}
-  .set-row.done .set-label{color:var(--success);}
-  .set-reps{font-size:13px;color:var(--text);flex:1;}
-  .set-row.done .set-reps{text-decoration:line-through;color:var(--text2);}
+.card-meta{display:flex;gap:6px;margin-top:14px;flex-wrap:wrap}
+.chip{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:4px 10px;font-family:'JetBrains Mono',monospace;
+  font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  background:var(--bg-3);color:var(--text-dim);border:1px solid var(--border-2);
+  clip-path:polygon(0 0, calc(100% - 5px) 0, 100% 5px, 100% 100%, 5px 100%, 0 calc(100% - 5px));
+}
+.chip.coral{
+  background:var(--yellow);color:var(--bg);border-color:var(--yellow);
+  box-shadow:0 0 10px var(--yellow-glow);
+}
+.chip svg{width:10px;height:10px;stroke-width:2.2}
 
-  /* ───── INLINE REST COUNTDOWN ───── */
-  .rest-countdown{display:none;align-items:center;gap:11px;background:var(--warn-bg);border:1px solid #E5D6B6;border-radius:11px;padding:10px 14px;margin:0 20px 6px;animation:slideDown .2s ease;}
-  .rest-countdown.active{display:flex;}
-  @keyframes slideDown{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:translateY(0);}}
-  .rc-icon svg{width:18px;height:18px;fill:var(--warn);}
-  .rc-text{flex:1;}
-  .rc-label{font-size:10.5px;color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:.6px;}
-  .rc-time{font-family:'Source Serif 4',Georgia,serif;font-size:24px;font-weight:600;color:var(--warn);line-height:1;letter-spacing:-.02em;margin-top:1px;}
-  .rc-time.urgent{color:var(--danger);animation:pulse .55s ease infinite alternate;}
-  .rc-time.go{color:var(--success);}
-  @keyframes pulse{from{opacity:1;}to{opacity:.5;}}
-  .rc-skip{background:var(--surface);border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:12px;font-weight:500;padding:5px 11px;cursor:pointer;white-space:nowrap;transition:all .12s;}
-  .rc-skip:hover{border-color:var(--text2);color:var(--text);}
-  .rc-bar-wrap{height:3px;background:rgba(181,137,74,.18);border-radius:4px;margin-top:4px;}
-  .rc-bar{height:100%;background:var(--warn);border-radius:4px;transition:width 1s linear;}
+.rationale{
+  padding:13px 22px;background:var(--bg-1);
+  border-bottom:1px solid var(--border);
+  font-size:12px;color:var(--text-dim);line-height:1.55;
+  display:flex;gap:10px;align-items:flex-start;
+  font-family:'Kanit',sans-serif;font-weight:300;
+  position:relative;
+}
+.rationale::before{
+  content:'';position:absolute;left:0;top:0;height:100%;width:3px;
+  background:var(--magenta);box-shadow:0 0 8px var(--magenta-glow);
+}
+.rationale .leaf{
+  font-family:'Orbitron',sans-serif;font-weight:800;color:var(--magenta);
+  font-size:13px;line-height:1.2;flex-shrink:0;letter-spacing:1px;
+}
 
-  /* ───── PROGRESS ───── */
-  .prog-wrap{padding:14px 20px;border-top:1px solid var(--border);background:var(--surface2);}
-  .prog-header{display:flex;justify-content:space-between;margin-bottom:8px;align-items:baseline;}
-  .prog-header span{font-size:12.5px;color:var(--text2);font-weight:500;}
-  .prog-header strong{font-family:'Source Serif 4',Georgia,serif;font-size:15px;font-weight:600;color:var(--accent);}
-  .prog-bar{height:5px;background:var(--surface3);border-radius:10px;overflow:hidden;}
-  .prog-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-soft));border-radius:10px;transition:width .4s cubic-bezier(.4,0,.2,1);}
+/* ============= PHASE / EXERCISE ============= */
+.phases{padding:6px 0}
+.phase{padding:14px 22px 6px}
+.phase + .phase{border-top:1px solid var(--border);margin-top:6px;padding-top:16px}
+.phase-label{
+  font-family:'Orbitron',sans-serif;
+  font-size:11px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--yellow);font-weight:800;
+  display:flex;align-items:center;gap:10px;margin-bottom:12px;
+  text-shadow:0 0 8px var(--yellow-glow);
+}
+.phase-label::before{content:'▸';color:var(--yellow);font-weight:400;text-shadow:0 0 8px var(--yellow-glow)}
+.phase-label::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--yellow) 0%, transparent 80%);opacity:.4}
 
-  /* ───── COMPLETE / RESET ───── */
-  .complete-btn{width:100%;padding:14px;background:var(--accent);border:none;border-radius:13px;color:#fff;font-family:'Inter',sans-serif;font-size:15px;font-weight:600;letter-spacing:.1px;cursor:pointer;margin-top:4px;transition:all .15s;box-shadow:var(--shadow);}
-  .complete-btn:hover{background:var(--accent-hover);transform:translateY(-1px);box-shadow:var(--shadow-lg);}
-  .complete-btn:active{transform:scale(.98);}
-  .complete-btn.completed{background:var(--success);}
-  .complete-btn.completed:hover{background:#5C7D4F;}
+.ex{padding:12px 0;border-bottom:1px dashed var(--border)}
+.ex:last-child{border-bottom:none}
+.ex-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.ex-name{font-weight:600;font-size:14.5px;color:var(--text);line-height:1.25;font-family:'Kanit',sans-serif}
+.ex-note{
+  font-size:11px;color:var(--text-dim);margin-top:3px;line-height:1.4;
+  font-family:'JetBrains Mono',monospace;font-weight:400;
+}
+.ex-note::before{content:'// ';color:var(--cyan);opacity:.6}
+.ex-sets-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;color:var(--text-dim);text-align:right;font-weight:600;
+  letter-spacing:.5px;white-space:nowrap;
+}
+.ex-sets-label .num{
+  font-family:'Orbitron',sans-serif;font-size:16px;color:var(--yellow);
+  font-weight:800;text-shadow:0 0 6px var(--yellow-glow);
+}
 
-  .reset-day-btn{width:100%;padding:11px;background:transparent;border:1px solid var(--border);border-radius:13px;color:var(--text3);font-family:'Inter',sans-serif;font-size:13px;font-weight:500;cursor:pointer;margin-top:8px;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:6px;}
-  .reset-day-btn:hover{border-color:var(--danger);color:var(--danger);}
-  .confirm-row{display:flex;align-items:center;gap:8px;margin-top:8px;padding:10px 13px;background:var(--surface);border:1px solid var(--danger);border-radius:13px;}
-  .confirm-row span{flex:1;font-size:13px;color:var(--danger);font-weight:500;}
-  .confirm-yes{background:var(--danger);border:none;border-radius:9px;color:#fff;font-size:13px;font-weight:600;padding:7px 14px;cursor:pointer;font-family:'Inter',sans-serif;}
-  .confirm-no{background:var(--surface2);border:1px solid var(--border);border-radius:9px;color:var(--text2);font-size:13px;font-weight:500;padding:7px 13px;cursor:pointer;}
+.sets{display:flex;gap:5px;margin-top:10px;flex-wrap:wrap}
+.set-row{
+  flex:1;min-width:62px;
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  padding:8px 6px;background:var(--bg-3);border:1px solid var(--border-2);
+  font-family:'JetBrains Mono',monospace;
+  font-size:10.5px;color:var(--text);transition:all .15s;font-weight:700;
+  cursor:pointer;user-select:none;letter-spacing:.5px;
+  clip-path:polygon(0 0, calc(100% - 5px) 0, 100% 5px, 100% 100%, 5px 100%, 0 calc(100% - 5px));
+}
+.set-row .lbl{font-size:9px;letter-spacing:1.2px;color:var(--text-dim)}
+.set-row .reps{font-weight:700}
+.set-row.done{
+  background:var(--done);border-color:var(--done);color:var(--bg);
+  box-shadow:0 0 12px var(--done-glow);
+}
+.set-row.done .lbl{color:var(--bg);opacity:.8}
+.set-row.done::before{content:'✓';margin-right:2px;font-weight:800}
 
-  /* ───── REST DAY ───── */
-  .rest-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:48px 22px;text-align:center;box-shadow:var(--shadow-sm);}
-  .rest-icon{display:flex;align-items:center;justify-content:center;margin:0 auto 18px;width:60px;height:60px;border-radius:18px;background:var(--surface3);color:var(--text2);}
-  .rest-icon svg{width:32px;height:32px;}
-  .rest-card h2{font-family:'Source Serif 4',Georgia,serif;font-size:26px;font-weight:600;margin-bottom:8px;letter-spacing:-.01em;}
-  .rest-card h2 em{font-style:italic;color:var(--accent);}
-  .rest-card p{color:var(--text2);font-size:14px;line-height:1.65;}
+.single-row{
+  margin-top:10px;display:flex;align-items:center;gap:10px;
+  padding:11px 14px;background:var(--bg-3);border:1px solid var(--border-2);
+  cursor:pointer;user-select:none;
+  clip-path:polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  transition:all .15s;
+}
+.single-row .check{
+  width:18px;height:18px;border:2px solid var(--text-dim);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;transition:all .15s;
+  clip-path:polygon(0 0, calc(100% - 4px) 0, 100% 4px, 100% 100%, 4px 100%, 0 calc(100% - 4px));
+}
+.single-row.done{background:var(--done);border-color:var(--done);color:var(--bg);box-shadow:0 0 12px var(--done-glow)}
+.single-row.done .check{background:var(--bg);border-color:var(--bg)}
+.single-row.done .check::after{content:'✓';color:var(--done);font-size:12px;font-weight:800}
+.single-row .reps-text{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12.5px;font-weight:700;color:var(--text);letter-spacing:.3px;
+}
+.single-row.done .reps-text{color:var(--bg)}
 
-  /* ───── TIMER FAB ───── */
-  .timer-fab{position:fixed;bottom:24px;right:20px;width:54px;height:54px;background:var(--text);border:none;border-radius:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(31,31,30,.25);transition:transform .15s,box-shadow .15s;z-index:100;}
-  .timer-fab:hover{transform:scale(1.06);box-shadow:0 8px 28px rgba(31,31,30,.35);}
-  .timer-fab:active{transform:scale(.95);}
-  .timer-fab svg{width:24px;height:24px;fill:#FAF9F5;}
-  .timer-fab.running::after{content:'';position:absolute;top:7px;right:7px;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--text);animation:pulse 1.4s ease-in-out infinite;}
-  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.45;}}
+/* Rest timer */
+.rest-row{
+  margin-top:8px;display:flex;align-items:center;justify-content:space-between;
+  padding:5px 8px;background:transparent;
+  font-size:10.5px;color:var(--text-dim);
+  font-family:'JetBrains Mono',monospace;letter-spacing:.3px;
+}
+.rest-row .rest-info{display:flex;align-items:center;gap:6px}
+.rest-row .rest-info svg{width:12px;height:12px;stroke-width:2;color:var(--cyan)}
+.rest-btn{
+  padding:5px 10px;background:var(--bg-3);border:1px solid var(--border-2);
+  font-family:'JetBrains Mono',monospace;
+  font-size:10.5px;font-weight:700;color:var(--text);letter-spacing:.5px;
+  display:inline-flex;align-items:center;gap:5px;transition:all .15s;
+  clip-path:polygon(0 0, calc(100% - 4px) 0, 100% 4px, 100% 100%, 4px 100%, 0 calc(100% - 4px));
+}
+.rest-btn:active{transform:scale(.95)}
+.rest-btn svg{width:10px;height:10px}
+.rest-btn.running{
+  background:var(--magenta);color:var(--text);border-color:var(--magenta);
+  box-shadow:0 0 14px var(--magenta-glow);
+  animation:flicker 3s infinite;
+}
+.rest-btn.done{
+  background:var(--done);color:var(--bg);border-color:var(--done);
+  box-shadow:0 0 12px var(--done-glow);
+}
+.rest-btn .timer-text{font-family:'Orbitron',sans-serif;font-weight:700;font-variant-numeric:tabular-nums}
 
-  .timer-panel{position:fixed;bottom:88px;right:20px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:14px 16px 16px;width:260px;box-shadow:var(--shadow-lg);z-index:99;display:none;animation:slideUp .2s ease;}
-  .timer-panel.open{display:block;}
-  @keyframes slideUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+/* ============= PROGRESS ============= */
+.progress-block{
+  padding:18px 22px;background:var(--bg-1);
+  border-top:1px solid var(--border);
+}
+.progress-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+.progress-head .lbl{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);font-weight:700;
+}
+.progress-head .lbl::before{content:'▰ ';color:var(--yellow)}
+.progress-head .val{
+  font-family:'Orbitron',sans-serif;font-weight:800;font-size:18px;color:var(--yellow);
+  text-shadow:0 0 10px var(--yellow-glow);letter-spacing:.5px;
+}
+.progress-bar{
+  height:6px;background:var(--bg-3);overflow:hidden;
+  border:1px solid var(--border-2);position:relative;
+}
+.progress-fill{
+  height:100%;background:linear-gradient(90deg,var(--yellow) 0%,var(--magenta) 100%);
+  transition:width .4s ease;width:0%;
+  box-shadow:0 0 12px var(--yellow-glow);
+}
 
-  /* Mode tabs */
-  .timer-tabs{display:flex;gap:4px;background:var(--surface3);border-radius:11px;padding:3px;margin-bottom:14px;}
-  .t-tab{flex:1;background:transparent;border:none;border-radius:9px;color:var(--text3);font-size:12px;font-weight:600;padding:7px 6px;cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:5px;position:relative;}
-  .t-tab:hover{color:var(--text);}
-  .t-tab.active{background:var(--surface);color:var(--text);box-shadow:var(--shadow-sm);}
-  .t-tab svg{width:14px;height:14px;flex-shrink:0;}
-  .t-tab .tab-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);display:none;animation:pulse 1.4s ease-in-out infinite;}
-  .t-tab.has-running .tab-dot{display:inline-block;}
+/* ============= COMPLETE BUTTON ============= */
+.complete-btn{
+  margin-top:18px;width:100%;padding:16px;
+  background:var(--yellow);color:var(--bg);
+  font-family:'Orbitron',sans-serif;font-weight:800;
+  font-size:13px;letter-spacing:2.5px;text-transform:uppercase;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  transition:all .2s;border:1px solid var(--yellow);
+  box-shadow:0 0 24px var(--yellow-glow);
+  clip-path:polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+  position:relative;
+}
+.complete-btn:active{transform:translateY(1px)}
+.complete-btn.completed{
+  background:var(--done);border-color:var(--done);
+  box-shadow:0 0 24px var(--done-glow);
+}
+.complete-btn.completed::before{content:'[ '}
+.complete-btn.completed::after{content:' ]'}
 
-  .timer-mode{display:none;}
-  .timer-mode.active{display:block;}
+/* ============= REST DAY CARD ============= */
+.rest-day{padding:40px 22px;text-align:center;position:relative}
+.rest-day .moon{
+  font-family:'Orbitron',sans-serif;font-weight:900;
+  font-size:42px;color:var(--cyan);text-shadow:0 0 20px var(--cyan-glow);
+  letter-spacing:8px;animation:flicker 5s infinite;
+}
+.rest-day h3{
+  font-family:'Orbitron',sans-serif;font-size:22px;font-weight:800;
+  margin:14px 0 8px;text-transform:uppercase;letter-spacing:2px;color:var(--text);
+}
+.rest-day p{
+  font-size:12.5px;color:var(--text-dim);max-width:290px;margin:0 auto;line-height:1.6;
+  font-family:'Kanit',sans-serif;font-weight:300;
+}
 
-  .timer-lbl{text-align:center;font-size:10px;color:var(--text3);margin-bottom:10px;letter-spacing:1.2px;font-weight:600;text-transform:uppercase;}
-  .timer-display{font-family:'Source Serif 4',Georgia,serif;font-size:54px;font-weight:600;text-align:center;line-height:1;color:var(--text);letter-spacing:-.02em;margin-bottom:12px;transition:color .2s;font-variant-numeric:tabular-nums;}
-  .timer-display.counting{color:var(--accent);}
-  .timer-display.done{color:var(--success);}
-  .timer-bar-wrap{height:3px;background:var(--border);border-radius:4px;margin-bottom:12px;overflow:hidden;}
-  .timer-bar{height:100%;background:var(--accent);border-radius:4px;width:100%;transition:width 1s linear;}
+/* ============= TOAST ============= */
+.toast{
+  position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--yellow);color:var(--bg);
+  padding:11px 22px;font-family:'JetBrains Mono',monospace;
+  font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  opacity:0;pointer-events:none;transition:all .3s ease;z-index:100;
+  box-shadow:0 0 28px var(--yellow-glow);
+  clip-path:polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
-  .workout-sub{text-align:center;font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-size:12px;color:var(--text4);margin-bottom:14px;margin-top:-4px;}
+/* ============= FOOTER ============= */
+.footer{
+  margin-top:28px;text-align:center;
+  font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dimmer);
+  letter-spacing:1.5px;text-transform:uppercase;
+}
+.footer .heart{color:var(--yellow);font-weight:700}
 
-  .time-picker{display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:12px;}
-  .time-picker.hidden{display:none;}
-  .tp-col{display:flex;flex-direction:column;align-items:center;gap:4px;}
-  .tp-lbl{font-size:9.5px;color:var(--text3);font-weight:600;letter-spacing:.7px;text-transform:uppercase;}
-  .tp-adj{display:flex;align-items:center;gap:5px;}
-  .tp-btn{width:26px;height:26px;border-radius:8px;border:1px solid var(--border);background:var(--surface2);color:var(--text2);font-size:15px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;padding:0;}
-  .tp-btn:hover{border-color:var(--accent);color:var(--accent);}
-  .tp-val{font-family:'Source Serif 4',Georgia,serif;font-size:24px;font-weight:600;color:var(--text);min-width:32px;text-align:center;}
-  .tp-sep{font-family:'Source Serif 4',Georgia,serif;font-size:24px;font-weight:600;color:var(--text4);margin-top:13px;}
-  .timer-presets{display:flex;gap:4px;margin-bottom:11px;flex-wrap:wrap;}
-  .preset-btn{flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:11px;font-weight:500;padding:5px 3px;cursor:pointer;transition:all .12s;min-width:0;font-family:'Inter',sans-serif;}
-  .preset-btn:hover{border-color:var(--accent);color:var(--accent);}
-  .preset-btn.active-pre{border-color:var(--accent);color:var(--accent);background:var(--accent-tint);}
-  .timer-controls{display:flex;gap:8px;}
-  .t-btn{flex:1;padding:9px;border:none;border-radius:11px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;}
-  .t-btn.start{background:var(--accent);color:#fff;}
-  .t-btn.start:hover{background:var(--accent-hover);}
-  .t-btn.reset{background:var(--surface2);color:var(--text2);border:1px solid var(--border);}
-  .t-btn.reset:hover{background:var(--surface3);}
-
-  /* ───── MODAL ───── */
-  .modal-backdrop{position:fixed;inset:0;background:rgba(31,31,30,.45);backdrop-filter:blur(4px);z-index:200;display:none;align-items:flex-end;justify-content:center;padding:20px;animation:fadeIn .18s ease;}
-  .modal-backdrop.open{display:flex;}
-  @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
-  .modal{background:var(--bg);border-radius:22px 22px 0 0;width:100%;max-width:540px;max-height:85vh;overflow-y:auto;box-shadow:var(--shadow-lg);animation:modalUp .25s cubic-bezier(.4,0,.2,1);}
-  @keyframes modalUp{from{transform:translateY(20px);opacity:0;}to{transform:translateY(0);opacity:1;}}
-  .modal-header{position:sticky;top:0;background:var(--bg);padding:18px 20px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;z-index:5;}
-  .modal-header h2{font-family:'Source Serif 4',Georgia,serif;font-size:22px;font-weight:600;letter-spacing:-.01em;}
-  .modal-close{width:32px;height:32px;background:var(--surface);border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text2);}
-  .modal-close:hover{color:var(--text);background:var(--surface2);}
-  .modal-body{padding:18px 20px 26px;}
-
-  /* History grid */
-  .hist-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px;}
-  .hist-stat{background:var(--surface);border:1px solid var(--border);border-radius:13px;padding:12px;text-align:center;}
-  .hist-stat-val{font-family:'Source Serif 4',Georgia,serif;font-size:24px;font-weight:600;color:var(--accent);line-height:1;display:inline-flex;align-items:center;gap:5px;}
-  .hist-stat-val svg{width:17px;height:17px;}
-  .hist-stat-lbl{font-size:11px;color:var(--text3);margin-top:4px;font-weight:500;}
-
-  .hist-section-label{font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:.5px;color:var(--text3);text-transform:uppercase;margin:18px 0 10px;}
-  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:12px;}
-  .cal-head{font-family:'Inter',sans-serif;font-size:10px;font-weight:600;letter-spacing:.4px;color:var(--text4);text-transform:uppercase;text-align:center;padding:4px 0 6px;}
-  .cal-cell{aspect-ratio:1;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--text3);font-weight:500;background:var(--surface2);border:1px solid transparent;position:relative;cursor:pointer;transition:all .12s;}
-  .cal-cell:hover{border-color:var(--border-strong);}
-  .cal-cell.today{border-color:var(--accent);font-weight:700;color:var(--accent);}
-  .cal-cell.completed{background:var(--success);color:#fff;font-weight:600;}
-  .cal-cell.partial{background:var(--accent-bg);color:var(--accent);font-weight:600;}
-  .cal-cell.empty{background:transparent;cursor:default;}
-  .cal-cell.empty:hover{border-color:transparent;}
-
-  .cal-legend{display:flex;gap:12px;margin-top:12px;justify-content:center;flex-wrap:wrap;}
-  .legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text3);}
-  .legend-dot{width:10px;height:10px;border-radius:3px;}
-
-  .modal-btn{width:100%;padding:12px;background:var(--accent);border:none;border-radius:11px;color:#fff;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;cursor:pointer;margin-top:10px;}
-  .modal-btn:hover{background:var(--accent-hover);}
-  .modal-btn.secondary{background:var(--surface);color:var(--text);border:1px solid var(--border);}
-  .modal-btn.secondary:hover{background:var(--surface2);}
-
-  .toast{position:fixed;bottom:88px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--text);color:#FAF9F5;padding:11px 18px;border-radius:13px;font-size:13.5px;font-weight:500;z-index:300;opacity:0;transition:all .25s cubic-bezier(.4,0,.2,1);box-shadow:var(--shadow-lg);max-width:90%;text-align:center;}
-  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
-
-  .motto{text-align:center;font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-size:12.5px;color:var(--text4);padding:18px 0 6px;}
-
-  .fade-in{animation:fadeIn .22s ease;}
-
-  ::-webkit-scrollbar{width:5px;}
-  ::-webkit-scrollbar-track{background:transparent;}
-  ::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:4px;}
+@media (max-width:380px){
+  .app{padding:14px 14px 80px}
+  h1{font-size:26px}
+  .card-title{font-size:22px}
+  .stat-val{font-size:20px}
+}
 </style>
+
 </head>
 <body>
-<div class="container">
+<div class="app">
+
+  <!-- HEADER -->
   <div class="header">
-    <div class="header-title">
-      <h1>Train <em>hard</em></h1>
-      <p id="dateDisplay"></p>
+    <div class="eyebrow">
+      <span class="dot"></span>
+      <span class="bracket">[</span><span>SYSTEM.ONLINE</span><span class="bracket">]</span>
+      <span class="id" id="todayDate">WED · MAY 20</span>
     </div>
-    <div class="header-actions">
-      <div class="streak-chip" onclick="openModal('historyModal')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3A2.5 2.5 0 0 0 8.5 14.5Z"/></svg>
-        <span id="streakNum">0</span>
-      </div>
-      <button class="icon-btn" onclick="openModal('historyModal')" title="ประวัติ">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-      </button>
+    <h1>TRAINING<br><span class="accent">PROTOCOL</span></h1>
+    <div class="tagline">V2.0 · BASKETBALL 3x3 → FRIDAY</div>
+  </div>
+
+  <!-- STREAK STRIP -->
+  <div class="streak-strip">
+    <div class="stat">
+      <div class="stat-val coral" id="streakNum">0</div>
+      <div class="stat-label">Streak</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val" id="weekDone">0/6</div>
+      <div class="stat-label">This Week</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val" id="totalDays">0</div>
+      <div class="stat-label">Total Days</div>
     </div>
   </div>
 
-  <div class="week-strip" id="weekStrip"></div>
-  <div class="stats-row">
-    <div class="stat-card"><div class="stat-val accent" id="statCompleted">0</div><div class="stat-lbl">สัปดาห์นี้</div></div>
-    <div class="stat-card"><div class="stat-val" id="statTotal">0</div><div class="stat-lbl">เซตทั้งหมด</div></div>
-    <div class="stat-card"><div class="stat-val" id="statDone">0</div><div class="stat-lbl">เสร็จแล้ว</div></div>
-  </div>
-
-  <div class="section-label" id="contentLabel">โปรแกรมวันนี้</div>
-  <div id="workoutContent" class="fade-in"></div>
-
-  <div class="motto">"Discipline is the bridge between goals and accomplishment."</div>
-</div>
-
-<!-- TIMER FAB -->
-<button class="timer-fab" onclick="toggleTimer()">
-  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="12" cy="13" r="8" stroke="#FAF9F5" stroke-width="2"/>
-    <path d="M12 9v4l2.5 2.5" stroke="#FAF9F5" stroke-width="2" stroke-linecap="round"/>
-    <path d="M9 2h6M12 2v3" stroke="#FAF9F5" stroke-width="2" stroke-linecap="round"/>
-  </svg>
-</button>
-
-<!-- TIMER PANEL -->
-<div class="timer-panel" id="timerPanel">
-  <div class="timer-tabs">
-    <button class="t-tab active" id="tabRest" onclick="switchTimerMode('rest')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h12M7 2v4a5 5 0 0 0 10 0V2M7 22v-4a5 5 0 0 1 10 0v4M6 22h12"/></svg>
-      พัก <span class="tab-dot"></span>
-    </button>
-    <button class="t-tab" id="tabWorkout" onclick="switchTimerMode('workout')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M9 2h6M12 2v3M10.5 11l3.5 2-3.5 2z" fill="currentColor"/></svg>
-      ออกกำลัง <span class="tab-dot"></span>
-    </button>
-  </div>
-
-  <!-- REST MODE (count down) -->
-  <div class="timer-mode active" id="modeRest">
-    <div class="timer-lbl">Rest Timer</div>
-    <div class="timer-display" id="timerDisplay">1:00</div>
-    <div class="timer-bar-wrap"><div class="timer-bar" id="timerBar"></div></div>
-    <div class="time-picker" id="timePicker">
-      <div class="tp-col">
-        <div class="tp-lbl">นาที</div>
-        <div class="tp-adj">
-          <button class="tp-btn" onclick="adjTime('m',-1)">−</button>
-          <div class="tp-val" id="tpMin">1</div>
-          <button class="tp-btn" onclick="adjTime('m',1)">+</button>
-        </div>
+  <!-- TIMER BAR (Stopwatch / Manual Timer) -->
+  <div class="session-bar" id="sessionBar">
+    <div class="mode-tabs">
+      <button class="mode-tab active" id="modeStopwatchBtn" onclick="switchMode('stopwatch')">STOPWATCH</button>
+      <button class="mode-tab" id="modeTimerBtn" onclick="switchMode('timer')">TIMER</button>
+    </div>
+    <div class="sw-row">
+      <div class="sw-left">
+        <div class="sw-label" id="swLabel">⌬ SESSION TIME</div>
+        <div class="sw-time" id="swTime">00:00</div>
       </div>
-      <div class="tp-sep">:</div>
-      <div class="tp-col">
-        <div class="tp-lbl">วินาที</div>
-        <div class="tp-adj">
-          <button class="tp-btn" onclick="adjTime('s',-5)">−</button>
-          <div class="tp-val" id="tpSec">00</div>
-          <button class="tp-btn" onclick="adjTime('s',5)">+</button>
-        </div>
+      <div class="sw-controls">
+        <button class="sw-btn primary" id="swPlayBtn" onclick="toggleActive()" aria-label="play/pause"></button>
+        <button class="sw-btn ghost" id="swResetBtn" onclick="resetActive()" aria-label="reset"></button>
       </div>
     </div>
     <div class="timer-presets" id="timerPresets">
-      <button class="preset-btn" id="pre30"  onclick="quickSet(30)">30s</button>
-      <button class="preset-btn" id="pre45"  onclick="quickSet(45)">45s</button>
-      <button class="preset-btn" id="pre60"  onclick="quickSet(60)">1m</button>
-      <button class="preset-btn" id="pre90"  onclick="quickSet(90)">1:30</button>
-      <button class="preset-btn" id="pre120" onclick="quickSet(120)">2m</button>
-    </div>
-    <div class="timer-controls">
-      <button class="t-btn start" id="timerStartBtn" onclick="startStopRest()">▶ เริ่ม</button>
-      <button class="t-btn reset" onclick="resetRest()">↺</button>
+      <button class="preset-btn" data-sec="30" onclick="setTimerDuration(30)">30s</button>
+      <button class="preset-btn" data-sec="60" onclick="setTimerDuration(60)">1m</button>
+      <button class="preset-btn" data-sec="90" onclick="setTimerDuration(90)">1m30s</button>
+      <button class="preset-btn" data-sec="120" onclick="setTimerDuration(120)">2m</button>
+      <button class="preset-btn" data-sec="180" onclick="setTimerDuration(180)">3m</button>
+      <button class="preset-btn" data-sec="300" onclick="setTimerDuration(300)">5m</button>
     </div>
   </div>
 
-  <!-- WORKOUT MODE (count up / stopwatch) -->
-  <div class="timer-mode" id="modeWorkout">
-    <div class="timer-lbl">Workout Stopwatch</div>
-    <div class="timer-display" id="workoutDisplay">0:00</div>
-    <div class="workout-sub">นับเวลาออกกำลังทั้งหมด</div>
-    <div class="timer-controls">
-      <button class="t-btn start" id="workoutStartBtn" onclick="startStopWorkout()">▶ เริ่ม</button>
-      <button class="t-btn reset" onclick="resetWorkout()">↺</button>
-    </div>
-  </div>
-</div>
+  <!-- DAY TABS -->
+  <div class="day-tabs" id="dayTabs"></div>
 
-<!-- HISTORY MODAL -->
-<div class="modal-backdrop" id="historyModal" onclick="if(event.target===this)closeModal('historyModal')">
-  <div class="modal">
-    <div class="modal-header">
-      <h2>ประวัติการฝึก</h2>
-      <div class="modal-close" onclick="closeModal('historyModal')">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-      </div>
-    </div>
-    <div class="modal-body" id="historyBody"></div>
-  </div>
+  <!-- CONTENT -->
+  <div id="content"></div>
+
+  <div class="footer">// BUILT FOR <span class="heart">NINE</span> //</div>
 </div>
 
 <div class="toast" id="toast"></div>
 
 <script>
-// ════════════════════════════════════════════════════
-// SVG ICON LIBRARY — minimal, consistent stroke style
-// ════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════════
+// ICONS (inline SVG)
+// ════════════════════════════════════════════════════════════
 const ICONS = {
-  // Day icons (thematic)
-  moon:       '<path d="M20.5 14.5A9 9 0 1 1 9.5 3.5a7 7 0 0 0 11 11Z"/>',
-  kettlebell: '<path d="M10 5V4a2 2 0 0 1 4 0v1"/><path d="M8.8 5.5h6.4l.6 2.2A5.5 5.5 0 1 1 8.2 7.7Z"/>',
-  dumbbell:   '<path d="M4 10v4M6.5 8v8M8 12h8M17.5 8v8M20 10v4"/>',
-  basketball: '<circle cx="12" cy="12" r="9"/><path d="M3.2 12h17.6"/><path d="M5.5 5.5c3.5 3.5 3.5 9.5 0 13"/><path d="M18.5 5.5c-3.5 3.5-3.5 9.5 0 13"/>',
-  leaf:       '<path d="M17 4c-7 0-12 5-12 12a4 4 0 0 0 8 0c0-6 2-10 4-12Z"/><path d="M5 19l8-8"/>',
-  bolt:       '<path d="M13 2L4 14h7l-2 8 9-12h-7z"/>',
-  barbell:    '<path d="M3 9v6M5.5 7v10M8 10v4M16 10v4M18.5 7v10M21 9v6M8 12h8"/>',
-
-  // UI icons
-  flame:      '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3A2.5 2.5 0 0 0 8.5 14.5Z"/>',
-  clock:      '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
-  check:      '<path d="M5 12l5 5L20 7"/>',
+  kettlebell: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 6.5 a3.5 3.5 0 0 1 7 0"/><path d="M6 13 c0-3.3 2.7-6 6-6 s6 2.7 6 6 c0 1.6-.6 3.1-1.6 4.2 H7.6 C6.6 16.1 6 14.6 6 13z"/><path d="M5 19 h14"/></svg>',
+  dumbbell: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="3" height="6" rx="1"/><rect x="18" y="9" width="3" height="6" rx="1"/><rect x="6" y="10.5" width="2" height="3" rx=".5"/><rect x="16" y="10.5" width="2" height="3" rx=".5"/><line x1="8" y1="12" x2="16" y2="12"/></svg>',
+  basketball: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12 H21"/><path d="M12 3 V21"/><path d="M5.5 5.5 Q12 12 18.5 5.5"/><path d="M5.5 18.5 Q12 12 18.5 18.5"/></svg>',
+  leaf: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3 c-4 0-8 1-11 4 s-4 7-4 11 c4 0 8-1 11-4 s4-7 4-11z"/><path d="M6 18 L12 12"/></svg>',
+  bolt: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3 L4 14 H11 L10 21 L19 10 H12 L13 3z"/></svg>',
+  barbell: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="2" y1="12" x2="22" y2="12"/><rect x="3" y="8" width="2.5" height="8" rx=".5"/><rect x="18.5" y="8" width="2.5" height="8" rx=".5"/><rect x="6" y="10" width="2" height="4" rx=".5"/><rect x="16" y="10" width="2" height="4" rx=".5"/></svg>',
+  moon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14 A8 8 0 1 1 10 4 a6 6 0 0 0 10 10z"/></svg>',
+  clock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>',
+  flame: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 c1 4 6 6 6 12 a6 6 0 0 1-12 0 c0-3 2-4 3-7 c2 2 2 5 0 6 c2 0 4-2 3-11z"/></svg>',
+  hourglass: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3 H18 M6 21 H18 M7 3 V8 L12 12 L17 8 V3 M7 21 V16 L12 12 L17 16 V21"/></svg>',
+  play: '<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20"/></svg>',
+  pause: '<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>',
+  reset: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 a9 9 0 1 0 3-6.7"/><polyline points="3 4 3 9 8 9"/></svg>',
 };
+function ic(key){return ICONS[key]||''}
 
-// Day → icon key map (by day number 0–6)
-const DAY_ICONS = ["moon","kettlebell","dumbbell","basketball","leaf","bolt","barbell"];
-
-function svgIcon(key, opts){
-  const path = ICONS[key]; if(!path) return '';
-  const fill = (opts&&opts.fill) ? 'currentColor' : 'none';
-  return `<svg viewBox="0 0 24 24" fill="${fill}" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${path}</svg>`;
-}
-
+// ════════════════════════════════════════════════════════════
+// SCHEDULE — Version 2 (Basketball moved to Friday)
+// ════════════════════════════════════════════════════════════
 const DAYS_SHORT = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-const DAYS_FULL  = ["อาทิตย์","จันทร์","อังคาร","พุธ","พฤหัสฯ","ศุกร์","เสาร์"];
+const DAYS_FULL = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
-function restLabel(s){
-  if(!s) return {text:"ไม่มีพัก", cls:"none"};
-  if(s>=90) return {text:`พัก ${s} วิ`, cls:"long"};
-  return {text:`พัก ${s} วิ`, cls:"short"};
-}
-
-// ════════════════════════════════════════════════════
-// SCHEDULE DATA
-// ════════════════════════════════════════════════════
-const S = {
-  1:{name:"ขา + Core",icon:"kettlebell",level:"medium",levelText:"กลาง",duration:"40 นาที",focus:"พลังขา · ระเบิดพลัง",
+const SCHEDULE = {
+  1:{
+    name:"Legs + Core", icon:"kettlebell",
+    levelText:"Medium", duration:"40 min",
+    focus:"Leg power · Explosive · Week kickoff",
+    accent:"#f8d8b8", accentDark:"#c47a3d",
+    rationale:"First day of the week — legs are fresh, train hard. Been 2 days since last basketball session.",
     phases:[
-      {label:"Warm-up",exercises:[
-        {name:"เชือกกระโดด Warm-up",sets:1,reps:"3 นาที",note:"จังหวะสม่ำเสมอ",rest:0},
+      {label:"WARM-UP", exercises:[
+        {name:"Jump Rope", sets:1, reps:"3 min", note:"Steady rhythm"},
       ]},
-      {label:"Main",exercises:[
-        {name:"Bodyweight Squat",      sets:3,reps:"15 ครั้ง", note:"ลงช้า 3 วิ ขึ้นเร็ว",         rest:60},
-        {name:"DB Step-up onto Bench", sets:3,reps:"10/ข้าง",  note:"ก้าวขึ้นควบคุม",              rest:60},
-        {name:"Jump Squat",            sets:3,reps:"8 ครั้ง",  note:"ลง Half-squat → กระโดดสุด",  rest:90},
-        {name:"Barbell / Goblet Squat",sets:3,reps:"12 ครั้ง", note:"60–65% 1RM",                  rest:90},
-        {name:"Plank",                 sets:3,reps:"40 วินาที",note:"สะโพกไม่ตก",                  rest:45},
-        {name:"Dead Bug",              sets:3,reps:"8/ข้าง",   note:"หลังติดพื้น",                 rest:45},
+      {label:"MAIN", exercises:[
+        {name:"Bodyweight Squat", sets:3, reps:"15 reps", note:"Down slow 3s, up fast", rest:60},
+        {name:"DB Step-up onto Bench", sets:3, reps:"10/side", note:"Step up with control", rest:60},
+        {name:"Jump Squat", sets:3, reps:"8 reps", note:"Half-squat → jump max", rest:75},
+        {name:"Goblet Squat", sets:3, reps:"12 reps", note:"DB at chest · go deep · back straight", rest:90},
+        {name:"Plank", sets:3, reps:"40 sec", note:"Hips don't drop", rest:45},
+        {name:"Dead Bug", sets:3, reps:"8/side", note:"Lower back on the floor", rest:45},
       ]},
-      {label:"Cool-down",exercises:[
-        {name:"เชือกกระโดด Cool-down",    sets:1,reps:"2 นาที",note:"ช้าลงเรื่อยๆ", rest:0},
-        {name:"Foam Roller — น่อง + Quad",sets:1,reps:"5 นาที",note:"กลิ้งช้าๆ",    rest:0},
+      {label:"COOL-DOWN", exercises:[
+        {name:"Jump Rope (slow)", sets:1, reps:"2 min", note:"Slow down gradually"},
+        {name:"Foam Roller — Calves + Quads", sets:1, reps:"5 min", note:"Roll slowly"},
       ]},
     ]
   },
-  2:{name:"ท่อนบน เบา",icon:"dumbbell",level:"light",levelText:"เบา",duration:"35 นาที",focus:"ไหล่ · อก · หลัง",
+  2:{
+    name:"Upper Body Light", icon:"dumbbell",
+    levelText:"Light", duration:"35 min",
+    focus:"Shoulders · Chest · Back · Leg recovery",
+    accent:"#e8e4c8", accentDark:"#7a7339",
+    rationale:"Recover legs from Monday — focus on upper body. Light load to prep for tomorrow.",
     phases:[
-      {label:"Warm-up",exercises:[
-        {name:"เชือกกระโดด Warm-up",sets:1,reps:"2 นาที",note:"เบาๆ เตรียมข้อต่อ",rest:0},
+      {label:"WARM-UP", exercises:[
+        {name:"Jump Rope (light)", sets:1, reps:"2 min", note:"Warm up joints"},
       ]},
-      {label:"Main",exercises:[
-        {name:"Push-up Board — Wide Grip",sets:3,reps:"10 ครั้ง",note:"ควบคุม ไม่เร็ว",       rest:60},
-        {name:"DB One-Arm Row",           sets:3,reps:"10/ข้าง", note:"วางเข่าบนม้านั่ง",     rest:60},
-        {name:"DB Shoulder Press (เบา)",  sets:3,reps:"12 ครั้ง",note:"เบากว่าปกติ 20%",     rest:60},
-        {name:"DB Lateral Raise",         sets:3,reps:"12 ครั้ง",note:"ยกช้า 2 วิ ลงช้า 2 วิ",rest:45},
-        {name:"Push-up Board — Triceps",  sets:2,reps:"10 ครั้ง",note:"เสริม Elbow Lock",     rest:45},
+      {label:"MAIN", exercises:[
+        {name:"Push-up Board — Wide Grip", sets:3, reps:"10 reps", note:"Controlled, not fast", rest:60},
+        {name:"DB One-Arm Row", sets:3, reps:"10/side", note:"Knee on bench", rest:60},
+        {name:"DB Shoulder Press (light)", sets:3, reps:"12 reps", note:"20% lighter than usual", rest:60},
+        {name:"DB Lateral Raise", sets:3, reps:"12 reps", note:"Up slow 2s, down slow 2s", rest:45},
+        {name:"Push-up Board — Triceps", sets:2, reps:"10 reps", note:"Focus on elbow lock", rest:45},
       ]},
-      {label:"Cool-down",exercises:[
-        {name:"Wrist Circles + Finger Stretch",sets:1,reps:"3 นาที",note:"สำคัญมากก่อนบาส",       rest:0},
-        {name:"Foam Roller — ไหล่ + หลัง",    sets:1,reps:"5 นาที",note:"เตรียมร่างกายก่อนพุธ",  rest:0},
+      {label:"COOL-DOWN", exercises:[
+        {name:"Wrist Circles + Finger Stretch", sets:1, reps:"3 min", note:"Loosen wrists"},
+        {name:"Foam Roller — Shoulders + Back", sets:1, reps:"5 min", note:""},
       ]},
     ]
   },
-  3:{name:"บาสเก็ตบอล 3x3",icon:"basketball",level:"basketball",levelText:"Game Day",duration:"15 นาที + เกม",focus:"Warm-up → Game Day",
+  3:{
+    name:"Active Recovery", icon:"leaf",
+    levelText:"Very Light", duration:"15-20 min",
+    focus:"Recovery · Between school duty shifts",
+    accent:"#dde8d0", accentDark:"#6b8a4e",
+    rationale:"Duty day — keep it light. Do during break or before/after shift. Focus on mobility and tissue release.",
     phases:[
-      {label:"Pre-Game Warm-up",exercises:[
-        {name:"Hip Circle + Leg Swing",    sets:1,  reps:"2 นาที",  note:"คลายข้อสะโพกและเข่า",  rest:0},
-        {name:"Ankle Mobility (Wall Drill)",sets:1,  reps:"10/ข้าง", note:"สำคัญมากก่อนกระโดด",  rest:0},
-        {name:"Lateral Shuffle เบาๆ",      sets:1,  reps:"2 นาที",  note:"Defensive Stance",      rest:0},
-        {name:"Layup / Shooting Warm-up",  sets:1,  reps:"5 นาที",  note:"ยิงง่ายๆ ก่อนเกม",     rest:0},
+      {label:"MOBILITY", exercises:[
+        {name:"Cat-Cow Stretch", sets:1, reps:"10 reps", note:"Slow, deep breaths"},
+        {name:"Standing Hip Circle", sets:1, reps:"10/direction", note:"Both sides"},
+        {name:"Ankle Circle + Calf Stretch", sets:1, reps:"2 min", note:"Critical for Friday basketball"},
+        {name:"Shoulder Roll + Arm Circle", sets:1, reps:"2 min", note:"Relieve desk-bound tension"},
       ]},
-      {label:"Game",exercises:[
-        {name:"เกม 3x3",sets:"—",reps:"เต็มเกม",note:"มุ่งมั่น อ่านเกม สนุก!",rest:0},
-      ]},
-      {label:"Post-Game",exercises:[
-        {name:"Foam Roller — ทั้งตัว",   sets:1,reps:"10 นาที",note:"หลังเกมสำคัญมาก", rest:0},
-        {name:"Static Stretch ขา/สะโพก",sets:1,reps:"5 นาที", note:"ยืดค้าง 45 วิ",   rest:0},
+      {label:"RECOVERY", exercises:[
+        {name:"Foam Roller — Full Body", sets:1, reps:"8-10 min", note:"Focus on quads · ITB · shoulders"},
+        {name:"Massage Gun — Calves + Quads", sets:1, reps:"5 min", note:"Use Philips · prime legs for Friday"},
+        {name:"Deep Breathing", sets:1, reps:"2 min", note:"4-7-8 breath · destress"},
       ]},
     ]
   },
-  4:{name:"Active Recovery",icon:"leaf",level:"light",levelText:"เบา",duration:"30 นาที",focus:"Foam Roller · Stretch",
+  4:{
+    name:"Upper + Core", icon:"bolt",
+    levelText:"Medium", duration:"35 min",
+    focus:"Arms · Back · Core · Save legs for tomorrow",
+    accent:"#f4d3cb", accentDark:"#b54e3a",
+    rationale:"One day before basketball — no heavy legs. Moderate upper body work + core to stabilize layups.",
     phases:[
-      {label:"Recovery",exercises:[
-        {name:"เดินเร็ว / เชือกกระโดดเบา",     sets:1,reps:"5 นาที",    note:"เพิ่มเลือดไหลเวียน",  rest:0},
-        {name:"Foam Roller — น่อง + IT Band", sets:1,reps:"5 นาที",    note:"จุดที่ปวดหลังบาส",   rest:0},
-        {name:"Foam Roller — Quad + Glute",   sets:1,reps:"5 นาที",    note:"ค้างนิ่ง 5–10 วิ",   rest:0},
-        {name:"Hip Flexor Stretch (Lunge)",    sets:2,reps:"45 วิ/ข้าง",note:"ยืดกล้ามเนื้อหน้าขา",rest:30},
-        {name:"Hamstring Stretch",             sets:2,reps:"45 วิ/ข้าง",note:"นอนหรือยืนก้มแตะ",   rest:30},
-        {name:"Thoracic Rotation",             sets:2,reps:"10/ข้าง",   note:"นอนตะแคง หมุนลำตัว", rest:30},
-        {name:"Child's Pose + Cat-Cow",        sets:1,reps:"3 นาที",    note:"ปลดล็อกหลังล่าง",    rest:0},
+      {label:"WARM-UP", exercises:[
+        {name:"Arm Circle + Jumping Jack", sets:1, reps:"3 min", note:"Easy, prime the heart"},
+      ]},
+      {label:"MAIN", exercises:[
+        {name:"DB Bench Press", sets:3, reps:"10 reps", note:"Moderate, controlled", rest:75},
+        {name:"DB Bent-Over Row", sets:3, reps:"10 reps", note:"Hips back · back parallel to floor", rest:75},
+        {name:"DB Shoulder Press", sets:3, reps:"10 reps", note:"Standing, core tight", rest:60},
+        {name:"Push-up Board — Diamond", sets:3, reps:"8-10 reps", note:"Triceps focus", rest:60},
+        {name:"V-up", sets:3, reps:"10 reps", note:"Core · target lower abs · legs straight", rest:45},
+        {name:"Russian Twist (light DB)", sets:3, reps:"15 reps", note:"Rotate whole torso, not just arms", rest:45},
+      ]},
+      {label:"COOL-DOWN", exercises:[
+        {name:"Hip Flexor Stretch", sets:1, reps:"30s/side", note:"Critical for basketball players"},
+        {name:"Foam Roller — Upper Back", sets:1, reps:"3 min", note:"Loosen shoulders before tomorrow"},
       ]},
     ]
   },
-  5:{name:"Full Body",icon:"bolt",level:"full",levelText:"กลาง",duration:"45 นาที",focus:"Compound · HIIT",
+  5:{
+    name:"Basketball 3x3", icon:"basketball",
+    levelText:"Game Day", duration:"15 min + game",
+    focus:"Warm-up → Game Day",
+    accent:"#ffd9b8", accentDark:"#c44e1c",
+    rationale:"Game day! Full warm-up before stepping on court. Open hips · ankles · and dial in shooting.",
     phases:[
-      {label:"Warm-up",exercises:[
-        {name:"เชือกกระโดด Warm-up",sets:1,reps:"3 นาที",note:"จังหวะกลาง",rest:0},
+      {label:"PRE-GAME WARM-UP", exercises:[
+        {name:"Hip Circle + Leg Swing", sets:1, reps:"2 min", note:"Loosen hips and knees"},
+        {name:"Ankle Mobility (Wall Drill)", sets:1, reps:"10/side", note:"Critical before jumping"},
+        {name:"Lateral Shuffle (light)", sets:1, reps:"2 min", note:"Defensive stance"},
+        {name:"Layup / Shooting Warm-up", sets:1, reps:"5 min", note:"Easy shots before tip-off"},
       ]},
-      {label:"Main",exercises:[
-        {name:"Barbell Romanian Deadlift",sets:3,reps:"10 ครั้ง",  note:"เน้น Hamstring/Glute",    rest:90},
-        {name:"DB Incline Bench Press",   sets:3,reps:"10 ครั้ง",  note:"Incline 30–45°",          rest:90},
-        {name:"DB Walking Lunge",         sets:3,reps:"10/ข้าง",   note:"ก้าวเดิน",               rest:60},
-        {name:"Push-up Board Max (70%)",  sets:3,reps:"ไม่จนล้า",  note:"หยุดก่อนฟอร์มพัง",       rest:60},
-        {name:"Ab Wheel / Plank",         sets:3,reps:"10 / 40วิ", note:"เลือกตาม level",          rest:45},
+      {label:"GAME", exercises:[
+        {name:"🏀 3x3 Game", sets:1, reps:"Full game", note:"Focus · read the game · have fun!"},
       ]},
-      {label:"Finisher",exercises:[
-        {name:"เชือกกระโดด HIIT",    sets:4,reps:"30วิออน / 30วิพัก",note:"เร็วสุดใน 30 วิ", rest:30},
-        {name:"Foam Roller — ทั้งตัว",sets:1,reps:"5 นาที",          note:"ก่อนวันเสาร์",    rest:0},
+      {label:"POST-GAME COOL-DOWN", exercises:[
+        {name:"Slow Walk + Deep Breathing", sets:1, reps:"3 min", note:"Bring heart rate down"},
+        {name:"Static Stretch — Legs + Hips", sets:1, reps:"5 min", note:"Hold each pose 30s"},
+        {name:"Massage Gun — Calves", sets:1, reps:"3 min", note:"Reduce post-game inflammation"},
       ]},
     ]
   },
-  6:{name:"ขา + ทักษะบาส",icon:"barbell",level:"medium",levelText:"กลาง",duration:"40 นาที",focus:"Deadlift · Agility · Footwork",
+  6:{
+    name:"Legs + Basketball Skills", icon:"barbell",
+    levelText:"Heavy", duration:"50 min",
+    focus:"Max leg work · Final skill session",
+    accent:"#e8d4a8", accentDark:"#8a6a28",
+    rationale:"Day after basketball — body's still warm. Heavy leg work, then end the week with skill drills.",
     phases:[
-      {label:"Warm-up",exercises:[
-        {name:"เชือกกระโดด Single + Double",sets:1,reps:"4 นาที",note:"ฝึก Timing",rest:0},
+      {label:"WARM-UP", exercises:[
+        {name:"Jump Rope", sets:1, reps:"3 min", note:""},
+        {name:"Dynamic Stretch", sets:1, reps:"3 min", note:"Open hips and joints"},
       ]},
-      {label:"Strength",exercises:[
-        {name:"Barbell / DB Deadlift (กลาง)",sets:3,reps:"8 ครั้ง", note:"65–70% 1RM",             rest:90},
-        {name:"DB Reverse Lunge",            sets:3,reps:"10/ข้าง",note:"ก้าวถอยหลัง ป้องกันเข่า",rest:60},
+      {label:"STRENGTH", exercises:[
+        {name:"DB Front Squat", sets:4, reps:"8 reps", note:"DB at shoulders · elbows forward · go deep", rest:120},
+        {name:"DB Bulgarian Split Squat", sets:3, reps:"10/side", note:"Rear foot on bench", rest:75},
+        {name:"DB RDL (Romanian Deadlift)", sets:3, reps:"10 reps", note:"Hinge at hips · back straight", rest:90},
+        {name:"Calf Raise", sets:4, reps:"15 reps", note:"Pause 1s at top", rest:45},
       ]},
-      {label:"Basketball Skills",exercises:[
-        {name:"Defensive Slide Drill",             sets:3,reps:"30 วินาที",note:"Athletic Stance เลื่อนซ้าย-ขวา",rest:30},
-        {name:"Shadow Dribble + Direction Change",  sets:3,reps:"60 วินาที",note:"จินตนาการคู่ต่อสู้",           rest:30},
-        {name:"Shooting Form (Wall)",               sets:3,reps:"10 ครั้ง", note:"โฟกัส Follow-through",         rest:30},
+      {label:"SKILL DRILL", exercises:[
+        {name:"Form Shooting (close range)", sets:1, reps:"10 min", note:"Focus on wrist and release"},
+        {name:"Ball Handling Drill", sets:1, reps:"5 min", note:"Crossover · between legs"},
       ]},
-      {label:"Cool-down",exercises:[
-        {name:"เชือกกระโดดปิดท้าย",     sets:2,reps:"1 นาที",note:"เร็วปานกลาง",     rest:30},
-        {name:"Foam Roller + Stretch ยาว",sets:1,reps:"8 นาที",note:"ยืดทุกกล้ามที่ใช้",rest:0},
+      {label:"COOL-DOWN", exercises:[
+        {name:"Foam Roller — Full Legs", sets:1, reps:"8 min", note:"Roll deep · prep for Sunday rest"},
       ]},
     ]
   },
-  0:{name:"Active Rest",icon:"moon",level:"rest",levelText:"เบามาก",duration:"20 นาที",focus:"เดินเร็ว · ยืดเบาๆ",isRest:true,
-    phases:[
-      {label:"Active Rest",exercises:[
-        {name:"เดินเร็ว",         sets:1,reps:"10–15 นาที",note:"ออกไปข้างนอกถ้าได้",      rest:0},
-        {name:"Full Body Stretch",sets:1,reps:"10 นาที",   note:"ยืดทุกส่วน ค้าง 30–45 วิ",rest:0},
-        {name:"Foam Roller เบาๆ", sets:1,reps:"5 นาที",   note:"จุดที่รู้สึกตึง",          rest:0},
-      ]},
-    ]
-  },
+  0:{
+    name:"Rest", icon:"moon",
+    levelText:"Full Rest", duration:"—",
+    focus:"Recovery · Restoration · Prep for next week",
+    accent:"#d8d3c5", accentDark:"#5a4631",
+    rationale:"",
+    isRest:true,
+  }
 };
 
-// ════════════════════════════════════════════════════
+// Map JS day-of-week (0=Sun) to schedule key
+// Schedule keys: 1=Mon ... 6=Sat, 0=Sun
+function dayKeyFromJsDay(jsDay){return jsDay} // already aligned (Sun=0)
+
+// ════════════════════════════════════════════════════════════
 // STATE
-// ════════════════════════════════════════════════════
-let selectedDay = new Date().getDay();
-let completedDays = JSON.parse(localStorage.getItem('cd5') || '{}');
-let setsDone = {};
-let activeRests = {};
+// ════════════════════════════════════════════════════════════
+const STORAGE_KEY = "workout_v2_state";
+let state = loadState();
+let activeDay = (new Date()).getDay(); // today
+let activeTimer = null; // {key, interval, remaining, total}
 
-function setsKey(day){ return 'sets_' + day; }
-function loadSets(day){ return JSON.parse(localStorage.getItem(setsKey(day)) || '{}'); }
-function saveSets(day, obj){ localStorage.setItem(setsKey(day), JSON.stringify(obj)); }
-
-// ─── HELPERS ─────────────────────────────────────────────────
-function totalSets(day){
-  let t=0;
-  S[day].phases.forEach(ph=>ph.exercises.forEach(ex=>{
-    t += (ex.sets==="—"||ex.sets===1) ? 1 : ex.sets;
-  }));
-  return t;
-}
-function doneSets(day){ return Object.values(setsDone).filter(v=>v).length; }
-function dateKey(day){
-  const t=new Date(), d=new Date(t);
-  d.setDate(d.getDate() + (day - t.getDay()));
-  return d.toISOString().split('T')[0] + '_' + day;
-}
-function dateKeyFromDate(date, day){
-  return date.toISOString().split('T')[0] + '_' + day;
-}
-function checkSVG(){
-  return `<svg width="11" height="9" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-}
-
-// ─── STREAK CALCULATION ──────────────────────────────────────
-// Counts consecutive days backward from today where:
-//   - day is completed, OR
-//   - day is Sunday (auto-rest day, doesn't break streak)
-function calcStreak(){
-  let streak = 0;
-  const today = new Date();
-  for(let i=0; i<365; i++){
-    const d = new Date(today);
-    d.setDate(d.getDate() - i);
-    const day = d.getDay();
-    const k = dateKeyFromDate(d, day);
-    if(completedDays[k]){
-      streak++;
-    } else if(day === 0){
-      // Sunday rest day - doesn't break streak but doesn't add
-      // (skip, continue checking yesterday)
-      continue;
-    } else {
-      break;
-    }
+function loadState(){
+  try{
+    const s = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+    return {
+      sets: s.sets || {},          // key: dayKey_phaseIdx_exIdx_setIdx -> bool
+      completed: s.completed || {}, // dateKey -> true
+      ...s
+    };
+  }catch(e){
+    return {sets:{}, completed:{}};
   }
-  return streak;
+}
+function saveState(){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
 }
 
-// ─── INIT ─────────────────────────────────────────────────────
-function init(){
+function dateKey(d){
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+}
+function todayKey(){return dateKey(new Date())}
+
+// ════════════════════════════════════════════════════════════
+// PRE-MARK Monday & Tuesday as done (current week, since user already did them)
+// ════════════════════════════════════════════════════════════
+function preMarkThisWeek(){
+  const today = new Date();
+  const jsDay = today.getDay(); // 0=Sun
+  // Find this week's Monday and Tuesday
+  // Mon offset from today: 1 - jsDay (if jsDay==0 (Sun), Mon was 6 days ago, but we want THIS week)
+  // Use ISO week: Mon=1...Sun=7. We treat Mon as start of week.
+  let daysSinceMon = (jsDay === 0) ? 6 : jsDay - 1;
+  const mon = new Date(today); mon.setDate(today.getDate() - daysSinceMon);
+  const tue = new Date(today); tue.setDate(today.getDate() - daysSinceMon + 1);
+  // Only mark if not already marked AND if those days have passed (or are today)
+  const monK = dateKey(mon);
+  const tueK = dateKey(tue);
+  if(!state.completed[monK] && mon <= today){
+    state.completed[monK] = true;
+    state._preMarked = state._preMarked || {};
+    state._preMarked[monK] = true;
+  }
+  if(!state.completed[tueK] && tue <= today){
+    state.completed[tueK] = true;
+    state._preMarked = state._preMarked || {};
+    state._preMarked[tueK] = true;
+  }
+  saveState();
+}
+
+// Run pre-mark once per install
+if(!state._preMarkedInit){
+  preMarkThisWeek();
+  state._preMarkedInit = true;
+  saveState();
+}
+
+// ════════════════════════════════════════════════════════════
+// RENDER
+// ════════════════════════════════════════════════════════════
+const THAI_MONTHS = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
+
+function renderHeader(){
   const t = new Date();
-  document.getElementById('dateDisplay').textContent =
-    t.toLocaleDateString('th-TH',{weekday:'long',day:'numeric',month:'long'});
-  renderStrip();
-  selectDay(selectedDay);
-  updateStreakDisplay();
+  const txt = `${DAYS_FULL[t.getDay()].toUpperCase()} · ${THAI_MONTHS[t.getMonth()]} ${t.getDate()}`;
+  document.getElementById('todayDate').textContent = txt;
 }
 
-function updateStreakDisplay(){
-  document.getElementById('streakNum').textContent = calcStreak();
+function dateForDayOfWeek(jsDay){
+  // Returns Date object for the given jsDay (0=Sun..6=Sat) in current week (Mon-start week)
+  const today = new Date();
+  const tdJsDay = today.getDay();
+  let daysSinceMon = (tdJsDay === 0) ? 6 : tdJsDay - 1;
+  const mon = new Date(today); mon.setDate(today.getDate() - daysSinceMon);
+  const offset = (jsDay === 0) ? 6 : jsDay - 1; // days from Monday
+  const d = new Date(mon); d.setDate(mon.getDate() + offset);
+  return d;
 }
 
-function renderStrip(){
-  const strip = document.getElementById('weekStrip'), today = new Date().getDay();
-  const t = new Date();
-  strip.innerHTML = '';
-  [1,2,3,4,5,6,0].forEach(d=>{
-    const p = S[d], btn = document.createElement('div');
-    const dDate = new Date(t);
-    dDate.setDate(dDate.getDate() + (d - today));
-    const isCompleted = !!completedDays[dateKeyFromDate(dDate, d)];
-
-    let cls = 'day-btn';
-    if(d===today) cls += ' today';
-    if(d===selectedDay) cls += ' active';
-    if(isCompleted) cls += ' completed';
-
-    btn.className = cls;
-    btn.onclick = ()=>selectDay(d);
-    btn.innerHTML = `
-      <div class="day-name">${DAYS_SHORT[d]}</div>
-      <div class="day-icon">${svgIcon(DAY_ICONS[d])}</div>
-      <div class="day-level lvl-${p.level}"></div>`;
-    strip.appendChild(btn);
+function renderTabs(){
+  const container = document.getElementById('dayTabs');
+  container.innerHTML = '';
+  const today = new Date();
+  const todayJsDay = today.getDay();
+  // Display order: Mon, Tue, Wed, Thu, Fri, Sat, Sun
+  const order = [1,2,3,4,5,6,0];
+  order.forEach(jsDay => {
+    const plan = SCHEDULE[jsDay];
+    const d = dateForDayOfWeek(jsDay);
+    const isToday = jsDay === todayJsDay;
+    const isActive = jsDay === activeDay;
+    const dk = dateKey(d);
+    const isCompleted = !!state.completed[dk];
+    const tab = document.createElement('button');
+    tab.className = `day-tab ${isActive?'active':''} ${isToday?'today':''} ${isCompleted?'completed':''}`;
+    tab.innerHTML = `
+      <div class="dn">${DAYS_SHORT[jsDay]}</div>
+      <div class="dnum">${d.getDate()}</div>
+      <div class="ico">${ic(plan.icon)}</div>
+      <div class="check-dot"></div>
+    `;
+    tab.onclick = () => { activeDay = jsDay; renderTabs(); renderContent(); };
+    container.appendChild(tab);
   });
 }
 
-function selectDay(day){
-  Object.values(activeRests).forEach(r=>clearInterval(r.interval));
-  activeRests = {};
-  selectedDay = day;
-  setsDone = loadSets(day);
-  renderStrip();
-  renderWorkout(day);
+function renderStreakStrip(){
+  // Streak: consecutive days ending today (or yesterday if today not done)
+  let streak = 0;
+  const today = new Date();
+  let d = new Date(today);
+  // Don't break streak if today isn't done yet — look back from yesterday
+  if(!state.completed[dateKey(d)]) d.setDate(d.getDate()-1);
+  while(state.completed[dateKey(d)]){
+    streak++;
+    d.setDate(d.getDate()-1);
+  }
+  document.getElementById('streakNum').textContent = streak;
+
+  // This week's done count (Mon-Sun), exclude Sunday rest day from denominator
+  const todayJsDay = today.getDay();
+  let daysSinceMon = (todayJsDay === 0) ? 6 : todayJsDay - 1;
+  const mon = new Date(today); mon.setDate(today.getDate() - daysSinceMon);
+  let weekDone = 0;
+  for(let i=0;i<7;i++){
+    const wd = new Date(mon); wd.setDate(mon.getDate()+i);
+    if(state.completed[dateKey(wd)]) weekDone++;
+  }
+  document.getElementById('weekDone').textContent = `${weekDone}/6`;
+
+  // Total
+  document.getElementById('totalDays').textContent = Object.keys(state.completed).length;
 }
 
-// ─── RENDER WORKOUT ────────────────────────────────────────────
-function renderWorkout(day){
-  const plan = S[day], content = document.getElementById('workoutContent');
-  content.className = 'fade-in';
-  document.getElementById('contentLabel').textContent = 'โปรแกรมวัน' + DAYS_FULL[day];
+function renderContent(){
+  const plan = SCHEDULE[activeDay];
+  const d = dateForDayOfWeek(activeDay);
+  const dk = dateKey(d);
+  const isDone = !!state.completed[dk];
+  const isToday = activeDay === (new Date()).getDay();
+  const container = document.getElementById('content');
 
   if(plan.isRest){
-    content.innerHTML = `
-      <div class="rest-card">
-        <div class="rest-icon">${svgIcon('moon')}</div>
-        <h2>วัน<em>พักผ่อน</em></h2>
-        <p>เดิน ยืดเบาๆ ให้ร่างกายฟื้นฟู<br>พักผ่อนให้เพียงพอก่อนสัปดาห์ใหม่</p>
-      </div>`;
-    updateStats(day); return;
+    container.innerHTML = `
+      <div class="card">
+        <div class="card-head" style="--accent:${plan.accent};--accent-dark:${plan.accentDark}">
+          <div class="card-icon-big">${ic(plan.icon)}</div>
+          <div class="card-day-label">${DAYS_FULL[activeDay].toUpperCase()} · ${THAI_MONTHS[d.getMonth()]} ${d.getDate()}</div>
+          <div class="card-title">${plan.name}</div>
+          <div class="card-focus">${plan.focus}</div>
+        </div>
+        <div class="rest-day">
+          <div class="moon">⌬ OFFLINE ⌬</div>
+          <h3 >SLEEP.MODE</h3>
+          <p>Body needs rest to rebuild muscle · Sleep early · Hydrate well · System returns ONLINE tomorrow</p>
+        </div>
+      </div>
+    `;
+    return;
   }
 
-  let html = '', tot = 0;
-  plan.phases.forEach((phase, pi)=>{
-    html += `<div class="phase-label">${phase.label}</div>`;
-    phase.exercises.forEach((ex, ei)=>{
-      const n = (ex.sets==="—"||ex.sets===1) ? 1 : ex.sets;
-      const isSingle = (ex.sets==="—"||ex.sets===1);
-      tot += n;
-      const rl = restLabel(ex.rest);
-      const rcId = `rc_${day}_${pi}_${ei}`;
-      let rows = '';
-      for(let si=0; si<n; si++){
-        const key = `${day}_${pi}_${ei}_${si}`;
-        const isDone = !!setsDone[key];
-        rows += `<div class="set-row${isDone?' done':''}" id="sr_${key}" onclick="toggleSet('${key}',${day},${pi},${ei},${si},${n},${ex.rest})">
-          <div class="set-check">${checkSVG()}</div>
-          <div class="set-label">${isSingle?'—':'Set '+(si+1)}</div>
-          <div class="set-reps">${ex.reps}</div>
-        </div>`;
+  // Count total sets
+  let totalSets = 0;
+  plan.phases.forEach((ph,pi)=>{
+    ph.exercises.forEach((ex,ei)=>{
+      totalSets += ex.sets || 1;
+    });
+  });
+  let doneSets = 0;
+  plan.phases.forEach((ph,pi)=>{
+    ph.exercises.forEach((ex,ei)=>{
+      const n = ex.sets || 1;
+      for(let si=0;si<n;si++){
+        const k = `${activeDay}_${pi}_${ei}_${si}`;
+        if(state.sets[k]) doneSets++;
       }
-      html += `<div class="ex-group">
-        <div class="ex-header">
-          <div class="ex-header-info">
-            <div class="ex-header-name">${ex.name}</div>
-            <div class="ex-header-sub">
-              ${ex.note?`<span class="ex-header-note">${ex.note}</span>`:''}
-              <span class="rest-badge ${rl.cls}">${rl.text}</span>
-            </div>
-          </div>
-          ${!isSingle?`<div class="ex-header-count">${ex.sets} เซต</div>`:''}
-        </div>
-        <div class="sets-container">${rows}</div>
-        <div class="rest-countdown" id="${rcId}">
-          <div class="rc-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm.5-13H11v6l4.8 2.9.7-1.2-4-2.3V7z"/></svg></div>
-          <div class="rc-text">
-            <div class="rc-label">กำลังพัก</div>
-            <div class="rc-time" id="rct_${rcId}">—</div>
-            <div class="rc-bar-wrap"><div class="rc-bar" id="rcb_${rcId}" style="width:100%"></div></div>
-          </div>
-          <button class="rc-skip" onclick="skipRest('${rcId}')">ข้าม</button>
-        </div>
-      </div>`;
     });
   });
 
-  const isDone = completedDays[dateKey(day)];
-  const done = doneSets(day);
-  const pct = tot > 0 ? (done/tot)*100 : 0;
+  // Phases HTML
+  let phasesHTML = '<div class="phases">';
+  plan.phases.forEach((ph,pi)=>{
+    phasesHTML += `<div class="phase"><div class="phase-label">${ph.label}</div>`;
+    ph.exercises.forEach((ex,ei)=>{
+      const n = ex.sets || 1;
+      const isSingle = n === 1;
+      phasesHTML += `<div class="ex">
+        <div class="ex-head">
+          <div>
+            <div class="ex-name">${ex.name}</div>
+            ${ex.note?`<div class="ex-note">${ex.note}</div>`:''}
+          </div>
+          ${!isSingle?`<div class="ex-sets-label"><span class="num">${n}</span> SETS × <br>${ex.reps}</div>`:''}
+        </div>`;
 
-  content.innerHTML = `
-    <div class="workout-card">
-      <div class="wc-header">
-        <div class="wc-icon">${svgIcon(plan.icon)}</div>
-        <div class="wc-info"><h2>${plan.name}</h2><p>${plan.focus}</p></div>
-      </div>
-      <div class="wc-meta">
-        <span class="meta-chip hi">${svgIcon('clock')}${plan.duration}</span>
-        <span class="meta-chip">${plan.levelText}</span>
-        <span class="meta-chip" id="setChip">${done} / ${tot} เซต</span>
-      </div>
-      ${html}
-      <div class="prog-wrap">
-        <div class="prog-header"><span>ความคืบหน้า</span><strong id="progText">${done}/${tot}</strong></div>
-        <div class="prog-bar"><div class="prog-fill" id="progFill" style="width:${pct}%"></div></div>
-      </div>
-    </div>
-    <button class="complete-btn ${isDone?'completed':''}" id="completeBtn" onclick="markComplete(${day})">
-      ${isDone?'✓ วันนี้เสร็จแล้ว!':'บันทึกว่าออกกำลังกายครบ'}
-    </button>
-    <button class="reset-day-btn" id="resetDayBtn" onclick="askReset(${day})">
-      รีเซตเซตทั้งหมดของวันนี้
-    </button>
-    <div class="confirm-row" id="confirmRow" style="display:none">
-      <span>ยืนยันรีเซต?</span>
-      <button class="confirm-yes" onclick="resetDay(${day})">ยืนยัน</button>
-      <button class="confirm-no" onclick="cancelReset()">ยกเลิก</button>
-    </div>`;
+      if(isSingle){
+        const k = `${activeDay}_${pi}_${ei}_0`;
+        const done = !!state.sets[k];
+        phasesHTML += `<div class="single-row ${done?'done':''}" data-key="${k}" onclick="toggleSet('${k}')">
+          <div class="check"></div>
+          <div class="reps-text">${ex.reps}</div>
+        </div>`;
+      }else{
+        phasesHTML += '<div class="sets">';
+        for(let si=0;si<n;si++){
+          const k = `${activeDay}_${pi}_${ei}_${si}`;
+          const done = !!state.sets[k];
+          phasesHTML += `<div class="set-row ${done?'done':''}" data-key="${k}" onclick="toggleSet('${k}')">
+            <span class="lbl">SET ${si+1}</span>
+            <span class="reps">${ex.reps}</span>
+          </div>`;
+        }
+        phasesHTML += '</div>';
 
-  updateStats(day);
-}
-
-// ─── TOGGLE SET ───────────────────────────────────────────────
-function toggleSet(key, day, pi, ei, si, totalSetCount, restSec){
-  setsDone[key] = !setsDone[key];
-  saveSets(day, setsDone);
-
-  const row = document.getElementById('sr_' + key);
-  if(row) row.classList.toggle('done', !!setsDone[key]);
-
-  const rcId = `rc_${day}_${pi}_${ei}`;
-  const isLastSet = (si === totalSetCount - 1);
-
-  if(setsDone[key]){
-    if(restSec > 0 && !isLastSet) startRestCountdown(rcId, restSec);
-  } else {
-    stopRest(rcId);
-  }
-  refreshProgress(day);
-}
-
-function startRestCountdown(rcId, totalSec){
-  stopRest(rcId);
-  const el = document.getElementById(rcId);
-  if(!el) return;
-  el.classList.add('active');
-  let remaining = totalSec;
-  updateRestUI(rcId, remaining, totalSec);
-  const interval = setInterval(()=>{
-    remaining--;
-    updateRestUI(rcId, remaining, totalSec);
-    if(remaining <= 0){
-      clearInterval(interval);
-      delete activeRests[rcId];
-      const timeEl = document.getElementById('rct_' + rcId);
-      const barEl  = document.getElementById('rcb_' + rcId);
-      if(timeEl){ timeEl.className='rc-time go'; timeEl.textContent='GO!'; }
-      if(barEl)  barEl.style.width = '100%';
-      if(navigator.vibrate) navigator.vibrate([200,100,200]);
-      setTimeout(()=>{ const e=document.getElementById(rcId); if(e) e.classList.remove('active'); }, 1500);
-    }
-  }, 1000);
-  activeRests[rcId] = {interval, remaining, total: totalSec};
-}
-
-function updateRestUI(rcId, remaining, total){
-  const timeEl = document.getElementById('rct_' + rcId);
-  const barEl  = document.getElementById('rcb_' + rcId);
-  if(!timeEl) return;
-  const m = Math.floor(remaining/60), s = remaining % 60;
-  timeEl.textContent = `${m}:${s.toString().padStart(2,'0')}`;
-  timeEl.className = 'rc-time' + (remaining<=10?' urgent':'');
-  if(barEl) barEl.style.width = ((remaining/total)*100) + '%';
-}
-
-function stopRest(rcId){
-  if(activeRests[rcId]){ clearInterval(activeRests[rcId].interval); delete activeRests[rcId]; }
-  const el = document.getElementById(rcId);
-  if(el) el.classList.remove('active');
-}
-function skipRest(rcId){ stopRest(rcId); }
-
-// ─── PROGRESS ─────────────────────────────────────────────────
-function refreshProgress(day){
-  const tot = totalSets(day), done = doneSets(day), pct = tot>0?(done/tot)*100:0;
-  const fill = document.getElementById('progFill');
-  const text = document.getElementById('progText');
-  const chip = document.getElementById('setChip');
-  if(fill) fill.style.width = pct + '%';
-  if(text) text.textContent = `${done}/${tot}`;
-  if(chip) chip.textContent = `${done} / ${tot} เซต`;
-  updateStats(day);
-}
-
-function updateStats(day){
-  // Count completed days in current week (Sun-Sat)
-  const today = new Date();
-  const sunday = new Date(today);
-  sunday.setDate(today.getDate() - today.getDay());
-  let weekCount = 0;
-  for(let i=0; i<7; i++){
-    const d = new Date(sunday);
-    d.setDate(sunday.getDate() + i);
-    if(completedDays[dateKeyFromDate(d, d.getDay())]) weekCount++;
-  }
-  document.getElementById('statCompleted').textContent = weekCount;
-
-  const plan = S[day];
-  if(plan && !plan.isRest){
-    document.getElementById('statTotal').textContent = totalSets(day);
-    document.getElementById('statDone').textContent  = doneSets(day);
-  } else {
-    document.getElementById('statTotal').textContent = '—';
-    document.getElementById('statDone').textContent  = '—';
-  }
-}
-
-function askReset(day){
-  document.getElementById('resetDayBtn').style.display = 'none';
-  document.getElementById('confirmRow').style.display = 'flex';
-}
-function cancelReset(){
-  document.getElementById('resetDayBtn').style.display = '';
-  document.getElementById('confirmRow').style.display = 'none';
-}
-function resetDay(day){
-  Object.values(activeRests).forEach(r=>clearInterval(r.interval));
-  activeRests = {};
-  setsDone = {};
-  saveSets(day, setsDone);
-  completedDays[dateKey(day)] = false;
-  localStorage.setItem('cd5', JSON.stringify(completedDays));
-  selectDay(day);
-  updateStreakDisplay();
-  toast('รีเซตวันนี้แล้ว');
-}
-
-function markComplete(day){
-  const k = dateKey(day);
-  completedDays[k] = !completedDays[k];
-  localStorage.setItem('cd5', JSON.stringify(completedDays));
-  const btn = document.getElementById('completeBtn');
-  if(completedDays[k]){
-    btn.textContent='✓ วันนี้เสร็จแล้ว!';
-    btn.classList.add('completed');
-    toast('บันทึกเรียบร้อย!');
-  } else {
-    btn.textContent='บันทึกว่าออกกำลังกายครบ';
-    btn.classList.remove('completed');
-  }
-  renderStrip();
-  updateStats(day);
-  updateStreakDisplay();
-}
-
-// ════════════════════════════════════════════════════
-// MANUAL TIMER — two modes (rest countdown + workout stopwatch)
-// ════════════════════════════════════════════════════
-let currentTimerMode = 'rest';
-
-// REST timer state (count down)
-let tInt=null, tSec=60, tOn=false, tTotal=60;
-let tPickMin=1, tPickSec=0;
-
-// WORKOUT stopwatch state (count up)
-let wInt=null, wSec=0, wOn=false;
-
-function toggleTimer(){
-  document.getElementById('timerPanel').classList.toggle('open');
-}
-
-function switchTimerMode(mode){
-  currentTimerMode = mode;
-  document.getElementById('tabRest').classList.toggle('active', mode==='rest');
-  document.getElementById('tabWorkout').classList.toggle('active', mode==='workout');
-  document.getElementById('modeRest').classList.toggle('active', mode==='rest');
-  document.getElementById('modeWorkout').classList.toggle('active', mode==='workout');
-}
-
-// ─── REST TIMER (count down) ─────────────────────────
-function adjTime(unit, delta){
-  if(tOn) return;
-  if(unit==='m'){
-    tPickMin = Math.max(0, Math.min(99, tPickMin + delta));
-  } else {
-    tPickSec = Math.max(0, Math.min(55, tPickSec + delta));
-    tPickSec = Math.round(tPickSec/5)*5;
-    if(tPickSec >= 60) tPickSec = 55;
-  }
-  if(tPickMin===0 && tPickSec===0) tPickSec = 5;
-  syncPicker();
-}
-function syncPicker(){
-  document.getElementById('tpMin').textContent = tPickMin;
-  document.getElementById('tpSec').textContent = tPickSec.toString().padStart(2,'0');
-  tTotal = tPickMin*60 + tPickSec;
-  tSec   = tTotal;
-  renderRestDisplay();
-  updateRestBar(1);
-  clearActivePreset();
-}
-function quickSet(s){
-  if(tOn) return;
-  tTotal=s; tSec=s;
-  tPickMin=Math.floor(s/60); tPickSec=s%60;
-  document.getElementById('tpMin').textContent = tPickMin;
-  document.getElementById('tpSec').textContent = tPickSec.toString().padStart(2,'0');
-  renderRestDisplay();
-  updateRestBar(1);
-  clearActivePreset();
-  const map={30:'pre30',45:'pre45',60:'pre60',90:'pre90',120:'pre120'};
-  if(map[s]){ const el=document.getElementById(map[s]); if(el) el.classList.add('active-pre'); }
-}
-function clearActivePreset(){
-  ['pre30','pre45','pre60','pre90','pre120'].forEach(id=>{
-    const el=document.getElementById(id); if(el) el.classList.remove('active-pre');
-  });
-}
-function startStopRest(){
-  if(tOn){
-    clearInterval(tInt); tOn=false;
-    document.getElementById('timerStartBtn').textContent = '▶ ต่อ';
-    document.getElementById('timerDisplay').className = 'timer-display';
-    showPicker(true);
-  } else {
-    if(tSec <= 0){ tSec=tTotal; updateRestBar(1); }
-    tOn=true;
-    document.getElementById('timerStartBtn').textContent = '⏸ หยุด';
-    document.getElementById('timerDisplay').className = 'timer-display counting';
-    showPicker(false);
-    tInt = setInterval(()=>{
-      tSec--;
-      renderRestDisplay();
-      updateRestBar(tSec/tTotal);
-      if(tSec<=0){
-        clearInterval(tInt); tOn=false;
-        document.getElementById('timerDisplay').className = 'timer-display done';
-        document.getElementById('timerDisplay').textContent = 'GO!';
-        document.getElementById('timerStartBtn').textContent = '▶ เริ่ม';
-        updateRestBar(0);
-        showPicker(true);
-        updateFabIndicator();
-        if(navigator.vibrate) navigator.vibrate([200,100,200]);
+        // Rest timer
+        if(ex.rest){
+          const tkey = `${activeDay}_${pi}_${ei}_rest`;
+          phasesHTML += `<div class="rest-row">
+            <div class="rest-info">${ic('hourglass')}<span>REST ${ex.rest}s</span></div>
+            <button class="rest-btn" id="rest_${tkey}" onclick="toggleRest('${tkey}',${ex.rest})">
+              ${ic('play')}<span class="timer-text" id="timer_${tkey}">${ex.rest}s</span>
+            </button>
+          </div>`;
+        }
       }
-    },1000);
-  }
-  updateFabIndicator();
-}
-function resetRest(){
-  clearInterval(tInt); tOn=false;
-  tSec = tTotal;
-  document.getElementById('timerStartBtn').textContent = '▶ เริ่ม';
-  document.getElementById('timerDisplay').className = 'timer-display';
-  renderRestDisplay();
-  updateRestBar(1);
-  showPicker(true);
-  updateFabIndicator();
-}
-function showPicker(show){
-  const picker  = document.getElementById('timePicker');
-  const presets = document.getElementById('timerPresets');
-  if(picker)  picker.classList.toggle('hidden', !show);
-  if(presets) presets.style.display = show ? 'flex' : 'none';
-}
-function updateRestBar(ratio){
-  const bar = document.getElementById('timerBar');
-  if(bar) bar.style.width = (ratio*100) + '%';
-}
-function renderRestDisplay(){
-  const m = Math.floor(tSec/60), s = tSec%60;
-  document.getElementById('timerDisplay').textContent = `${m}:${s.toString().padStart(2,'0')}`;
-}
-
-// ─── WORKOUT STOPWATCH (count up) ────────────────────
-function startStopWorkout(){
-  const btn = document.getElementById('workoutStartBtn');
-  const disp = document.getElementById('workoutDisplay');
-  if(wOn){
-    clearInterval(wInt); wOn=false;
-    btn.textContent = '▶ ต่อ';
-    disp.className = 'timer-display';
-  } else {
-    wOn=true;
-    btn.textContent = '⏸ หยุด';
-    disp.className = 'timer-display counting';
-    wInt = setInterval(()=>{
-      wSec++;
-      renderWorkoutDisplay();
-    },1000);
-  }
-  updateFabIndicator();
-}
-function resetWorkout(){
-  clearInterval(wInt); wOn=false;
-  wSec = 0;
-  document.getElementById('workoutStartBtn').textContent = '▶ เริ่ม';
-  document.getElementById('workoutDisplay').className = 'timer-display';
-  renderWorkoutDisplay();
-  updateFabIndicator();
-}
-function renderWorkoutDisplay(){
-  const h = Math.floor(wSec/3600);
-  const m = Math.floor((wSec%3600)/60);
-  const s = wSec%60;
-  const str = h > 0
-    ? `${h}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`
-    : `${m}:${s.toString().padStart(2,'0')}`;
-  document.getElementById('workoutDisplay').textContent = str;
-}
-
-// ─── FAB + TAB RUNNING INDICATORS ────────────────────
-function updateFabIndicator(){
-  const fab = document.querySelector('.timer-fab');
-  if(fab) fab.classList.toggle('running', tOn || wOn);
-  document.getElementById('tabRest').classList.toggle('has-running', tOn);
-  document.getElementById('tabWorkout').classList.toggle('has-running', wOn);
-}
-
-// ════════════════════════════════════════════════════
-// MODALS
-// ════════════════════════════════════════════════════
-function openModal(id){
-  document.getElementById(id).classList.add('open');
-  if(id === 'historyModal') renderHistory();
-}
-function closeModal(id){
-  document.getElementById(id).classList.remove('open');
-}
-
-// ─── HISTORY VIEW ────────────────────────────────────────────
-function renderHistory(){
-  const today = new Date();
-  // Calculate stats
-  const totalCompleted = Object.values(completedDays).filter(v=>v).length;
-  const streak = calcStreak();
-  // Best streak ever (scan all completed days)
-  let bestStreak = 0, currentRun = 0, prevDate = null;
-  const sortedKeys = Object.keys(completedDays).filter(k=>completedDays[k])
-    .map(k=>k.split('_')[0]).sort();
-  sortedKeys.forEach(dStr=>{
-    const d = new Date(dStr);
-    if(prevDate){
-      const diff = (d - prevDate) / 86400000;
-      if(diff <= 1.5) currentRun++;
-      else currentRun = 1;
-    } else currentRun = 1;
-    if(currentRun > bestStreak) bestStreak = currentRun;
-    prevDate = d;
+      phasesHTML += '</div>';
+    });
+    phasesHTML += '</div>';
   });
+  phasesHTML += '</div>';
 
-  let html = `
-    <div class="hist-stats">
-      <div class="hist-stat"><div class="hist-stat-val">${svgIcon('flame')}${streak}</div><div class="hist-stat-lbl">วันต่อเนื่อง</div></div>
-      <div class="hist-stat"><div class="hist-stat-val">${totalCompleted}</div><div class="hist-stat-lbl">รวมทั้งหมด</div></div>
-      <div class="hist-stat"><div class="hist-stat-val">${bestStreak}</div><div class="hist-stat-lbl">สถิติดีสุด</div></div>
+  const pct = totalSets>0 ? Math.round((doneSets/totalSets)*100) : 0;
+
+  container.innerHTML = `
+    <div class="card">
+      <div class="card-head" style="--accent:${plan.accent};--accent-dark:${plan.accentDark}">
+        <div class="card-icon-big">${ic(plan.icon)}</div>
+        <div class="card-day-label">${DAYS_FULL[activeDay].toUpperCase()} · ${THAI_MONTHS[d.getMonth()]} ${d.getDate()}${isToday?' <span class="today-tag">NOW</span>':''}</div>
+        <div class="card-title">${plan.name}</div>
+        <div class="card-focus">${plan.focus}</div>
+        <div class="card-meta">
+          <span class="chip coral">${ic('clock')} ${plan.duration}</span>
+          <span class="chip">${plan.levelText}</span>
+          <span class="chip" id="setCountChip">${doneSets}/${totalSets} SETS</span>
+        </div>
+      </div>
+      ${plan.rationale?`<div class="rationale"><span class="leaf">"</span><div>${plan.rationale}</div></div>`:''}
+      ${phasesHTML}
+      <div class="progress-block">
+        <div class="progress-head">
+          <span class="lbl">PROGRESS</span>
+          <span class="val" id="progressText">${doneSets}/${totalSets}</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:${pct}%"></div></div>
+      </div>
     </div>
-
-    <div class="hist-section-label">ปฏิทิน 60 วันที่ผ่านมา</div>
-    <div class="cal-grid">
-      <div class="cal-head">อา</div><div class="cal-head">จ</div><div class="cal-head">อ</div>
-      <div class="cal-head">พ</div><div class="cal-head">พฤ</div><div class="cal-head">ศ</div><div class="cal-head">ส</div>`;
-
-  // Build grid: 9 weeks (63 days), end at today
-  const endDate = new Date(today);
-  const startDate = new Date(today);
-  startDate.setDate(today.getDate() - 62);
-  // Pad to start at Sunday
-  const startDow = startDate.getDay();
-  const totalCells = 63 + startDow;
-
-  for(let i = 0; i < totalCells; i++){
-    if(i < startDow){
-      html += `<div class="cal-cell empty"></div>`;
-      continue;
-    }
-    const d = new Date(startDate);
-    d.setDate(startDate.getDate() + (i - startDow));
-    const day = d.getDay();
-    const k = dateKeyFromDate(d, day);
-    const isCompleted = !!completedDays[k];
-    const isToday = d.toDateString() === today.toDateString();
-    const isFuture = d > today;
-
-    if(isFuture){
-      html += `<div class="cal-cell empty"></div>`;
-      continue;
-    }
-    let cls = 'cal-cell';
-    if(isCompleted) cls += ' completed';
-    if(isToday) cls += ' today';
-    const dateStr = `${d.getDate()}/${d.getMonth()+1}`;
-    html += `<div class="${cls}" title="${dateStr}">${d.getDate()}</div>`;
-  }
-  html += `</div>
-    <div class="cal-legend">
-      <div class="legend-item"><div class="legend-dot" style="background:var(--success)"></div>ครบ</div>
-      <div class="legend-item"><div class="legend-dot" style="background:var(--surface2);border:1px solid var(--border-strong)"></div>ไม่ได้ออก</div>
-      <div class="legend-item"><div class="legend-dot" style="background:transparent;border:1.5px solid var(--accent)"></div>วันนี้</div>
-    </div>`;
-
-  document.getElementById('historyBody').innerHTML = html;
+    <button class="complete-btn ${isDone?'completed':''}" id="completeBtn" onclick="toggleDayComplete()">
+      ${isDone?'DAY COMPLETE':'MARK DAY COMPLETE'}
+    </button>
+  `;
 }
 
-// ─── TOAST ────────────────────────────────────────────────────
+// ════════════════════════════════════════════════════════════
+// INTERACTIONS
+// ════════════════════════════════════════════════════════════
+function toggleSet(key){
+  const wasUndone = !state.sets[key];
+  state.sets[key] = !state.sets[key];
+  saveState();
+  const row = document.querySelector(`[data-key="${key}"]`);
+  if(row) row.classList.toggle('done', state.sets[key]);
+  updateProgress();
+  
+  // Auto-start rest timer when checking a set (not when unchecking)
+  if(wasUndone){
+    // Parse key: day_phaseIdx_exIdx_setIdx
+    const parts = key.split('_');
+    const day = parseInt(parts[0]);
+    const pi = parseInt(parts[1]);
+    const ei = parseInt(parts[2]);
+    const si = parseInt(parts[3]);
+    const ex = SCHEDULE[day]?.phases?.[pi]?.exercises?.[ei];
+    if(ex && ex.rest){
+      const n = ex.sets || 1;
+      // Don't auto-start after last set of last exercise in phase (no need to rest)
+      // But do start between sets and between exercises
+      const isLastSetOfWorkout = (si === n - 1) && 
+        (ei === SCHEDULE[day].phases[pi].exercises.length - 1) &&
+        (pi === SCHEDULE[day].phases.length - 1);
+      if(!isLastSetOfWorkout){
+        const tkey = `${day}_${pi}_${ei}_rest`;
+        // Start the rest timer
+        const btn = document.getElementById(`rest_${tkey}`);
+        if(btn && !btn.classList.contains('running')){
+          startRest(tkey, ex.rest);
+        }
+      }
+    }
+  }
+}
+
+function updateProgress(){
+  const plan = SCHEDULE[activeDay];
+  if(plan.isRest) return;
+  let total = 0, done = 0;
+  plan.phases.forEach((ph,pi)=>{
+    ph.exercises.forEach((ex,ei)=>{
+      const n = ex.sets || 1;
+      total += n;
+      for(let si=0;si<n;si++){
+        const k = `${activeDay}_${pi}_${ei}_${si}`;
+        if(state.sets[k]) done++;
+      }
+    });
+  });
+  const pct = total>0 ? Math.round((done/total)*100) : 0;
+  const pt = document.getElementById('progressText'); if(pt) pt.textContent = `${done}/${total}`;
+  const pf = document.getElementById('progressFill'); if(pf) pf.style.width = pct+'%';
+  const cc = document.getElementById('setCountChip'); if(cc) cc.textContent = `${done}/${total} SETS`;
+}
+
+let pendingComplete = false;
+function toggleDayComplete(){
+  const d = dateForDayOfWeek(activeDay);
+  const dk = dateKey(d);
+  if(state.completed[dk]){
+    // Inline unmark — show confirm UI
+    if(!pendingComplete){
+      pendingComplete = true;
+      const btn = document.getElementById('completeBtn');
+      btn.innerHTML = 'TAP AGAIN TO UNMARK';
+      btn.style.background = 'var(--coral-2)';
+      btn.style.borderColor = 'var(--coral-2)';
+      setTimeout(()=>{
+        if(pendingComplete){pendingComplete=false; renderContent();}
+      },2500);
+      return;
+    }else{
+      delete state.completed[dk];
+      pendingComplete = false;
+      saveState();
+      toast('◯ UNMARKED');
+    }
+  }else{
+    state.completed[dk] = true;
+    saveState();
+    // Auto-pause active timer on completion
+    if(stopwatch.running) pauseStopwatch();
+    if(manualTimer.running) pauseManualTimer();
+    toast('✓ LOGGED · NICE WORK');
+  }
+  renderTabs();
+  renderStreakStrip();
+  renderContent();
+}
+
+// ════════════════════════════════════════════════════════════
+// REST TIMER
+// ════════════════════════════════════════════════════════════
+function toggleRest(tkey, seconds){
+  if(activeTimer && activeTimer.key === tkey){
+    stopRest(tkey, seconds);
+  }else{
+    startRest(tkey, seconds);
+  }
+}
+
+function startRest(tkey, seconds){
+  // Stop any existing timer
+  if(activeTimer){
+    const oldBtn = document.getElementById(`rest_${activeTimer.key}`);
+    const oldKey = activeTimer.key;
+    const oldTotal = activeTimer.total;
+    clearInterval(activeTimer.interval);
+    if(oldBtn){
+      oldBtn.classList.remove('running');
+      oldBtn.innerHTML = `${ic('play')}<span class="timer-text" id="timer_${oldKey}">${oldTotal}s</span>`;
+    }
+  }
+  const btn = document.getElementById(`rest_${tkey}`);
+  if(!btn) return;
+  let remaining = seconds;
+  btn.classList.remove('done');
+  btn.classList.add('running');
+  btn.innerHTML = `${ic('pause')}<span class="timer-text" id="timer_${tkey}">${remaining}s</span>`;
+  activeTimer = {key:tkey, total:seconds, remaining};
+  activeTimer.interval = setInterval(()=>{
+    remaining--;
+    activeTimer.remaining = remaining;
+    const t = document.getElementById(`timer_${tkey}`);
+    if(t) t.textContent = `${remaining}s`;
+    if(remaining <= 0){
+      clearInterval(activeTimer.interval);
+      activeTimer = null;
+      if(btn){
+        btn.classList.remove('running');
+        btn.classList.add('done');
+        btn.innerHTML = `<span style="font-weight:800">✓</span><span class="timer-text">REST DONE</span>`;
+      }
+      if(navigator.vibrate) navigator.vibrate([100,50,100]);
+      setTimeout(()=>{
+        if(btn && !btn.classList.contains('running')){
+          btn.classList.remove('done');
+          btn.innerHTML = `${ic('play')}<span class="timer-text" id="timer_${tkey}">${seconds}s</span>`;
+        }
+      },3500);
+      toast('⏰ REST OVER · NEXT SET');
+    }
+  },1000);
+}
+
+function stopRest(tkey, seconds){
+  if(!activeTimer || activeTimer.key !== tkey) return;
+  clearInterval(activeTimer.interval);
+  activeTimer = null;
+  const btn = document.getElementById(`rest_${tkey}`);
+  if(btn){
+    btn.classList.remove('running');
+    btn.innerHTML = `${ic('play')}<span class="timer-text" id="timer_${tkey}">${seconds}s</span>`;
+  }
+}
+
+// ════════════════════════════════════════════════════════════
+// SESSION TIMER — Dual mode (Stopwatch + Manual Timer)
+// ════════════════════════════════════════════════════════════
+let timerMode = localStorage.getItem('timer_mode') || 'stopwatch';
+let stopwatch = loadStopwatch();
+let manualTimer = loadManualTimer();
+let tickInterval = null;
+
+function loadStopwatch(){
+  try{
+    const s = JSON.parse(localStorage.getItem('workout_stopwatch') || '{}');
+    if(s.running && s.startTimestamp){
+      const now = Date.now();
+      const startDateKey = new Date(s.startTimestamp).toDateString();
+      const todayDateKey = new Date().toDateString();
+      if(startDateKey !== todayDateKey){
+        return {elapsed:0, running:false, startTimestamp:null};
+      }
+      const liveElapsed = s.elapsed + (now - s.startTimestamp);
+      return {elapsed:liveElapsed, running:true, startTimestamp:now};
+    }
+    return {elapsed:s.elapsed||0, running:false, startTimestamp:null};
+  }catch(e){
+    return {elapsed:0, running:false, startTimestamp:null};
+  }
+}
+
+function loadManualTimer(){
+  try{
+    const s = JSON.parse(localStorage.getItem('manual_timer') || '{}');
+    return {
+      duration: s.duration || 60,
+      elapsedBefore: 0, // reset on reload
+      running: false,
+      startTimestamp: null,
+      finished: false
+    };
+  }catch(e){
+    return {duration:60, elapsedBefore:0, running:false, startTimestamp:null, finished:false};
+  }
+}
+
+function saveStopwatch(){
+  localStorage.setItem('workout_stopwatch', JSON.stringify(stopwatch));
+}
+function saveManualTimer(){
+  localStorage.setItem('manual_timer', JSON.stringify({duration:manualTimer.duration}));
+}
+
+function fmtTime(ms){
+  const total = Math.floor(ms/1000);
+  const h = Math.floor(total/3600);
+  const m = Math.floor((total%3600)/60);
+  const s = total%60;
+  const pad = n=>String(n).padStart(2,'0');
+  return h>0 ? `${h}:${pad(m)}:${pad(s)}` : `${pad(m)}:${pad(s)}`;
+}
+
+function getActiveTimer(){
+  return timerMode === 'stopwatch' ? stopwatch : manualTimer;
+}
+
+function renderTimerBar(){
+  const bar = document.getElementById('sessionBar');
+  const timeEl = document.getElementById('swTime');
+  const labelEl = document.getElementById('swLabel');
+  const playBtn = document.getElementById('swPlayBtn');
+  if(!timeEl) return;
+
+  const active = getActiveTimer();
+  bar.classList.toggle('running', active.running);
+  bar.classList.toggle('timer-mode', timerMode === 'timer');
+  bar.classList.toggle('timer-finished', timerMode === 'timer' && manualTimer.finished);
+
+  // Update mode tab active state
+  document.getElementById('modeStopwatchBtn').classList.toggle('active', timerMode === 'stopwatch');
+  document.getElementById('modeTimerBtn').classList.toggle('active', timerMode === 'timer');
+
+  if(timerMode === 'stopwatch'){
+    labelEl.innerHTML = '⌬ SESSION TIME';
+    let elapsed = stopwatch.elapsed;
+    if(stopwatch.running && stopwatch.startTimestamp){
+      elapsed = stopwatch.elapsed + (Date.now() - stopwatch.startTimestamp);
+    }
+    timeEl.textContent = fmtTime(elapsed);
+  }else{
+    labelEl.innerHTML = manualTimer.finished ? '✓ COMPLETE' : '◷ COUNTDOWN';
+    let remaining = manualTimer.duration - manualTimer.elapsedBefore;
+    if(manualTimer.running && manualTimer.startTimestamp){
+      const live = (Date.now() - manualTimer.startTimestamp) / 1000;
+      remaining = manualTimer.duration - manualTimer.elapsedBefore - live;
+    }
+    remaining = Math.max(0, Math.ceil(remaining));
+    timeEl.textContent = fmtTime(remaining * 1000);
+
+    // Update preset highlights
+    document.querySelectorAll('.preset-btn').forEach(btn=>{
+      btn.classList.toggle('active', parseInt(btn.dataset.sec) === manualTimer.duration);
+    });
+  }
+
+  playBtn.innerHTML = active.running ? ic('pause') : ic('play');
+}
+
+function switchMode(mode){
+  if(timerMode === mode) return;
+  timerMode = mode;
+  localStorage.setItem('timer_mode', mode);
+  // Re-evaluate ticker
+  ensureTicker();
+  renderTimerBar();
+}
+
+function ensureTicker(){
+  const needTick = stopwatch.running || manualTimer.running;
+  if(needTick && !tickInterval){
+    tickInterval = setInterval(tick, 250);
+  }else if(!needTick && tickInterval){
+    clearInterval(tickInterval);
+    tickInterval = null;
+  }
+}
+
+function tick(){
+  // Check if manual timer finished
+  if(manualTimer.running && manualTimer.startTimestamp){
+    const live = (Date.now() - manualTimer.startTimestamp) / 1000;
+    if(manualTimer.elapsedBefore + live >= manualTimer.duration){
+      finishManualTimer();
+      return;
+    }
+  }
+  renderTimerBar();
+}
+
+// — STOPWATCH —
+function startStopwatch(){
+  if(stopwatch.running) return;
+  stopwatch.running = true;
+  stopwatch.startTimestamp = Date.now();
+  saveStopwatch();
+  ensureTicker();
+  renderTimerBar();
+}
+
+function pauseStopwatch(){
+  if(!stopwatch.running) return;
+  stopwatch.elapsed += Date.now() - stopwatch.startTimestamp;
+  stopwatch.running = false;
+  stopwatch.startTimestamp = null;
+  saveStopwatch();
+  ensureTicker();
+  renderTimerBar();
+}
+
+function resetStopwatch(){
+  if(stopwatch.running){
+    if(tickInterval) clearInterval(tickInterval);
+    tickInterval = null;
+  }
+  stopwatch = {elapsed:0, running:false, startTimestamp:null};
+  saveStopwatch();
+  ensureTicker();
+  renderTimerBar();
+}
+
+// — MANUAL TIMER —
+function setTimerDuration(seconds){
+  if(manualTimer.running) pauseManualTimer();
+  manualTimer.duration = seconds;
+  manualTimer.elapsedBefore = 0;
+  manualTimer.finished = false;
+  saveManualTimer();
+  renderTimerBar();
+}
+
+function startManualTimer(){
+  if(manualTimer.running) return;
+  // If finished, reset before starting
+  if(manualTimer.finished || manualTimer.elapsedBefore >= manualTimer.duration){
+    manualTimer.elapsedBefore = 0;
+    manualTimer.finished = false;
+  }
+  manualTimer.running = true;
+  manualTimer.startTimestamp = Date.now();
+  ensureTicker();
+  renderTimerBar();
+}
+
+function pauseManualTimer(){
+  if(!manualTimer.running) return;
+  const live = (Date.now() - manualTimer.startTimestamp) / 1000;
+  manualTimer.elapsedBefore += live;
+  manualTimer.running = false;
+  manualTimer.startTimestamp = null;
+  ensureTicker();
+  renderTimerBar();
+}
+
+function finishManualTimer(){
+  manualTimer.running = false;
+  manualTimer.startTimestamp = null;
+  manualTimer.elapsedBefore = manualTimer.duration;
+  manualTimer.finished = true;
+  ensureTicker();
+  renderTimerBar();
+  if(navigator.vibrate) navigator.vibrate([200,80,200,80,400]);
+  toast('◉ TIMER COMPLETE');
+}
+
+function resetManualTimer(){
+  if(manualTimer.running){
+    clearInterval(tickInterval);
+    tickInterval = null;
+    manualTimer.running = false;
+    manualTimer.startTimestamp = null;
+  }
+  manualTimer.elapsedBefore = 0;
+  manualTimer.finished = false;
+  ensureTicker();
+  renderTimerBar();
+}
+
+// — UNIFIED HANDLERS —
+function toggleActive(){
+  if(timerMode === 'stopwatch'){
+    if(stopwatch.running) pauseStopwatch();
+    else startStopwatch();
+  }else{
+    if(manualTimer.running) pauseManualTimer();
+    else startManualTimer();
+  }
+}
+
+function resetActive(){
+  // Double-tap confirm
+  const btn = document.getElementById('swResetBtn');
+  if(btn.dataset.confirming){
+    delete btn.dataset.confirming;
+    btn.style.background = '';
+    btn.style.borderColor = '';
+    if(timerMode === 'stopwatch') resetStopwatch();
+    else resetManualTimer();
+    toast('◯ RESET');
+    return;
+  }
+  btn.dataset.confirming = '1';
+  btn.style.background = 'var(--magenta)';
+  btn.style.borderColor = 'var(--magenta)';
+  setTimeout(()=>{
+    if(btn.dataset.confirming){
+      delete btn.dataset.confirming;
+      btn.style.background = '';
+      btn.style.borderColor = '';
+    }
+  },2000);
+  toast('TAP AGAIN TO RESET');
+}
+
+// Start ticker if anything was running on load
+ensureTicker();
+
+// ════════════════════════════════════════════════════════════
+// TOAST
+// ════════════════════════════════════════════════════════════
 let toastTimer = null;
 function toast(msg){
   const t = document.getElementById('toast');
@@ -1159,7 +1522,25 @@ function toast(msg){
   toastTimer = setTimeout(()=>t.classList.remove('show'), 2400);
 }
 
-init();
+// ════════════════════════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════════════════════════
+renderHeader();
+renderStreakStrip();
+renderTabs();
+renderContent();
+renderTimerBar();
+// Init reset button icon
+document.querySelector('.sw-btn.ghost').innerHTML = ic('reset');
+
+// Show pre-marked toast on first load
+if(state._preMarkedInit && state._preMarked && Object.keys(state._preMarked).length > 0 && !state._preMarkedShown){
+  setTimeout(()=>{
+    toast('✓ MON & TUE PRE-LOGGED');
+  }, 800);
+  state._preMarkedShown = true;
+  saveState();
+}
 </script>
 </body>
 </html>
