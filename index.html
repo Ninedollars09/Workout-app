@@ -453,32 +453,66 @@ h1 .accent{
 
 /* Rest timer */
 .rest-row{
-  margin-top:8px;display:flex;align-items:center;justify-content:space-between;
-  padding:5px 8px;background:transparent;
-  font-size:10.5px;color:var(--text-dim);
-  font-family:'JetBrains Mono',monospace;letter-spacing:.3px;
+  margin-top:10px;display:flex;align-items:center;justify-content:space-between;
+  padding:11px 14px;background:var(--bg-3);
+  border:1px solid var(--border-2);
+  font-family:'JetBrains Mono',monospace;letter-spacing:.4px;
+  position:relative;overflow:hidden;
+  clip-path:polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+  transition:all .25s;
 }
-.rest-row .rest-info{display:flex;align-items:center;gap:6px}
-.rest-row .rest-info svg{width:12px;height:12px;stroke-width:2;color:var(--cyan)}
+.rest-row.is-running{
+  background:linear-gradient(135deg, rgba(255,0,60,.18) 0%, rgba(255,0,60,.04) 100%);
+  border-color:var(--magenta);
+  box-shadow:0 0 18px var(--magenta-glow);
+}
+.rest-row.is-done{
+  background:linear-gradient(135deg, rgba(0,255,136,.16) 0%, rgba(0,255,136,.04) 100%);
+  border-color:var(--done);
+  box-shadow:0 0 16px var(--done-glow);
+}
+/* Progress bar at the bottom of rest-row when running */
+.rest-row .rest-progress{
+  position:absolute;left:0;bottom:0;height:3px;width:0%;
+  background:linear-gradient(90deg,var(--magenta) 0%,var(--magenta-2) 100%);
+  box-shadow:0 0 8px var(--magenta-glow);
+  transition:width .3s linear;
+}
+.rest-row.is-done .rest-progress{background:var(--done);box-shadow:0 0 8px var(--done-glow);width:100% !important}
+
+.rest-row .rest-info{
+  display:flex;align-items:center;gap:8px;
+  font-size:11.5px;font-weight:700;color:var(--text-dim);
+  text-transform:uppercase;letter-spacing:1px;
+}
+.rest-row .rest-info svg{width:14px;height:14px;stroke-width:2;color:var(--cyan)}
+.rest-row.is-running .rest-info{color:var(--magenta)}
+.rest-row.is-running .rest-info svg{color:var(--magenta);animation:flicker 2s infinite}
+.rest-row.is-done .rest-info{color:var(--done)}
+.rest-row.is-done .rest-info svg{color:var(--done)}
+
 .rest-btn{
-  padding:5px 10px;background:var(--bg-3);border:1px solid var(--border-2);
+  padding:8px 14px;background:var(--bg-2);border:1px solid var(--border-bright);
   font-family:'JetBrains Mono',monospace;
-  font-size:10.5px;font-weight:700;color:var(--text);letter-spacing:.5px;
-  display:inline-flex;align-items:center;gap:5px;transition:all .15s;
-  clip-path:polygon(0 0, calc(100% - 4px) 0, 100% 4px, 100% 100%, 4px 100%, 0 calc(100% - 4px));
+  font-size:12px;font-weight:700;color:var(--text);letter-spacing:.5px;
+  display:inline-flex;align-items:center;gap:7px;transition:all .15s;
+  clip-path:polygon(0 0, calc(100% - 5px) 0, 100% 5px, 100% 100%, 5px 100%, 0 calc(100% - 5px));
+  min-width:92px;justify-content:center;
 }
 .rest-btn:active{transform:scale(.95)}
-.rest-btn svg{width:10px;height:10px}
+.rest-btn svg{width:12px;height:12px;flex-shrink:0}
 .rest-btn.running{
   background:var(--magenta);color:var(--text);border-color:var(--magenta);
   box-shadow:0 0 14px var(--magenta-glow);
-  animation:flicker 3s infinite;
 }
 .rest-btn.done{
   background:var(--done);color:var(--bg);border-color:var(--done);
   box-shadow:0 0 12px var(--done-glow);
 }
-.rest-btn .timer-text{font-family:'Orbitron',sans-serif;font-weight:700;font-variant-numeric:tabular-nums}
+.rest-btn .timer-text{
+  font-family:'Orbitron',sans-serif;font-weight:800;font-size:16px;
+  font-variant-numeric:tabular-nums;letter-spacing:.5px;line-height:1;
+}
 
 /* ============= PROGRESS ============= */
 .progress-block{
@@ -655,6 +689,7 @@ const ICONS = {
   play: '<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20"/></svg>',
   pause: '<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>',
   reset: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 a9 9 0 1 0 3-6.7"/><polyline points="3 4 3 9 8 9"/></svg>',
+  book: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4 a1 1 0 0 1 1-1 h13 v17 H6 a1 1 0 0 0-1 1 V4z"/><path d="M5 21 a1 1 0 0 1 1-1 h13"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="9" y1="12" x2="15" y2="12"/></svg>',
 };
 function ic(key){return ICONS[key]||''}
 
@@ -780,28 +815,21 @@ const SCHEDULE = {
     ]
   },
   6:{
-    name:"Legs + Basketball Skills", icon:"barbell",
-    levelText:"Heavy", duration:"50 min",
-    focus:"Max leg work · Final skill session",
-    accent:"#e8d4a8", accentDark:"#8a6a28",
-    rationale:"Day after basketball — body's still warm. Heavy leg work, then end the week with skill drills.",
+    name:"Tutoring Day", icon:"book",
+    levelText:"Light / Optional", duration:"10 min total",
+    focus:"Recovery between tutoring sessions",
+    accent:"#c9d4e8", accentDark:"#4e6b8a",
+    rationale:"Tutoring all day — busy schedule. Keep it minimal: brief mobility in the morning + foam roller in the evening if energy allows. No mandatory work.",
     phases:[
-      {label:"WARM-UP", exercises:[
-        {name:"Jump Rope", sets:1, reps:"3 min", note:""},
-        {name:"Dynamic Stretch", sets:1, reps:"3 min", note:"Open hips and joints"},
+      {label:"MORNING — 5 MIN", exercises:[
+        {name:"Cat-Cow Stretch", sets:1, reps:"10 reps", note:"Wake up the spine"},
+        {name:"Standing Hip Circle", sets:1, reps:"10/direction", note:"Open hips post-basketball"},
+        {name:"Shoulder Roll + Neck Stretch", sets:1, reps:"2 min", note:"Pre-teaching loosening"},
       ]},
-      {label:"STRENGTH", exercises:[
-        {name:"DB Front Squat", sets:4, reps:"8 reps", note:"DB at shoulders · elbows forward · go deep", rest:120},
-        {name:"DB Bulgarian Split Squat", sets:3, reps:"10/side", note:"Rear foot on bench", rest:75},
-        {name:"DB RDL (Romanian Deadlift)", sets:3, reps:"10 reps", note:"Hinge at hips · back straight", rest:90},
-        {name:"Calf Raise", sets:4, reps:"15 reps", note:"Pause 1s at top", rest:45},
-      ]},
-      {label:"SKILL DRILL", exercises:[
-        {name:"Form Shooting (close range)", sets:1, reps:"10 min", note:"Focus on wrist and release"},
-        {name:"Ball Handling Drill", sets:1, reps:"5 min", note:"Crossover · between legs"},
-      ]},
-      {label:"COOL-DOWN", exercises:[
-        {name:"Foam Roller — Full Legs", sets:1, reps:"8 min", note:"Roll deep · prep for Sunday rest"},
+      {label:"EVENING — 5 MIN (OPTIONAL)", exercises:[
+        {name:"Foam Roller — Legs", sets:1, reps:"5 min", note:"Only if energy permits"},
+        {name:"Hip Flexor Stretch", sets:1, reps:"30s/side", note:"Counter standing all day"},
+        {name:"Deep Breathing", sets:1, reps:"2 min", note:"Wind down before tomorrow's rest"},
       ]},
     ]
   },
@@ -1043,11 +1071,12 @@ function renderContent(){
         // Rest timer
         if(ex.rest){
           const tkey = `${activeDay}_${pi}_${ei}_rest`;
-          phasesHTML += `<div class="rest-row">
+          phasesHTML += `<div class="rest-row" id="restrow_${tkey}">
             <div class="rest-info">${ic('hourglass')}<span>REST ${ex.rest}s</span></div>
             <button class="rest-btn" id="rest_${tkey}" onclick="toggleRest('${tkey}',${ex.rest})">
               ${ic('play')}<span class="timer-text" id="timer_${tkey}">${ex.rest}s</span>
             </button>
+            <div class="rest-progress" id="restprog_${tkey}"></div>
           </div>`;
         }
       }
@@ -1196,42 +1225,59 @@ function toggleRest(tkey, seconds){
 function startRest(tkey, seconds){
   // Stop any existing timer
   if(activeTimer){
-    const oldBtn = document.getElementById(`rest_${activeTimer.key}`);
     const oldKey = activeTimer.key;
     const oldTotal = activeTimer.total;
+    const oldBtn = document.getElementById(`rest_${oldKey}`);
+    const oldRow = document.getElementById(`restrow_${oldKey}`);
+    const oldProg = document.getElementById(`restprog_${oldKey}`);
     clearInterval(activeTimer.interval);
     if(oldBtn){
       oldBtn.classList.remove('running');
       oldBtn.innerHTML = `${ic('play')}<span class="timer-text" id="timer_${oldKey}">${oldTotal}s</span>`;
     }
+    if(oldRow) oldRow.classList.remove('is-running','is-done');
+    if(oldProg) oldProg.style.width = '0%';
   }
   const btn = document.getElementById(`rest_${tkey}`);
+  const row = document.getElementById(`restrow_${tkey}`);
+  const prog = document.getElementById(`restprog_${tkey}`);
   if(!btn) return;
   let remaining = seconds;
   btn.classList.remove('done');
   btn.classList.add('running');
   btn.innerHTML = `${ic('pause')}<span class="timer-text" id="timer_${tkey}">${remaining}s</span>`;
+  if(row){row.classList.remove('is-done');row.classList.add('is-running')}
+  if(prog) prog.style.width = '0%';
   activeTimer = {key:tkey, total:seconds, remaining};
   activeTimer.interval = setInterval(()=>{
     remaining--;
     activeTimer.remaining = remaining;
     const t = document.getElementById(`timer_${tkey}`);
     if(t) t.textContent = `${remaining}s`;
+    const p = document.getElementById(`restprog_${tkey}`);
+    if(p){
+      const pct = ((seconds - remaining) / seconds) * 100;
+      p.style.width = pct + '%';
+    }
     if(remaining <= 0){
       clearInterval(activeTimer.interval);
       activeTimer = null;
       if(btn){
         btn.classList.remove('running');
         btn.classList.add('done');
-        btn.innerHTML = `<span style="font-weight:800">✓</span><span class="timer-text">REST DONE</span>`;
+        btn.innerHTML = `<span style="font-weight:800">✓</span><span class="timer-text">DONE</span>`;
       }
+      if(row){row.classList.remove('is-running');row.classList.add('is-done')}
       if(navigator.vibrate) navigator.vibrate([100,50,100]);
       setTimeout(()=>{
         if(btn && !btn.classList.contains('running')){
           btn.classList.remove('done');
           btn.innerHTML = `${ic('play')}<span class="timer-text" id="timer_${tkey}">${seconds}s</span>`;
         }
-      },3500);
+        if(row) row.classList.remove('is-done');
+        const p2 = document.getElementById(`restprog_${tkey}`);
+        if(p2) p2.style.width = '0%';
+      },4000);
       toast('⏰ REST OVER · NEXT SET');
     }
   },1000);
@@ -1242,10 +1288,14 @@ function stopRest(tkey, seconds){
   clearInterval(activeTimer.interval);
   activeTimer = null;
   const btn = document.getElementById(`rest_${tkey}`);
+  const row = document.getElementById(`restrow_${tkey}`);
+  const prog = document.getElementById(`restprog_${tkey}`);
   if(btn){
     btn.classList.remove('running');
     btn.innerHTML = `${ic('play')}<span class="timer-text" id="timer_${tkey}">${seconds}s</span>`;
   }
+  if(row) row.classList.remove('is-running','is-done');
+  if(prog) prog.style.width = '0%';
 }
 
 // ════════════════════════════════════════════════════════════
