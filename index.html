@@ -710,6 +710,11 @@ const SCHEDULE = {
       {label:"WARM-UP", exercises:[
         {name:"Jump Rope", sets:1, reps:"3 min", note:"Steady rhythm"},
       ]},
+      {label:"DAILY LEGS", exercises:[
+        {name:"Bodyweight Squat", sets:1, reps:"20 reps", note:"Light tempo · activation"},
+        {name:"Calf Raise", sets:1, reps:"20 reps", note:"Pause 1s at top"},
+        {name:"Glute Bridge", sets:1, reps:"15 reps", note:"Squeeze glutes hard"},
+      ]},
       {label:"MAIN", exercises:[
         {name:"Bodyweight Squat", sets:3, reps:"15 reps", note:"Down slow 3s, up fast", rest:60},
         {name:"DB Step-up onto Bench", sets:3, reps:"10/side", note:"Step up with control", rest:60},
@@ -741,6 +746,11 @@ const SCHEDULE = {
         {name:"DB Lateral Raise", sets:3, reps:"12 reps", note:"Up slow 2s, down slow 2s", rest:45},
         {name:"Push-up Board — Triceps", sets:2, reps:"10 reps", note:"Focus on elbow lock", rest:45},
       ]},
+      {label:"DAILY LEGS", exercises:[
+        {name:"Bodyweight Squat", sets:1, reps:"20 reps", note:"Light tempo · activation"},
+        {name:"Calf Raise", sets:1, reps:"20 reps", note:"Pause 1s at top"},
+        {name:"Glute Bridge", sets:1, reps:"15 reps", note:"Squeeze glutes hard"},
+      ]},
       {label:"COOL-DOWN", exercises:[
         {name:"Wrist Circles + Finger Stretch", sets:1, reps:"3 min", note:"Loosen wrists"},
         {name:"Foam Roller — Shoulders + Back", sets:1, reps:"5 min", note:""},
@@ -759,6 +769,11 @@ const SCHEDULE = {
         {name:"Standing Hip Circle", sets:1, reps:"10/direction", note:"Both sides"},
         {name:"Ankle Circle + Calf Stretch", sets:1, reps:"2 min", note:"Critical for Friday basketball"},
         {name:"Shoulder Roll + Arm Circle", sets:1, reps:"2 min", note:"Relieve desk-bound tension"},
+      ]},
+      {label:"DAILY LEGS", exercises:[
+        {name:"Bodyweight Squat", sets:1, reps:"20 reps", note:"Light tempo · activation"},
+        {name:"Calf Raise", sets:1, reps:"20 reps", note:"Pause 1s at top"},
+        {name:"Glute Bridge", sets:1, reps:"15 reps", note:"Squeeze glutes hard"},
       ]},
       {label:"RECOVERY", exercises:[
         {name:"Foam Roller — Full Body", sets:1, reps:"8-10 min", note:"Focus on quads · ITB · shoulders"},
@@ -785,6 +800,11 @@ const SCHEDULE = {
         {name:"V-up", sets:3, reps:"10 reps", note:"Core · target lower abs · legs straight", rest:45},
         {name:"Russian Twist (light DB)", sets:3, reps:"15 reps", note:"Rotate whole torso, not just arms", rest:45},
       ]},
+      {label:"DAILY LEGS", exercises:[
+        {name:"Bodyweight Squat", sets:1, reps:"20 reps", note:"Light tempo · activation"},
+        {name:"Calf Raise", sets:1, reps:"20 reps", note:"Pause 1s at top"},
+        {name:"Glute Bridge", sets:1, reps:"15 reps", note:"Squeeze glutes hard"},
+      ]},
       {label:"COOL-DOWN", exercises:[
         {name:"Hip Flexor Stretch", sets:1, reps:"30s/side", note:"Critical for basketball players"},
         {name:"Foam Roller — Upper Back", sets:1, reps:"3 min", note:"Loosen shoulders before tomorrow"},
@@ -803,6 +823,11 @@ const SCHEDULE = {
         {name:"Ankle Mobility (Wall Drill)", sets:1, reps:"10/side", note:"Critical before jumping"},
         {name:"Lateral Shuffle (light)", sets:1, reps:"2 min", note:"Defensive stance"},
         {name:"Layup / Shooting Warm-up", sets:1, reps:"5 min", note:"Easy shots before tip-off"},
+      ]},
+      {label:"DAILY LEGS", exercises:[
+        {name:"Bodyweight Squat", sets:1, reps:"20 reps", note:"Light tempo · activation"},
+        {name:"Calf Raise", sets:1, reps:"20 reps", note:"Pause 1s at top"},
+        {name:"Glute Bridge", sets:1, reps:"15 reps", note:"Squeeze glutes hard"},
       ]},
       {label:"GAME", exercises:[
         {name:"🏀 3x3 Game", sets:1, reps:"Full game", note:"Focus · read the game · have fun!"},
@@ -825,6 +850,11 @@ const SCHEDULE = {
         {name:"Cat-Cow Stretch", sets:1, reps:"10 reps", note:"Wake up the spine"},
         {name:"Standing Hip Circle", sets:1, reps:"10/direction", note:"Open hips post-basketball"},
         {name:"Shoulder Roll + Neck Stretch", sets:1, reps:"2 min", note:"Pre-teaching loosening"},
+      ]},
+      {label:"DAILY LEGS", exercises:[
+        {name:"Bodyweight Squat", sets:1, reps:"20 reps", note:"Light tempo · activation"},
+        {name:"Calf Raise", sets:1, reps:"20 reps", note:"Pause 1s at top"},
+        {name:"Glute Bridge", sets:1, reps:"15 reps", note:"Squeeze glutes hard"},
       ]},
       {label:"EVENING — 5 MIN (OPTIONAL)", exercises:[
         {name:"Foam Roller — Legs", sets:1, reps:"5 min", note:"Only if energy permits"},
@@ -918,7 +948,7 @@ const THAI_MONTHS = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT"
 
 function renderHeader(){
   const t = new Date();
-  const txt = `${DAYS_FULL[t.getDay()].toUpperCase()} · ${THAI_MONTHS[t.getMonth()]} ${t.getDate()}`;
+  const txt = `TODAY · ${DAYS_FULL[t.getDay()].toUpperCase()}`;
   document.getElementById('todayDate').textContent = txt;
 }
 
@@ -951,7 +981,6 @@ function renderTabs(){
     tab.className = `day-tab ${isActive?'active':''} ${isToday?'today':''} ${isCompleted?'completed':''}`;
     tab.innerHTML = `
       <div class="dn">${DAYS_SHORT[jsDay]}</div>
-      <div class="dnum">${d.getDate()}</div>
       <div class="ico">${ic(plan.icon)}</div>
       <div class="check-dot"></div>
     `;
@@ -1001,7 +1030,7 @@ function renderContent(){
       <div class="card">
         <div class="card-head" style="--accent:${plan.accent};--accent-dark:${plan.accentDark}">
           <div class="card-icon-big">${ic(plan.icon)}</div>
-          <div class="card-day-label">${DAYS_FULL[activeDay].toUpperCase()} · ${THAI_MONTHS[d.getMonth()]} ${d.getDate()}</div>
+          <div class="card-day-label">${DAYS_FULL[activeDay].toUpperCase()}</div>
           <div class="card-title">${plan.name}</div>
           <div class="card-focus">${plan.focus}</div>
         </div>
@@ -1092,7 +1121,7 @@ function renderContent(){
     <div class="card">
       <div class="card-head" style="--accent:${plan.accent};--accent-dark:${plan.accentDark}">
         <div class="card-icon-big">${ic(plan.icon)}</div>
-        <div class="card-day-label">${DAYS_FULL[activeDay].toUpperCase()} · ${THAI_MONTHS[d.getMonth()]} ${d.getDate()}${isToday?' <span class="today-tag">NOW</span>':''}</div>
+        <div class="card-day-label">${DAYS_FULL[activeDay].toUpperCase()}${isToday?' <span class="today-tag">NOW</span>':''}</div>
         <div class="card-title">${plan.name}</div>
         <div class="card-focus">${plan.focus}</div>
         <div class="card-meta">
