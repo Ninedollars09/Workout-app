@@ -284,6 +284,41 @@ h1 .accent{color:var(--olive)}
 .rest-btn.done{background:var(--olive);color:var(--bg);border-color:var(--olive)}
 .rest-btn .timer-text{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:17px;font-variant-numeric:tabular-nums;letter-spacing:.5px;line-height:1}
 
+/* Interval timer (auto work/rest cycling) */
+.interval-widget{
+  margin-top:10px;padding:14px 16px;background:var(--bg-3);border:1px solid var(--border-2);transition:all .25s;
+}
+.interval-widget.is-work{border-color:var(--olive);box-shadow:0 0 16px var(--olive-glow);background:var(--bg-4)}
+.interval-widget.is-rest{border-color:var(--amber);box-shadow:0 0 16px var(--amber-glow);background:var(--bg-4)}
+.interval-widget.is-done{border-color:var(--olive);box-shadow:0 0 14px var(--olive-glow)}
+.interval-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.interval-phase{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim)}
+.interval-widget.is-work .interval-phase{color:var(--olive)}
+.interval-widget.is-rest .interval-phase{color:var(--amber)}
+.interval-widget.is-done .interval-phase{color:var(--olive)}
+.interval-round{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim);letter-spacing:1px}
+.interval-time{
+  font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:44px;line-height:1;color:var(--text);
+  text-align:center;margin:6px 0 10px;font-variant-numeric:tabular-nums;letter-spacing:1px;
+}
+.interval-widget.is-work .interval-time{color:var(--olive)}
+.interval-widget.is-rest .interval-time{color:var(--amber)}
+.interval-widget.is-done .interval-time{color:var(--olive);animation:blink 1s infinite}
+.interval-progress{height:5px;background:var(--bg-2);border:1px solid var(--border-2);overflow:hidden;margin-bottom:12px}
+.interval-progress-fill{height:100%;width:0%;background:var(--olive);transition:width .3s linear}
+.interval-widget.is-rest .interval-progress-fill{background:var(--amber)}
+.interval-controls{display:flex;gap:8px}
+.interval-btn{
+  flex:2;padding:10px;background:var(--bg-2);border:1px solid var(--border-bright);color:var(--text);
+  font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;letter-spacing:1px;text-transform:uppercase;
+  display:flex;align-items:center;justify-content:center;gap:8px;transition:all .15s;
+}
+.interval-btn:active{transform:scale(.97)}
+.interval-btn svg{width:13px;height:13px;flex-shrink:0}
+.interval-btn.primary{background:var(--olive);border-color:var(--olive);color:var(--bg)}
+.interval-widget.is-rest .interval-btn.primary{background:var(--amber);border-color:var(--amber)}
+.interval-btn.ghost{flex:0 0 46px}
+
 /* ============= PROGRESS + RESET ============= */
 .progress-block{padding:16px 20px;background:var(--bg-1);border-top:1px solid var(--border)}
 .progress-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px}
@@ -451,7 +486,7 @@ const SCHEDULE = {
       ]},
       {label:"EXPLOSIVE FINISHER", exercises:[
         {name:"Jump Squat", sets:4, reps:"6 reps", note:"Max height · convert strength to power", rest:75},
-        {name:"Broad Jump", sets:3, reps:"5 reps", note:"Explosive horizontal drive", rest:75},
+        {name:"KB Swing (6kg)", sets:4, reps:"15 reps", note:"Explosive hip snap · posterior chain power · feeds vertical jump", rest:75},
       ]},
       {label:"COOL-DOWN", exercises:[
         {name:"Foam Roller — Quads + Calves", sets:1, reps:"5 min", note:"Roll slow"},
@@ -471,13 +506,14 @@ const SCHEDULE = {
       ]},
       DAILY_LEGS,
       {label:"INTERVAL CARDIO", exercises:[
-        {name:"Jump Rope Sprints", sets:6, reps:"30s on / 30s off", note:"Max pace on · keep moving off", rest:30},
+        {name:"Jump Rope Sprints", note:"Max pace on work · keep moving on rest · auto-advances every round", interval:{work:30, rest:30, rounds:6}},
+        {name:"KB Swing (6kg)", sets:4, reps:"20 reps", note:"Ballistic conditioning · explosive hinge, snappy reps", rest:40},
         {name:"Burpees", sets:4, reps:"10 reps", note:"Full-body conditioning", rest:45},
       ]},
       {label:"ROTATIONAL POWER", exercises:[
-        {name:"DB Russian Twist", sets:3, reps:"20 reps", note:"Rotate from the core · controlled", rest:45},
-        {name:"DB Wood Chop", sets:3, reps:"12/side", note:"High-to-low diagonal · drives the kick", rest:45},
-        {name:"Shadow Strikes (cross + roundhouse)", sets:3, reps:"45 sec", note:"Sharp, snappy · footwork on", rest:30},
+        {name:"KB Russian Twist (6kg)", sets:3, reps:"20 reps", note:"Rotate from the core · controlled · loaded", rest:45},
+        {name:"KB Wood Chop (6kg)", sets:3, reps:"12/side", note:"High-to-low diagonal · drives the kick", rest:45},
+        {name:"KB Single-Arm Swing (8kg)", sets:3, reps:"10/side", note:"Hip-driven rotation, alternating arms · the same engine that powers a cross or roundhouse", rest:45},
       ]},
       {label:"COOL-DOWN", exercises:[
         {name:"Hip + Shoulder Stretch", sets:1, reps:"4 min", note:"Hold each 30s"},
@@ -514,8 +550,12 @@ const SCHEDULE = {
     phases:[
       {label:"WARM-UP", exercises:[
         {name:"Arm Circles + Scapular Push-ups", sets:1, reps:"3 min", note:"Warm the shoulders"},
+        {name:"KB Halo (6kg)", sets:1, reps:"8/direction", note:"Circle the head · loosen shoulders", rest:0},
       ]},
       DAILY_LEGS,
+      {label:"STABILITY PRIMER", exercises:[
+        {name:"Turkish Get-Up (6kg)", sets:2, reps:"3/side", note:"Slow · full-body control · shoulder stability — the tactical staple", rest:60},
+      ]},
       {label:"STRENGTH — COMPOUND", exercises:[
         {name:"DB Bench Press", sets:4, reps:"8 reps", note:"Controlled · full ROM", rest:90},
         {name:"DB Bent-Over Row", sets:4, reps:"8 reps", note:"Back parallel · drive elbows", rest:90},
@@ -687,7 +727,7 @@ function renderContent(){
 
   let totalSets = 0, doneSets = 0;
   plan.phases.forEach((ph,pi)=>ph.exercises.forEach((ex,ei)=>{
-    const n = ex.sets||1; totalSets += n;
+    const n = ex.interval ? ex.interval.rounds : (ex.sets||1); totalSets += n;
     for(let si=0;si<n;si++){if(state.sets[`${activeDay}_${pi}_${ei}_${si}`]) doneSets++}
   }));
 
@@ -695,10 +735,25 @@ function renderContent(){
   plan.phases.forEach((ph,pi)=>{
     phasesHTML += `<div class="phase"><div class="phase-label ${ph.daily?'daily':''}">${ph.label}<span class="pl-line"></span></div>`;
     ph.exercises.forEach((ex,ei)=>{
-      const n = ex.sets||1;
-      const isSingle = n === 1;
-      phasesHTML += `<div class="ex"><div class="ex-head"><div><div class="ex-name">${ex.name}</div>${ex.note?`<div class="ex-note">${ex.note}</div>`:''}</div>${!isSingle?`<div class="ex-sets-label"><span class="num">${n}</span> SETS ×<br>${ex.reps}</div>`:''}</div>`;
-      if(isSingle){
+      const isInterval = !!ex.interval;
+      const n = isInterval ? ex.interval.rounds : (ex.sets||1);
+      const isSingle = !isInterval && n === 1;
+      const key = `${activeDay}_${pi}_${ei}`;
+      const metaLabel = isInterval
+        ? `<div class="ex-sets-label"><span class="num">${ex.interval.rounds}</span> ROUNDS ×<br>${ex.interval.work}s/${ex.interval.rest}s</div>`
+        : (!isSingle ? `<div class="ex-sets-label"><span class="num">${n}</span> SETS ×<br>${ex.reps}</div>` : '');
+      phasesHTML += `<div class="ex"><div class="ex-head"><div><div class="ex-name">${ex.name}</div>${ex.note?`<div class="ex-note">${ex.note}</div>`:''}</div>${metaLabel}</div>`;
+      if(isInterval){
+        phasesHTML += `<div class="interval-widget" id="interval_${key}">
+          <div class="interval-top"><span class="interval-phase" id="iphase_${key}">WORK</span><span class="interval-round" id="iround_${key}">ROUND 1/${ex.interval.rounds}</span></div>
+          <div class="interval-time" id="itime_${key}">${ex.interval.work}</div>
+          <div class="interval-progress"><div class="interval-progress-fill" id="iprog_${key}"></div></div>
+          <div class="interval-controls">
+            <button class="interval-btn primary" id="ibtn_${key}" onclick="toggleInterval('${key}')">${ic('play')}<span>START</span></button>
+            <button class="interval-btn ghost" onclick="resetIntervalUI('${key}')">${ic('reset')}</button>
+          </div>
+        </div>`;
+      }else if(isSingle){
         const k = `${activeDay}_${pi}_${ei}_0`;
         const done = !!state.sets[k];
         phasesHTML += `<div class="single-row ${done?'done':''}" data-key="${k}" onclick="toggleSet('${k}')"><div class="check"></div><div class="reps-text">${ex.reps}</div></div>`;
@@ -747,6 +802,7 @@ function renderContent(){
       <button class="complete-btn ${isDone?'completed':''}" id="completeBtn" onclick="toggleDayComplete()">${isDone?'OP COMPLETE':'MARK COMPLETE'}</button>
       <button class="reset-day-btn" id="resetDayBtn" onclick="resetDay()">${ic('reset')} RESET</button>
     </div>`;
+  syncIntervalWidgets();
 }
 
 // ════════════════════════════════════════════════════════════
@@ -780,7 +836,7 @@ function updateProgress(){
   if(plan.isRest) return;
   let total = 0, done = 0;
   plan.phases.forEach((ph,pi)=>ph.exercises.forEach((ex,ei)=>{
-    const n = ex.sets||1; total += n;
+    const n = ex.interval ? ex.interval.rounds : (ex.sets||1); total += n;
     for(let si=0;si<n;si++){if(state.sets[`${activeDay}_${pi}_${ei}_${si}`]) done++}
   }));
   const pct = total>0 ? Math.round((done/total)*100) : 0;
@@ -842,6 +898,13 @@ function resetDay(){
     clearInterval(activeTimer.interval);
     activeTimer = null;
   }
+  // Stop and clear any interval-timer runners (e.g. Jump Rope Sprints) on this day
+  Object.keys(intervalRunners).forEach(key=>{
+    if(key.startsWith(`${activeDay}_`)){
+      clearIntervalTimer(key);
+      delete intervalRunners[key];
+    }
+  });
   // Remove all set keys that belong to this day
   Object.keys(state.sets).forEach(k=>{
     if(k.startsWith(`${activeDay}_`)) delete state.sets[k];
@@ -909,6 +972,131 @@ function stopRest(tkey, seconds){
   if(btn){btn.classList.remove('running'); btn.innerHTML = `${ic('play')}<span class="timer-text" id="timer_${tkey}">${seconds}s</span>`}
   if(row) row.classList.remove('is-running','is-done');
   if(prog) prog.style.width = '0%';
+}
+
+// ════════════════════════════════════════════════════════════
+// INTERVAL TIMER — auto-cycling work/rest rounds (e.g. Jump Rope Sprints)
+// ════════════════════════════════════════════════════════════
+let intervalRunners = {};
+
+function getIntervalCfg(key){
+  const parts = key.split('_');
+  const day = parseInt(parts[0]), pi = parseInt(parts[1]), ei = parseInt(parts[2]);
+  return SCHEDULE[day]?.phases?.[pi]?.exercises?.[ei]?.interval;
+}
+
+function toggleInterval(key){
+  const runner = intervalRunners[key];
+  if(runner && runner.running) pauseInterval(key);
+  else startInterval(key);
+}
+
+function startInterval(key){
+  const cfg = getIntervalCfg(key);
+  if(!cfg) return;
+  let runner = intervalRunners[key];
+  if(!runner || runner.finished){
+    runner = intervalRunners[key] = {phase:'work', round:1, remaining:cfg.work, running:false, finished:false, timerId:null};
+  }
+  runner.running = true;
+  clearIntervalTimer(key);
+  runner.timerId = setInterval(()=>advanceInterval(key), 1000);
+  renderIntervalUI(key);
+}
+
+function pauseInterval(key){
+  const runner = intervalRunners[key];
+  if(!runner) return;
+  runner.running = false;
+  clearIntervalTimer(key);
+  renderIntervalUI(key);
+}
+
+function clearIntervalTimer(key){
+  const runner = intervalRunners[key];
+  if(runner && runner.timerId){clearInterval(runner.timerId); runner.timerId = null}
+}
+
+function resetIntervalUI(key){
+  const cfg = getIntervalCfg(key);
+  if(!cfg) return;
+  clearIntervalTimer(key);
+  intervalRunners[key] = {phase:'work', round:1, remaining:cfg.work, running:false, finished:false, timerId:null};
+  for(let r=0;r<cfg.rounds;r++){ delete state.sets[`${key}_${r}`]; }
+  saveState();
+  updateProgress();
+  renderIntervalUI(key);
+  toast('◯ INTERVAL RESET');
+}
+
+function advanceInterval(key){
+  const runner = intervalRunners[key];
+  const cfg = getIntervalCfg(key);
+  if(!runner || !cfg) return;
+  runner.remaining--;
+  if(runner.remaining <= 0){
+    if(runner.phase === 'work'){
+      state.sets[`${key}_${runner.round-1}`] = true;
+      saveState();
+      updateProgress();
+      if(navigator.vibrate) navigator.vibrate([100,50,100]);
+      if(runner.round >= cfg.rounds){
+        clearIntervalTimer(key);
+        runner.running = false;
+        runner.finished = true;
+        toast('✓ INTERVAL COMPLETE');
+        renderIntervalUI(key);
+        return;
+      }
+      runner.phase = 'rest';
+      runner.remaining = cfg.rest;
+    }else{
+      runner.round++;
+      runner.phase = 'work';
+      runner.remaining = cfg.work;
+      if(navigator.vibrate) navigator.vibrate(80);
+      toast(`ROUND ${runner.round}/${cfg.rounds}`);
+    }
+  }
+  renderIntervalUI(key);
+}
+
+function renderIntervalUI(key){
+  const runner = intervalRunners[key];
+  const cfg = getIntervalCfg(key);
+  if(!runner || !cfg) return;
+  const widget = document.getElementById(`interval_${key}`);
+  if(!widget) return; // not on the currently displayed day
+  const phaseEl = document.getElementById(`iphase_${key}`);
+  const roundEl = document.getElementById(`iround_${key}`);
+  const timeEl = document.getElementById(`itime_${key}`);
+  const progEl = document.getElementById(`iprog_${key}`);
+  const btnEl = document.getElementById(`ibtn_${key}`);
+
+  widget.classList.remove('is-work','is-rest','is-done');
+  if(runner.finished){
+    widget.classList.add('is-done');
+    phaseEl.textContent = 'COMPLETE';
+    roundEl.textContent = `${cfg.rounds}/${cfg.rounds} DONE`;
+    timeEl.textContent = '00';
+    progEl.style.width = '100%';
+    btnEl.innerHTML = `${ic('play')}<span>RESTART</span>`;
+    return;
+  }
+  widget.classList.add(runner.phase === 'work' ? 'is-work' : 'is-rest');
+  phaseEl.textContent = runner.phase === 'work' ? 'WORK' : 'REST';
+  roundEl.textContent = `ROUND ${runner.round}/${cfg.rounds}`;
+  timeEl.textContent = String(runner.remaining).padStart(2,'0');
+  const total = runner.phase === 'work' ? cfg.work : cfg.rest;
+  progEl.style.width = (((total - runner.remaining) / total) * 100) + '%';
+  const label = runner.running ? 'PAUSE' : ((runner.round>1||runner.phase==='rest') ? 'RESUME' : 'START');
+  btnEl.innerHTML = `${runner.running ? ic('pause') : ic('play')}<span>${label}</span>`;
+}
+
+function syncIntervalWidgets(){
+  Object.keys(intervalRunners).forEach(key=>{
+    if(document.getElementById(`interval_${key}`)) renderIntervalUI(key);
+  });
 }
 
 // ════════════════════════════════════════════════════════════
