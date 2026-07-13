@@ -494,26 +494,29 @@ const SCHEDULE = {
     ]
   },
   2:{
-    name:"Endurance // Combat", icon:"punch", pillar:"ENDURANCE + MARTIAL POWER",
-    levelText:"High Intensity", duration:"35 min",
-    focus:"Interval cardio · rotational strikes",
-    accent:"#e0a020", accentDark:"#b07c10",
-    rationale:"Kennedy sustains high-intensity effort without fatigue — interval sprints plus circuit work. Rotational power (the engine behind his roundhouse and suplex) trains here too.",
+    name:"Strength // Upper", icon:"dumbbell", pillar:"STRENGTH + PHYSIQUE",
+    levelText:"Medium-Heavy", duration:"45 min",
+    focus:"Pressing · pulling · explosive push · intervals",
+    accent:"#b4c82e", accentDark:"#8a9a22",
+    rationale:"Heavy pressing and pulling now sit 3 days out from game day — shoulders and arms fully recover before Friday. Conditioning intervals close the session; basketball itself covers the rest.",
     phases:[
       {label:"WARM-UP", exercises:[
-        {name:"Jump Rope", sets:1, reps:"2 min", note:"Light bounce"},
-        {name:"Arm Circles + Torso Twists", sets:1, reps:"2 min", note:"Prime the rotators"},
+        {name:"Arm Circles + Scapular Push-ups", sets:1, reps:"3 min", note:"Warm the shoulders"},
+        {name:"KB Halo (6kg)", sets:1, reps:"8/direction", note:"Circle the head · loosen shoulders"},
       ]},
       DAILY_LEGS,
-      {label:"INTERVAL CARDIO", exercises:[
-        {name:"Jump Rope Sprints", note:"Max pace on work · keep moving on rest · auto-advances every round", interval:{work:30, rest:30, rounds:6}},
-        {name:"KB Swing (6kg)", sets:4, reps:"20 reps", note:"Ballistic conditioning · explosive hinge, snappy reps", rest:40},
-        {name:"Burpees", sets:4, reps:"10 reps", note:"Full-body conditioning", rest:45},
+      {label:"STRENGTH — COMPOUND", exercises:[
+        {name:"DB Bench Press", sets:4, reps:"8 reps", note:"Controlled · full ROM", rest:90},
+        {name:"DB Bent-Over Row", sets:4, reps:"8 reps", note:"Back parallel · drive elbows", rest:90},
+        {name:"DB Shoulder Press", sets:3, reps:"10 reps", note:"Standing · core braced", rest:75},
       ]},
-      {label:"ROTATIONAL POWER", exercises:[
-        {name:"KB Russian Twist (6kg)", sets:3, reps:"20 reps", note:"Rotate from the core · controlled · loaded", rest:45},
-        {name:"KB Wood Chop (6kg)", sets:3, reps:"12/side", note:"High-to-low diagonal · drives the kick", rest:45},
-        {name:"KB Single-Arm Swing (8kg)", sets:3, reps:"10/side", note:"Hip-driven rotation, alternating arms · the same engine that powers a cross or roundhouse", rest:45},
+      {label:"EXPLOSIVE + CORE", exercises:[
+        {name:"Incline Explosive Push-up", sets:3, reps:"6 reps", note:"Hands on bench · push fast, hands lift slightly · ballistic", rest:75},
+        {name:"KB Russian Twist (6kg)", sets:2, reps:"20 reps", note:"Rotate from the core · controlled", rest:45},
+        {name:"DB Curl + Push-up Board Triceps", sets:2, reps:"12 each", note:"Superset · optional — skip if short on time", rest:60},
+      ]},
+      {label:"CONDITIONING", exercises:[
+        {name:"Jump Rope Sprints", note:"Max pace on work · keep moving on rest · auto-advances every round", interval:{work:30, rest:30, rounds:6}},
       ]},
       {label:"COOL-DOWN", exercises:[
         {name:"Hip + Shoulder Stretch", sets:1, reps:"4 min", note:"Hold each 30s"},
@@ -542,29 +545,27 @@ const SCHEDULE = {
     ]
   },
   4:{
-    name:"Strength // Upper", icon:"dumbbell", pillar:"STRENGTH + PHYSIQUE",
-    levelText:"Medium-Heavy", duration:"40 min",
-    focus:"Pressing · pulling · explosive push",
-    accent:"#b4c82e", accentDark:"#8a9a22",
-    rationale:"Upper-body compound work builds Kennedy's signature physique and the pressing/pulling strength for grappling. One day before basketball — heavy upper, but legs stay light.",
+    name:"Pre-Op Primer", icon:"pulse", pillar:"SPEED + ACTIVATION",
+    levelText:"Light · Fast", duration:"25 min",
+    focus:"Prime the nervous system · zero soreness",
+    accent:"#e0a020", accentDark:"#b07c10",
+    rationale:"Stimulate, don't annihilate. The day before an op is for priming — low volume, maximum speed, nothing taken near failure. You step on court tomorrow springy, not sore. Heavy work ended Tuesday.",
     phases:[
       {label:"WARM-UP", exercises:[
-        {name:"Arm Circles + Scapular Push-ups", sets:1, reps:"3 min", note:"Warm the shoulders"},
-        {name:"KB Halo (6kg)", sets:1, reps:"8/direction", note:"Circle the head · loosen shoulders", rest:0},
+        {name:"Jump Rope (easy)", sets:1, reps:"2 min", note:"Light bounce · wake the ankles"},
       ]},
       DAILY_LEGS,
-      {label:"STABILITY PRIMER", exercises:[
-        {name:"Turkish Get-Up (6kg)", sets:2, reps:"3/side", note:"Slow · full-body control · shoulder stability — the tactical staple", rest:60},
+      {label:"STABILITY", exercises:[
+        {name:"Turkish Get-Up (6kg)", sets:2, reps:"2/side", note:"Slow · full-body control — the tactical staple", rest:45},
       ]},
-      {label:"STRENGTH — COMPOUND", exercises:[
-        {name:"DB Bench Press", sets:4, reps:"8 reps", note:"Controlled · full ROM", rest:90},
-        {name:"DB Bent-Over Row", sets:4, reps:"8 reps", note:"Back parallel · drive elbows", rest:90},
-        {name:"DB Shoulder Press", sets:3, reps:"10 reps", note:"Standing · core braced", rest:75},
-        {name:"Push-up Board — Wide", sets:3, reps:"12 reps", note:"Chest emphasis", rest:60},
+      {label:"SPEED PRIMER", exercises:[
+        {name:"Jump Squat", sets:2, reps:"5 reps", note:"Max intent · full recovery · stop while fresh", rest:75},
+        {name:"KB Single-Arm Swing (8kg)", sets:2, reps:"8/side", note:"Crisp hip snap · speed, not grind", rest:45},
+        {name:"KB Wood Chop (6kg)", sets:2, reps:"8/side", note:"Fast diagonal · rotational speed for tomorrow", rest:45},
       ]},
-      {label:"EXPLOSIVE + ARMS", exercises:[
-        {name:"Incline Explosive Push-up", sets:4, reps:"6 reps", note:"Hands on bench · push up fast, let hands lift slightly · ballistic", rest:75},
-        {name:"DB Curl + Push-up Board Triceps", sets:3, reps:"12 each", note:"Superset · arm aesthetics", rest:60},
+      {label:"COURT PREP", exercises:[
+        {name:"Defensive Slide / Lateral Shuffle", sets:2, reps:"30 sec", note:"Low stance · sharp direction changes", rest:30},
+        {name:"Ankle Mobility (Wall Drill)", sets:1, reps:"10/side", note:"Knee over toe · protect the landing"},
       ]},
       {label:"COOL-DOWN", exercises:[
         {name:"Hip Flexor Stretch", sets:1, reps:"30s/side", note:"Critical pre-basketball"},
