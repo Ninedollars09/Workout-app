@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-title" content="D.S.O.">
 <meta name="theme-color" content="#10120f">
 <link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%2310120f'/><rect x='8' y='8' width='84' height='84' fill='none' stroke='%23b4c82e' stroke-width='2'/><path d='M50 20 L50 80 M20 50 L80 50' stroke='%23b4c82e' stroke-width='1' opacity='0.5'/><circle cx='50' cy='50' r='22' fill='none' stroke='%23b4c82e' stroke-width='2.5'/><circle cx='50' cy='50' r='4' fill='%23b4c82e'/><text x='50' y='95' font-family='Arial' font-size='9' font-weight='700' fill='%23b4c82e' text-anchor='middle' letter-spacing='1'>D.S.O.</text></svg>">
-<title>D.S.O. // Field Conditioning Protocol</title>
+<title>D.S.O. — Field Conditioning Protocol</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -23,7 +23,7 @@
   --border-2: #3d4632;
   --border-bright: #525e42;
   --text: #e6ead9;
-  --text-dim: #97a085;
+  --text-dim: #a6af94;
   --text-dimmer: #5e6650;
   --olive: #b4c82e;
   --olive-bright: #c8dd3a;
@@ -91,7 +91,7 @@ h1 .accent{color:var(--olive)}
   font-family:'JetBrains Mono',monospace;letter-spacing:.3px;
   display:flex;align-items:center;gap:7px;
 }
-.tagline::before{content:'▸';color:var(--olive)}
+.tagline::before{content:'';display:inline-block;width:6px;height:6px;background:var(--olive);flex-shrink:0}
 
 /* ============= STATS ============= */
 .stats{
@@ -102,7 +102,7 @@ h1 .accent{color:var(--olive)}
 .stat + .stat::before{content:'';position:absolute;left:0;top:22%;height:56%;width:1px;background:var(--border-2)}
 .stat-val{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:700;color:var(--text);line-height:1}
 .stat-val.hl{color:var(--olive)}
-.stat-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dim);margin-top:5px;font-weight:500}
+.stat-label{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dim);margin-top:5px;font-weight:500}
 
 /* ============= TIMER BAR ============= */
 .session-bar{
@@ -156,7 +156,7 @@ h1 .accent{color:var(--olive)}
 .day-tabs{display:flex;gap:4px;margin-bottom:16px;overflow-x:auto;scrollbar-width:none;padding:2px}
 .day-tabs::-webkit-scrollbar{display:none}
 .day-tab{
-  flex:1;min-width:50px;padding:10px 4px;background:var(--bg-2);border:1px solid var(--border);
+  flex:1;min-width:50px;padding:12px 4px;background:var(--bg-2);border:1px solid var(--border);
   display:flex;flex-direction:column;align-items:center;gap:5px;transition:all .15s;position:relative;
 }
 .day-tab.active{background:var(--olive);border-color:var(--olive)}
@@ -185,15 +185,15 @@ h1 .accent{color:var(--olive)}
   font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;
   color:var(--olive);font-weight:500;display:flex;align-items:center;gap:6px;
 }
-.card-day-label::before{content:'//';color:var(--text-dimmer)}
+
 .card-day-label .today-tag{margin-left:6px;padding:1px 7px;background:var(--olive);color:var(--bg);font-size:8.5px;letter-spacing:1.5px;font-weight:700}
 .card-title{font-family:'Barlow Condensed',sans-serif;font-size:30px;font-weight:700;line-height:1;margin-top:5px;letter-spacing:.5px;text-transform:uppercase;color:var(--text)}
 .card-focus{font-size:13px;color:var(--text-dim);margin-top:6px;font-family:'JetBrains Mono',monospace;letter-spacing:.2px;font-weight:400}
-.card-focus::before{content:'> ';color:var(--olive)}
+.card-focus::before{content:'';display:inline-block;width:6px;height:6px;background:var(--olive);margin-right:8px;vertical-align:2px}
 .card-meta{display:flex;gap:6px;margin-top:14px;flex-wrap:wrap}
 .chip{
   display:inline-flex;align-items:center;gap:5px;padding:4px 10px;font-family:'JetBrains Mono',monospace;
-  font-size:10.5px;font-weight:500;letter-spacing:.8px;text-transform:uppercase;
+  font-size:11px;font-weight:500;letter-spacing:.8px;text-transform:uppercase;
   background:var(--bg-3);color:var(--text-dim);border:1px solid var(--border-2);
 }
 .chip.hl{background:var(--olive);color:var(--bg);border-color:var(--olive)}
@@ -220,28 +220,28 @@ h1 .accent{color:var(--olive)}
   font-family:'Barlow Condensed',sans-serif;font-size:14px;letter-spacing:2px;text-transform:uppercase;
   color:var(--olive);font-weight:700;display:flex;align-items:center;gap:10px;margin-bottom:10px;
 }
-.phase-label::before{content:'▸';color:var(--olive);font-size:11px}
+.phase-label::before{content:'';display:inline-block;width:7px;height:7px;background:var(--olive);flex-shrink:0}
 .phase-label .pl-line{flex:1;height:1px;background:linear-gradient(90deg,var(--border-2) 0%,transparent 90%)}
 .phase-label.daily{color:var(--amber)}
-.phase-label.daily::before{color:var(--amber)}
+.phase-label.daily::before{background:var(--amber)}
 
 .ex{padding:11px 0;border-bottom:1px dashed var(--border)}
 .ex:last-child{border-bottom:none}
 .ex-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
-.ex-name{font-weight:600;font-size:15px;color:var(--text);line-height:1.25;font-family:'Rajdhani',sans-serif}
-.ex-note{font-size:11px;color:var(--text-dim);margin-top:3px;line-height:1.4;font-family:'JetBrains Mono',monospace;font-weight:400}
-.ex-note::before{content:'// ';color:var(--steel);opacity:.7}
-.ex-sets-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim);text-align:right;font-weight:500;letter-spacing:.5px;white-space:nowrap}
-.ex-sets-label .num{font-family:'Barlow Condensed',sans-serif;font-size:18px;color:var(--olive);font-weight:700}
+.ex-name{font-weight:600;font-size:16px;color:var(--text);line-height:1.25;font-family:'Rajdhani',sans-serif}
+.ex-note{font-size:11.5px;color:var(--text-dim);margin-top:3px;line-height:1.4;font-family:'JetBrains Mono',monospace;font-weight:400}
+
+.ex-sets-label{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-dim);text-align:right;font-weight:500;letter-spacing:.5px;white-space:nowrap}
+.ex-sets-label .num{font-family:'Barlow Condensed',sans-serif;font-size:19px;color:var(--olive);font-weight:700}
 
 .sets{display:flex;gap:5px;margin-top:10px;flex-wrap:wrap}
 .set-row{
-  flex:1;min-width:62px;display:flex;align-items:center;justify-content:center;gap:6px;
-  padding:8px 6px;background:var(--bg-3);border:1px solid var(--border-2);
-  font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text);transition:all .15s;font-weight:500;
+  flex:1;min-width:64px;display:flex;align-items:center;justify-content:center;gap:6px;
+  padding:11px 6px;background:var(--bg-3);border:1px solid var(--border-2);
+  font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--text);transition:all .15s;font-weight:500;
   cursor:pointer;user-select:none;letter-spacing:.5px;
 }
-.set-row .lbl{font-size:9px;letter-spacing:1px;color:var(--text-dim)}
+.set-row .lbl{font-size:9.5px;letter-spacing:1px;color:var(--text-dim)}
 .set-row.done{background:var(--olive);border-color:var(--olive);color:var(--bg)}
 .set-row.done .lbl{color:var(--bg);opacity:.8}
 .set-row.done::before{content:'✓';margin-right:2px;font-weight:700}
@@ -254,35 +254,47 @@ h1 .accent{color:var(--olive)}
 .single-row.done{background:var(--olive);border-color:var(--olive);color:var(--bg)}
 .single-row.done .check{background:var(--bg);border-color:var(--bg)}
 .single-row.done .check::after{content:'✓';color:var(--olive);font-size:12px;font-weight:700}
-.single-row .reps-text{font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:500;color:var(--text);letter-spacing:.3px}
+.single-row .reps-text{font-family:'JetBrains Mono',monospace;font-size:13.5px;font-weight:500;color:var(--text);letter-spacing:.3px}
 .single-row.done .reps-text{color:var(--bg)}
+
+/* Game-day variant toggle (court vs contingency) */
+.variant-swap{
+  display:flex;gap:0;border-bottom:1px solid var(--border);background:var(--bg-1);
+}
+.swap-btn{
+  flex:1;padding:13px 8px;background:transparent;border:none;border-bottom:2px solid transparent;
+  font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;
+  letter-spacing:1.6px;text-transform:uppercase;color:var(--text-dimmer);transition:all .15s;
+}
+.swap-btn:active{transform:scale(.98)}
+.swap-btn.active{color:var(--olive);border-bottom-color:var(--olive);background:var(--bg-2)}
 
 /* Rest timer */
 .rest-row{
-  margin-top:10px;display:flex;align-items:center;justify-content:space-between;padding:11px 14px;
+  margin-top:12px;display:flex;flex-direction:column;align-items:stretch;gap:12px;padding:16px 16px 20px;
   background:var(--bg-3);border:1px solid var(--border-2);font-family:'JetBrains Mono',monospace;
   letter-spacing:.4px;position:relative;overflow:hidden;transition:all .25s;
 }
 .rest-row.is-running{background:var(--bg-4);border-color:var(--amber);box-shadow:0 0 16px var(--amber-glow)}
 .rest-row.is-done{border-color:var(--olive);box-shadow:0 0 14px var(--olive-glow)}
-.rest-row .rest-progress{position:absolute;left:0;bottom:0;height:3px;width:0%;background:var(--amber);transition:width .3s linear}
+.rest-row .rest-progress{position:absolute;left:0;bottom:0;height:6px;width:0%;background:var(--amber);transition:width .3s linear}
 .rest-row.is-done .rest-progress{background:var(--olive);width:100% !important}
-.rest-row .rest-info{display:flex;align-items:center;gap:8px;font-size:11.5px;font-weight:500;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px}
-.rest-row .rest-info svg{width:14px;height:14px;stroke-width:2;color:var(--steel)}
+.rest-row .rest-info{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:1.4px}
+.rest-row .rest-info svg{width:19px;height:19px;stroke-width:2;color:var(--steel)}
 .rest-row.is-running .rest-info{color:var(--amber)}
 .rest-row.is-running .rest-info svg{color:var(--amber)}
 .rest-row.is-done .rest-info{color:var(--olive)}
 .rest-row.is-done .rest-info svg{color:var(--olive)}
 .rest-btn{
-  padding:8px 14px;background:var(--bg-2);border:1px solid var(--border-bright);font-family:'JetBrains Mono',monospace;
-  font-size:12px;font-weight:500;color:var(--text);letter-spacing:.5px;display:inline-flex;align-items:center;gap:7px;
-  transition:all .15s;min-width:90px;justify-content:center;
+  width:100%;padding:22px 16px;background:var(--bg-2);border:1px solid var(--border-bright);font-family:'JetBrains Mono',monospace;
+  font-size:13px;font-weight:500;color:var(--text);letter-spacing:.5px;display:flex;align-items:center;gap:16px;
+  transition:all .15s;justify-content:center;
 }
-.rest-btn:active{transform:scale(.95)}
-.rest-btn svg{width:12px;height:12px;flex-shrink:0}
+.rest-btn:active{transform:scale(.98)}
+.rest-btn svg{width:24px;height:24px;flex-shrink:0}
 .rest-btn.running{background:var(--amber);color:var(--bg);border-color:var(--amber)}
 .rest-btn.done{background:var(--olive);color:var(--bg);border-color:var(--olive)}
-.rest-btn .timer-text{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:17px;font-variant-numeric:tabular-nums;letter-spacing:.5px;line-height:1}
+.rest-btn .timer-text{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:56px;font-variant-numeric:tabular-nums;letter-spacing:1px;line-height:.9}
 
 /* Interval timer (auto work/rest cycling) */
 .interval-widget{
@@ -323,7 +335,7 @@ h1 .accent{color:var(--olive)}
 .progress-block{padding:16px 20px;background:var(--bg-1);border-top:1px solid var(--border)}
 .progress-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px}
 .progress-head .lbl{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dim);font-weight:500}
-.progress-head .lbl::before{content:'▰ ';color:var(--olive)}
+.progress-head .lbl::before{content:'';display:inline-block;width:8px;height:8px;background:var(--olive);margin-right:7px;vertical-align:baseline}
 .progress-head .val{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:20px;color:var(--olive);letter-spacing:.5px}
 .progress-bar{height:6px;background:var(--bg-3);overflow:hidden;border:1px solid var(--border-2);position:relative}
 .progress-fill{height:100%;background:var(--olive);transition:width .4s ease;width:0%}
@@ -370,6 +382,11 @@ h1 .accent{color:var(--olive)}
   h1{font-size:32px}
   .card-title{font-size:26px}
   .stat-val{font-size:24px}
+  .rest-row{padding:14px 12px 18px;gap:10px}
+  .rest-row .rest-info{font-size:11.5px;gap:8px}
+  .rest-row .rest-info svg{width:17px;height:17px}
+  .rest-btn{padding:18px 12px;gap:12px}
+  .rest-btn .timer-text{font-size:46px}
 }
 </style>
 </head>
@@ -381,7 +398,7 @@ h1 .accent{color:var(--olive)}
     <div class="eyebrow">
       <span class="dot"></span>
       <span>D.S.O. FIELD AGENT</span>
-      <span class="sep">//</span>
+      <span class="sep">·</span>
       <span class="id" id="todayLabel">TODAY · WED</span>
     </div>
     <h1>CONDITIONING<br><span class="accent">PROTOCOL</span></h1>
@@ -391,7 +408,7 @@ h1 .accent{color:var(--olive)}
   <!-- STATS -->
   <div class="stats">
     <div class="stat"><div class="stat-val hl" id="streakNum">0</div><div class="stat-label">Streak</div></div>
-    <div class="stat"><div class="stat-val" id="weekDone">0/6</div><div class="stat-label">This Week</div></div>
+    <div class="stat"><div class="stat-val" id="weekDone">0/7</div><div class="stat-label">This Week</div></div>
     <div class="stat"><div class="stat-val" id="totalDays">0</div><div class="stat-label">Total Ops</div></div>
   </div>
 
@@ -427,7 +444,7 @@ h1 .accent{color:var(--olive)}
   <!-- CONTENT -->
   <div id="content"></div>
 
-  <div class="footer">// KENNEDY METHOD · BUILT FOR <span class="heart">NINE</span> //</div>
+  <div class="footer">KENNEDY METHOD — BUILT FOR <span class="heart">NINE</span></div>
 </div>
 
 <div class="toast" id="toast"></div>
@@ -618,6 +635,59 @@ const SCHEDULE = {
     ]
   },
   0:{
+    name:"Basketball 3x3", icon:"basketball", pillar:"FIELD APPLICATION",
+    levelText:"Game Day", duration:"15 min + game",
+    focus:"Second court session of the week",
+    accent:"#d44030", accentDark:"#a8301e",
+    rationale:"Second live session. Everything built during the week gets expressed here again — but this one closes the week, so read your body: if Friday left you beaten up, switch to Stand Down.",
+    phases:[
+      {label:"PRE-GAME WARM-UP", exercises:[
+        {name:"Hip Circle + Leg Swing", sets:1, reps:"2 min", note:"Loosen hips and knees"},
+        {name:"Ankle Mobility (Wall Drill)", sets:1, reps:"10/side", note:"Critical before jumping"},
+        {name:"Lateral Shuffle", sets:1, reps:"2 min", note:"Defensive stance"},
+        {name:"Layup / Shooting Warm-up", sets:1, reps:"5 min", note:"Find your range"},
+      ]},
+      DAILY_LEGS,
+      {label:"LIVE PLAY", exercises:[
+        {name:"3x3 Game", sets:1, reps:"Full session", note:"Read the game · move smart · compete"},
+      ]},
+      {label:"POST-GAME COOL-DOWN", exercises:[
+        {name:"Slow Walk + Deep Breathing", sets:1, reps:"3 min", note:"Bring HR down"},
+        {name:"Static Stretch — Legs + Hips", sets:1, reps:"5 min", note:"Hold each 30s"},
+        {name:"Massage Gun — Calves", sets:1, reps:"3 min", note:"Reduce soreness before Monday"},
+      ]},
+    ]
+  },
+  // ── Contingency plans (swapped in from the game-day toggle) ──
+  7:{
+    name:"Rain Contingency", icon:"bolt", pillar:"COURT SIMULATION",
+    levelText:"Medium-High", duration:"30 min",
+    focus:"Indoor substitute for a rained-out session",
+    accent:"#e0a020", accentDark:"#b07c10",
+    rationale:"Court's out — but yesterday primed you to move, and legs only get one heavy day a week. This circuit rebuilds the game's demands indoors: jumping, lateral work, single-leg drive, and conditioning.",
+    phases:[
+      {label:"WARM-UP", exercises:[
+        {name:"Jump Rope (easy)", sets:1, reps:"3 min", note:"Light bounce"},
+        {name:"Hip Circle + Ankle Mobility", sets:1, reps:"2 min", note:"Prep for jumping"},
+      ]},
+      DAILY_LEGS,
+      {label:"COURT CIRCUIT — 4 ROUNDS", exercises:[
+        {name:"Jump Squat", sets:4, reps:"8 reps", note:"Stands in for rebound jumps · max height", rest:30},
+        {name:"Lateral Shuffle", sets:4, reps:"30 sec", note:"Stands in for defense · low stance", rest:30},
+        {name:"KB Swing (8kg)", sets:4, reps:"15 reps", note:"Hip power · explosive snap", rest:30},
+        {name:"DB Bulgarian Split Squat", sets:4, reps:"8/side", note:"Single-leg drive · mimics direction changes", rest:30},
+        {name:"Push-up", sets:4, reps:"12 reps", note:"Upper-body filler · round ends here", rest:90},
+      ]},
+      {label:"FINISHER", exercises:[
+        {name:"Jump Rope Sprints", note:"Max pace on work · keep moving on rest · auto-advances every round", interval:{work:30, rest:30, rounds:6}},
+      ]},
+      {label:"COOL-DOWN", exercises:[
+        {name:"Foam Roller — Legs", sets:1, reps:"5 min", note:"Roll deep"},
+        {name:"Hip Flexor Stretch", sets:1, reps:"30s/side", note:""},
+      ]},
+    ]
+  },
+  8:{
     name:"Stand Down", icon:"moon", pillar:"FULL REST",
     levelText:"Full Rest", duration:"—",
     focus:"Recovery · restoration · prep for next week",
@@ -627,25 +697,33 @@ const SCHEDULE = {
   }
 };
 
+// Game days that can be swapped for a contingency plan
+const ALT_OF = {5:7, 0:8};                     // weekday → contingency plan key
+const BASE_OF = {7:5, 8:0};                    // contingency plan key → weekday
+const ALT_LABEL = {5:"RAIN PLAN", 0:"STAND DOWN"};
+function baseDay(d){return BASE_OF[d] !== undefined ? BASE_OF[d] : d}
+function planKeyFor(weekday){return state.variant && state.variant[weekday] ? ALT_OF[weekday] : weekday}
+
 // ════════════════════════════════════════════════════════════
 // STATE
 // ════════════════════════════════════════════════════════════
 const STORAGE_KEY = "leon_workout_state";
 let state = loadState();
-let activeDay = (new Date()).getDay();
+let activeDay = planKeyFor((new Date()).getDay());
 let activeTimer = null;
 
 function loadState(){
   try{
     const s = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
-    return {sets:s.sets||{}, completed:s.completed||{}, ...s};
-  }catch(e){return {sets:{}, completed:{}}}
+    return {sets:s.sets||{}, completed:s.completed||{}, variant:s.variant||{}, ...s};
+  }catch(e){return {sets:{}, completed:{}, variant:{}}}
 }
 function saveState(){localStorage.setItem(STORAGE_KEY, JSON.stringify(state))}
 
 function dateKey(d){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}
 
 function dateForDayOfWeek(jsDay){
+  jsDay = baseDay(jsDay);
   const today = new Date();
   const tdJsDay = today.getDay();
   let daysSinceMon = (tdJsDay === 0) ? 6 : tdJsDay - 1;
@@ -669,16 +747,16 @@ function renderTabs(){
   const todayJsDay = (new Date()).getDay();
   const order = [1,2,3,4,5,6,0];
   order.forEach(jsDay => {
-    const plan = SCHEDULE[jsDay];
+    const plan = SCHEDULE[planKeyFor(jsDay)];
     const d = dateForDayOfWeek(jsDay);
     const isToday = jsDay === todayJsDay;
-    const isActive = jsDay === activeDay;
+    const isActive = jsDay === baseDay(activeDay);
     const dk = dateKey(d);
     const isCompleted = !!state.completed[dk];
     const tab = document.createElement('button');
     tab.className = `day-tab ${isActive?'active':''} ${isToday?'today':''} ${isCompleted?'completed':''}`;
     tab.innerHTML = `<div class="dn">${DAYS_SHORT[jsDay]}</div><div class="ico">${ic(plan.icon)}</div><div class="check-dot"></div>`;
-    tab.onclick = () => { activeDay = jsDay; renderTabs(); renderContent(); };
+    tab.onclick = () => { activeDay = planKeyFor(jsDay); renderTabs(); renderContent(); };
     container.appendChild(tab);
   });
 }
@@ -696,27 +774,49 @@ function renderStats(){
   const mon = new Date(today); mon.setDate(today.getDate() - daysSinceMon);
   let weekDone = 0;
   for(let i=0;i<7;i++){const wd = new Date(mon); wd.setDate(mon.getDate()+i); if(state.completed[dateKey(wd)]) weekDone++}
-  document.getElementById('weekDone').textContent = `${weekDone}/6`;
+  document.getElementById('weekDone').textContent = `${weekDone}/7`;
   document.getElementById('totalDays').textContent = Object.keys(state.completed).length;
+}
+
+function variantToggleHTML(weekday){
+  const onAlt = !!(state.variant && state.variant[weekday]);
+  return `<div class="variant-swap">
+    <button class="swap-btn ${onAlt?'':'active'}" onclick="setVariant(${weekday},false)">COURT</button>
+    <button class="swap-btn ${onAlt?'active':''}" onclick="setVariant(${weekday},true)">${ALT_LABEL[weekday]}</button>
+  </div>`;
+}
+
+function setVariant(weekday, useAlt){
+  if(!state.variant) state.variant = {};
+  if(!!state.variant[weekday] === !!useAlt) return;
+  state.variant[weekday] = !!useAlt;
+  saveState();
+  activeDay = planKeyFor(weekday);
+  renderTabs();
+  renderContent();
+  toast(useAlt ? `SWITCHED TO ${ALT_LABEL[weekday]}` : 'SWITCHED TO COURT');
 }
 
 function renderContent(){
   const plan = SCHEDULE[activeDay];
+  const bd = baseDay(activeDay);
   const d = dateForDayOfWeek(activeDay);
   const dk = dateKey(d);
   const isDone = !!state.completed[dk];
-  const isToday = activeDay === (new Date()).getDay();
+  const isToday = bd === (new Date()).getDay();
   const container = document.getElementById('content');
+  const swap = ALT_OF[bd] !== undefined ? variantToggleHTML(bd) : '';
 
   if(plan.isRest){
     container.innerHTML = `
       <div class="card">
         <div class="card-head" style="--accent:${plan.accent}">
           <div class="card-icon-big">${ic(plan.icon)}</div>
-          <div class="card-day-label">${DAYS_FULL[activeDay].toUpperCase()}${isToday?' <span class="today-tag">NOW</span>':''}</div>
+          <div class="card-day-label">${DAYS_FULL[bd].toUpperCase()}${isToday?' <span class="today-tag">NOW</span>':''}</div>
           <div class="card-title">${plan.name}</div>
           <div class="card-focus">${plan.focus}</div>
         </div>
+        ${swap}
         <div class="rest-day">
           <div class="glyph">— OFFLINE —</div>
           <h3>Stand Down</h3>
@@ -783,7 +883,7 @@ function renderContent(){
     <div class="card">
       <div class="card-head" style="--accent:${plan.accent}">
         <div class="card-icon-big">${ic(plan.icon)}</div>
-        <div class="card-day-label">${DAYS_FULL[activeDay].toUpperCase()}${isToday?' <span class="today-tag">NOW</span>':''}</div>
+        <div class="card-day-label">${DAYS_FULL[bd].toUpperCase()}${isToday?' <span class="today-tag">NOW</span>':''}</div>
         <div class="card-title">${plan.name}</div>
         <div class="card-focus">${plan.focus}</div>
         <div class="card-meta">
@@ -792,6 +892,7 @@ function renderContent(){
           <span class="pillar-tag">${plan.pillar}</span>
         </div>
       </div>
+      ${swap}
       ${plan.rationale?`<div class="rationale"><span class="leaf">INTEL</span><div>${plan.rationale}</div></div>`:''}
       ${phasesHTML}
       <div class="progress-block">
@@ -915,7 +1016,7 @@ function resetDay(){
   delete state.completed[dk];
   saveState();
   renderTabs(); renderStats(); renderContent();
-  toast('◯ DAY RESET');
+  toast('DAY RESET');
 }
 
 // ════════════════════════════════════════════════════════════
@@ -952,7 +1053,7 @@ function startRest(tkey, seconds){
     const p = document.getElementById(`restprog_${tkey}`); if(p) p.style.width = (((seconds-remaining)/seconds)*100)+'%';
     if(remaining <= 0){
       clearInterval(activeTimer.interval); activeTimer = null;
-      if(btn){btn.classList.remove('running'); btn.classList.add('done'); btn.innerHTML = `<span style="font-weight:700">✓</span><span class="timer-text">DONE</span>`}
+      if(btn){btn.classList.remove('running'); btn.classList.add('done'); btn.innerHTML = `<span style="font-weight:700;font-size:34px;line-height:.9">✓</span><span class="timer-text">DONE</span>`}
       if(row){row.classList.remove('is-running'); row.classList.add('is-done')}
       if(navigator.vibrate) navigator.vibrate([100,50,100]);
       setTimeout(()=>{
@@ -960,7 +1061,7 @@ function startRest(tkey, seconds){
         if(row) row.classList.remove('is-done');
         const p2 = document.getElementById(`restprog_${tkey}`); if(p2) p2.style.width = '0%';
       },4000);
-      toast('⏰ REST OVER · NEXT SET');
+      toast('REST OVER — NEXT SET');
     }
   },1000);
 }
@@ -1027,7 +1128,7 @@ function resetIntervalUI(key){
   saveState();
   updateProgress();
   renderIntervalUI(key);
-  toast('◯ INTERVAL RESET');
+  toast('INTERVAL RESET');
 }
 
 function advanceInterval(key){
@@ -1197,7 +1298,7 @@ function finishManualTimer(){
   manualTimer.running=false; manualTimer.startTimestamp=null; manualTimer.elapsedBefore=manualTimer.duration; manualTimer.finished=true;
   ensureTicker(); renderTimerBar();
   if(navigator.vibrate) navigator.vibrate([200,80,200,80,400]);
-  toast('◉ TIMER COMPLETE');
+  toast('TIMER COMPLETE');
 }
 function resetManualTimer(){if(manualTimer.running){clearInterval(tickInterval); tickInterval=null; manualTimer.running=false; manualTimer.startTimestamp=null} manualTimer.elapsedBefore=0; manualTimer.finished=false; ensureTicker(); renderTimerBar()}
 
@@ -1210,7 +1311,7 @@ function resetActive(){
   if(btn.dataset.confirming){
     delete btn.dataset.confirming; btn.style.background=''; btn.style.borderColor='';
     if(timerMode === 'stopwatch') resetStopwatch(); else resetManualTimer();
-    toast('◯ RESET'); return;
+    toast('RESET'); return;
   }
   btn.dataset.confirming = '1';
   btn.style.background = 'var(--red)'; btn.style.borderColor = 'var(--red)';
