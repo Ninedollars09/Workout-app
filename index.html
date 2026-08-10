@@ -358,6 +358,14 @@ h1 .accent{color:var(--olive)}
 .reset-day-btn svg{width:14px;height:14px;stroke-width:2}
 .reset-day-btn.confirming{background:var(--red);border-color:var(--red);color:#fff}
 
+.reset-week-btn{
+  width:100%;margin-top:22px;padding:13px;background:transparent;border:1px dashed var(--border-2);
+  color:var(--text-dimmer);font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:500;
+  letter-spacing:2px;text-transform:uppercase;transition:all .2s;
+}
+.reset-week-btn:active{transform:translateY(1px)}
+.reset-week-btn.confirming{background:var(--red);border-style:solid;border-color:var(--red);color:#fff}
+
 /* ============= REST DAY ============= */
 .rest-day{padding:40px 20px;text-align:center}
 .rest-day .glyph{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:40px;color:var(--steel);letter-spacing:6px}
@@ -443,6 +451,8 @@ h1 .accent{color:var(--olive)}
 
   <!-- CONTENT -->
   <div id="content"></div>
+
+  <button class="reset-week-btn" id="resetWeekBtn" onclick="resetWeek()">RESET ALL DAYS</button>
 
   <div class="footer">KENNEDY METHOD — BUILT FOR <span class="heart">NINE</span></div>
 </div>
@@ -983,6 +993,45 @@ function toggleDayComplete(){
 
 // — DAILY RESET (clears all set checkmarks + completion for the selected day) —
 let pendingReset = false;
+let pendingResetWeek = false;
+function resetWeek(){
+  const btn = document.getElementById('resetWeekBtn');
+  if(!pendingResetWeek){
+    pendingResetWeek = true;
+    btn.classList.add('confirming');
+    btn.textContent = 'TAP AGAIN TO CLEAR ALL 7 DAYS';
+    setTimeout(()=>{
+      if(pendingResetWeek){
+        pendingResetWeek = false;
+        btn.classList.remove('confirming');
+        btn.textContent = 'RESET ALL DAYS';
+      }
+    },2500);
+    return;
+  }
+  // Confirmed — clear every day's set marks and this week's completion marks
+  pendingResetWeek = false;
+  btn.classList.remove('confirming');
+  btn.textContent = 'RESET ALL DAYS';
+
+  // Stop any running rest timer
+  if(activeTimer){clearInterval(activeTimer.interval); activeTimer = null}
+  // Stop every interval runner
+  Object.keys(intervalRunners).forEach(key=>{
+    clearIntervalTimer(key);
+    delete intervalRunners[key];
+  });
+  // Clear all set marks across every plan (weekdays + contingency variants)
+  state.sets = {};
+  // Clear completion marks for the 7 days currently shown in the tabs
+  [1,2,3,4,5,6,0].forEach(d=>{
+    delete state.completed[dateKey(dateForDayOfWeek(d))];
+  });
+  saveState();
+  renderTabs(); renderStats(); renderContent();
+  toast('ALL DAYS RESET');
+}
+
 function resetDay(){
   const btn = document.getElementById('resetDayBtn');
   if(!pendingReset){
