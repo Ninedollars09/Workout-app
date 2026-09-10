@@ -498,24 +498,29 @@ const SCHEDULE = {
   1:{
     name:"Strength // Upper", icon:"dumbbell", pillar:"STRENGTH + PHYSIQUE",
     levelText:"Medium-Heavy", duration:"45 min",
-    focus:"Pressing · pulling · explosive push · intervals",
+    focus:"Pull-up work · pressing · dips · intervals",
     accent:"#b4c82e", accentDark:"#8a9a22",
-    rationale:"Sunday's court session taxes the legs, so the week opens upper — legs get a full day to recover before Tuesday's heavy work. Arms and shoulders then sit 4 days out from Friday.",
+    rationale:"Sunday's court session taxes the legs, so the week opens upper. Pull-up work comes first while you are fresh — skill work degrades fast under fatigue. Negatives are the main driver; everything else supports them.",
     phases:[
       {label:"WARM-UP", exercises:[
         {name:"Arm Circles + Scapular Push-ups", sets:1, reps:"3 min", note:"Warm the shoulders"},
         {name:"KB Halo (6kg)", sets:1, reps:"8/direction", note:"Circle the head · loosen shoulders"},
       ]},
       DAILY_LEGS,
+      {label:"PULL-UP PROTOCOL", exercises:[
+        {name:"Dead Hang", sets:2, reps:"20-30 sec", note:"Shoulders active, not slumped · builds grip and hang tolerance", rest:60},
+        {name:"Scapular Pull-up", sets:3, reps:"8 reps", note:"Arms stay straight · only the shoulder blades pull you up 2-3 inches · THE missing link", rest:60},
+        {name:"Negative Pull-up", sets:4, reps:"3 reps", note:"Step or jump to the top, lower for 5 full seconds · the single biggest driver of a first rep", rest:90},
+        {name:"Inverted Row (under dip bars)", sets:3, reps:"10 reps", note:"Body straight, chest to the bar · horizontal pull", rest:60},
+      ]},
       {label:"STRENGTH — COMPOUND", exercises:[
         {name:"DB Bench Press", sets:4, reps:"8 reps", note:"Controlled · full ROM", rest:90},
-        {name:"DB Bent-Over Row", sets:4, reps:"8 reps", note:"Back parallel · drive elbows", rest:90},
+        {name:"DB Bent-Over Row", sets:3, reps:"8 reps", note:"Back parallel · drive elbows", rest:90},
         {name:"DB Shoulder Press", sets:3, reps:"10 reps", note:"Standing · core braced", rest:75},
       ]},
       {label:"EXPLOSIVE + CORE", exercises:[
-        {name:"Incline Explosive Push-up", sets:3, reps:"6 reps", note:"Hands on bench · push fast, hands lift slightly · ballistic", rest:75},
+        {name:"Dip (negatives if needed)", sets:3, reps:"5-8 reps", note:"Full reps if possible, otherwise lower slowly for 5s · new tower unlocks this", rest:75},
         {name:"KB Russian Twist (6kg)", sets:2, reps:"20 reps", note:"Rotate from the core · controlled", rest:45},
-        {name:"DB Curl + Push-up Board Triceps", sets:2, reps:"12 each", note:"Superset · optional — skip if short on time", rest:60},
       ]},
       {label:"CONDITIONING", exercises:[
         {name:"Jump Rope Sprints", note:"Max pace on work · keep moving on rest · auto-advances every round", interval:{work:30, rest:30, rounds:6}},
@@ -567,6 +572,9 @@ const SCHEDULE = {
         {name:"Shoulder Roll + Arm Circle", sets:1, reps:"2 min", note:"Relieve desk tension"},
       ]},
       DAILY_LEGS,
+      {label:"HANG", exercises:[
+        {name:"Dead Hang", sets:2, reps:"20-30 sec", note:"Decompresses the spine after a day on your feet · counts as pull-up practice", rest:45},
+      ]},
       {label:"TISSUE WORK", exercises:[
         {name:"Heating Pad — Lower Back / Hips", sets:1, reps:"10-15 min", note:"Use first · warm tissue releases easier under the roller"},
         {name:"Foam Roller — Full Body", sets:1, reps:"8-10 min", note:"Focus quads · ITB · shoulders"},
@@ -586,6 +594,10 @@ const SCHEDULE = {
         {name:"Jump Rope (easy)", sets:1, reps:"2 min", note:"Light bounce · wake the ankles"},
       ]},
       DAILY_LEGS,
+      {label:"PULL-UP PRACTICE", exercises:[
+        {name:"Scapular Pull-up", sets:2, reps:"5 reps", note:"Light technique work · nowhere near failure", rest:45},
+        {name:"Dead Hang", sets:2, reps:"20 sec", note:"Grip and shoulder practice · stop while fresh", rest:45},
+      ]},
       {label:"STABILITY", exercises:[
         {name:"Turkish Get-Up (6kg)", sets:2, reps:"2/side", note:"Slow · full-body control — the tactical staple", rest:45},
       ]},
