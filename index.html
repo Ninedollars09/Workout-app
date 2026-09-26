@@ -510,8 +510,9 @@ const SCHEDULE = {
       {label:"PULL-UP PROTOCOL", exercises:[
         {name:"Dead Hang", sets:2, reps:"20-30 sec", note:"Shoulders active, not slumped · builds grip and hang tolerance", rest:60},
         {name:"Scapular Pull-up", sets:3, reps:"8 reps", note:"Arms stay straight · only the shoulder blades pull you up 2-3 inches · THE missing link", rest:60},
-        {name:"Negative Pull-up", sets:4, reps:"3 reps", note:"Step or jump to the top, lower for 5 full seconds · the single biggest driver of a first rep", rest:90},
-        {name:"Inverted Row (under dip bars)", sets:3, reps:"10 reps", note:"Body straight, chest to the bar · horizontal pull", rest:60},
+        {name:"Band-Assisted Pull-up", sets:4, reps:"5 reps", note:"Knee shallow in the band, not deep · full range, chin over bar · reduce depth as you get stronger", rest:90},
+        {name:"Negative Pull-up", sets:3, reps:"3 reps", note:"No band · step to the top, lower 5 full seconds · still the biggest strength driver", rest:90},
+        {name:"Inverted Row (under dip bars)", sets:2, reps:"10 reps", note:"Body straight, chest to the bar · horizontal pull", rest:60},
       ]},
       {label:"STRENGTH — COMPOUND", exercises:[
         {name:"DB Bench Press", sets:4, reps:"8 reps", note:"Controlled · full ROM", rest:90},
@@ -519,7 +520,7 @@ const SCHEDULE = {
         {name:"DB Shoulder Press", sets:3, reps:"10 reps", note:"Standing · core braced", rest:75},
       ]},
       {label:"EXPLOSIVE + CORE", exercises:[
-        {name:"Dip (negatives if needed)", sets:3, reps:"5-8 reps", note:"Full reps if possible, otherwise lower slowly for 5s · new tower unlocks this", rest:75},
+        {name:"Dip (band-assisted if needed)", sets:3, reps:"5-8 reps", note:"Band across the bars under your knees, or lower slowly for 5s", rest:75},
         {name:"KB Russian Twist (6kg)", sets:2, reps:"20 reps", note:"Rotate from the core · controlled", rest:45},
       ]},
       {label:"CONDITIONING", exercises:[
@@ -553,17 +554,20 @@ const SCHEDULE = {
         {name:"Jump Squat", sets:4, reps:"6 reps", note:"Max height · convert strength to power", rest:75},
         {name:"KB Swing (6kg)", sets:4, reps:"15 reps", note:"Explosive hip snap · posterior chain power · feeds vertical jump", rest:75},
       ]},
+      {label:"CONDITIONING FINISHER", exercises:[
+        {name:"Jump Rope Sprints", note:"Short work, long rest — keeps legs fresh for the week · auto-advances every round", interval:{work:20, rest:40, rounds:5}},
+      ]},
       {label:"COOL-DOWN", exercises:[
         {name:"Foam Roller — Quads + Calves", sets:1, reps:"5 min", note:"Roll slow"},
       ]},
     ]
   },
   3:{
-    name:"Active Recovery", icon:"recover", pillar:"RECOVERY",
-    levelText:"Very Light", duration:"15-20 min",
-    focus:"Mobility · between school duty",
+    name:"Recovery // Aerobic Base", icon:"recover", pillar:"RECOVERY + ENDURANCE",
+    levelText:"Easy", duration:"35-45 min",
+    focus:"Zone 2 base · mobility · between school duty",
     accent:"#6a8caa", accentDark:"#4e6b8a",
-    rationale:"Duty day — keep it minimal. Even a field agent needs recovery to sustain the week. Mobility and tissue work only; do during a break or before/after your shift.",
+    rationale:"Endurance is built at easy pace, not just in sprints. Zone 2 work adds aerobic base without costing recovery — it can be split into two short blocks across a duty day, or done as a walk on the way home.",
     phases:[
       {label:"MOBILITY", exercises:[
         {name:"Cat-Cow Stretch", sets:1, reps:"10 reps", note:"Slow, deep breaths"},
@@ -572,6 +576,9 @@ const SCHEDULE = {
         {name:"Shoulder Roll + Arm Circle", sets:1, reps:"2 min", note:"Relieve desk tension"},
       ]},
       DAILY_LEGS,
+      {label:"ZONE 2 — AEROBIC BASE", exercises:[
+        {name:"Easy Continuous Cardio", sets:1, reps:"20-25 min", note:"Brisk walk, easy jog, or easy rope · conversational pace — you should be able to talk · splits into 2 x 10 min if the day is tight"},
+      ]},
       {label:"HANG", exercises:[
         {name:"Dead Hang", sets:2, reps:"20-30 sec", note:"Decompresses the spine after a day on your feet · counts as pull-up practice", rest:45},
       ]},
@@ -596,7 +603,7 @@ const SCHEDULE = {
       DAILY_LEGS,
       {label:"PULL-UP PRACTICE", exercises:[
         {name:"Scapular Pull-up", sets:2, reps:"5 reps", note:"Light technique work · nowhere near failure", rest:45},
-        {name:"Dead Hang", sets:2, reps:"20 sec", note:"Grip and shoulder practice · stop while fresh", rest:45},
+        {name:"Band-Assisted Pull-up", sets:2, reps:"3 reps", note:"Groove the pattern only · easy assist, stop while fresh — never grind before game day", rest:45},
       ]},
       {label:"STABILITY", exercises:[
         {name:"Turkish Get-Up (6kg)", sets:2, reps:"2/side", note:"Slow · full-body control — the tactical staple", rest:45},
@@ -657,6 +664,7 @@ const SCHEDULE = {
         {name:"Heating Pad — Lower Back", sets:1, reps:"15 min", note:"Best use of the week · counters a full day on your feet"},
         {name:"Foam Roller — Legs", sets:1, reps:"5 min", note:"Only if energy permits"},
         {name:"Hip Flexor Stretch", sets:1, reps:"30s/side", note:"Counter standing all day"},
+        {name:"Easy Walk", sets:1, reps:"15-20 min", note:"Optional · counts toward aerobic base without taxing recovery"},
         {name:"Deep Breathing", sets:1, reps:"2 min", note:"Wind down before rest day"},
       ]},
     ]
