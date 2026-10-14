@@ -269,6 +269,30 @@ h1 .accent{color:var(--olive)}
 .swap-btn:active{transform:scale(.98)}
 .swap-btn.active{color:var(--olive);border-bottom-color:var(--olive);background:var(--bg-2)}
 
+/* Court-day swap: what is skipped, and what changes the day after */
+.skip-block{padding:14px 20px 10px;background:var(--bg-1);border-bottom:1px solid var(--border);position:relative}
+.skip-block::before{content:'';position:absolute;left:0;top:0;height:100%;width:3px;background:var(--red)}
+.skip-head{
+  font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--red);display:flex;align-items:center;gap:8px;margin-bottom:6px;
+}
+.skip-head::before{content:'';display:inline-block;width:7px;height:7px;background:var(--red);flex-shrink:0}
+.skip-item{padding:9px 0;border-top:1px dashed var(--border)}
+.skip-head + .skip-item{border-top:none;padding-top:4px}
+.skip-name{
+  font-size:15px;font-weight:600;color:var(--text-dim);line-height:1.3;
+  text-decoration:line-through;text-decoration-color:rgba(212,64,48,.7);text-decoration-thickness:1px;
+}
+.skip-why{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--text-dim);margin-top:3px;line-height:1.45}
+.note-block{padding:13px 20px;background:var(--bg-1);border-bottom:1px solid var(--border);position:relative}
+.note-block::before{content:'';position:absolute;left:0;top:0;height:100%;width:3px;background:var(--amber)}
+.note-block.tomorrow{border-bottom:none;border-top:1px solid var(--border)}
+.note-label{
+  font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--amber);margin-bottom:5px;
+}
+.note-text{font-size:14px;color:var(--text);line-height:1.5}
+
 /* Rest timer */
 .rest-row{
   margin-top:12px;display:flex;flex-direction:column;align-items:stretch;gap:12px;padding:16px 16px 20px;
@@ -494,13 +518,24 @@ const DAILY_LEGS = {label:"DAILY LEGS", daily:true, exercises:[
   {name:"Glute Bridge", sets:1, reps:"15 reps", note:"Squeeze glutes hard"},
 ]};
 
+// Shared court-session phases (used by the court-day swaps)
+const COURT_WARMUP = {label:"PRE-GAME WARM-UP", exercises:[
+  {name:"Hip Circle + Leg Swing", sets:1, reps:"2 min", note:"Loosen hips and knees"},
+  {name:"Ankle Mobility (Wall Drill)", sets:1, reps:"10/side", note:"Critical before jumping"},
+  {name:"Lateral Shuffle", sets:1, reps:"2 min", note:"Defensive stance"},
+  {name:"Layup / Shooting Warm-up", sets:1, reps:"5 min", note:"Find your range"},
+]};
+const LIVE_PLAY = {label:"LIVE PLAY", exercises:[
+  {name:"3x3 Game", sets:1, reps:"Full session", note:"Read the game · move smart · compete"},
+]};
+
 const SCHEDULE = {
   1:{
     name:"Strength // Upper", icon:"dumbbell", pillar:"STRENGTH + PHYSIQUE",
     levelText:"Medium-Heavy", duration:"45 min",
-    focus:"Pull-up work · pressing · dips · intervals",
+    focus:"Pull-up singles · pressing · dips · intervals",
     accent:"#b4c82e", accentDark:"#8a9a22",
-    rationale:"Sunday's court session taxes the legs, so the week opens upper. Pull-up work comes first while you are fresh — skill work degrades fast under fatigue. Negatives are the main driver; everything else supports them.",
+    rationale:"Sunday's court session taxes the legs, so the week opens upper. First pull-up is done — strict singles at shoulder width are now the main lift, done first while you are fresh. Band and negative work build the volume that turns one rep into five. Forearm pump is normal; sharp pain at the elbow is not — drop a set if it shows up.",
     phases:[
       {label:"WARM-UP", exercises:[
         {name:"Arm Circles + Scapular Push-ups", sets:1, reps:"3 min", note:"Warm the shoulders"},
@@ -510,8 +545,9 @@ const SCHEDULE = {
       {label:"PULL-UP PROTOCOL", exercises:[
         {name:"Dead Hang", sets:2, reps:"20-30 sec", note:"Shoulders active, not slumped · builds grip and hang tolerance", rest:60},
         {name:"Scapular Pull-up", sets:2, reps:"5 reps", note:"Primer only, not a main lift · arms straight, shoulder blades pull you up 2-3 inches", rest:60},
-        {name:"Band-Assisted Pull-up", sets:3, reps:"5 reps", note:"MAIN LIFT · go deeper into the band for more help — finishing all 3 sets beats grinding one hard set", rest:120},
-        {name:"Negative Pull-up", sets:2, reps:"3 reps", note:"No band · step to the top, lower 5 full seconds · quality over quantity, stop when the lowering gets fast", rest:120},
+        {name:"Pull-up (shoulder-width)", sets:3, reps:"1 rep", note:"MAIN LIFT · grip firm, not crushing — hands are hooks · drive elbows down to your back pockets · rep won't go? lower slowly for 5s instead", rest:150},
+        {name:"Band-Assisted Pull-up", sets:2, reps:"5 reps", note:"Volume builder · one step less assist than before (foot instead of knee) · smooth reps, no grinding", rest:90},
+        {name:"Negative Pull-up", sets:2, reps:"2 reps", note:"No band · step to the top, lower 5 full seconds · stop when the lowering gets fast", rest:120},
         {name:"Inverted Row (bent knee)", sets:2, reps:"8 reps", note:"Knees bent, feet pushing the floor is the correct starting level · walk feet further out as you get stronger", rest:60},
       ]},
       {label:"STRENGTH — COMPOUND", exercises:[
@@ -528,6 +564,7 @@ const SCHEDULE = {
       ]},
       {label:"COOL-DOWN", exercises:[
         {name:"Hip + Shoulder Stretch", sets:1, reps:"4 min", note:"Hold each 30s"},
+        {name:"Forearm Stretch + Massage Gun", sets:1, reps:"3 min", note:"Wrist flexor and extensor stretch 30s each, then massage gun on the forearm muscle · keep it off the elbow bone"},
         {name:"Heating Pad — Shoulders / Upper Back", sets:1, reps:"10 min", note:"Optional · loosen after pressing work"},
       ]},
     ]
@@ -729,15 +766,173 @@ const SCHEDULE = {
     accent:"#6a8caa", accentDark:"#4e6b8a",
     rationale:"",
     isRest:true,
-  }
+  },
+  // ── Court-day swaps: an unplanned game on a normally non-court day ──
+  11:{
+    name:"Court Day // Upper Lite", icon:"basketball", pillar:"FIELD APPLICATION",
+    levelText:"Game Day", duration:"25 min + game",
+    focus:"Pull-up main lift · trimmed press and row · arms fresh for shooting",
+    accent:"#d44030", accentDark:"#a8301e",
+    rationale:"Unplanned game today. Legs are fresh — Monday is an upper day — but grip, triceps and shoulders decide your shot. Keep the pull-up main lift and a trimmed press and row; anything that drains them waits for next week.",
+    skip:[
+      {name:"Negative Pull-up · Inverted Row", why:"Both drain grip — you won't hold the ball well"},
+      {name:"Dips", why:"Tired triceps throw off your shot"},
+      {name:"DB Shoulder Press", why:"Tired shoulders flatten your shooting arc"},
+      {name:"KB Russian Twist", why:"Core gets plenty of work on court"},
+      {name:"Jump Rope Sprints", why:"The game is today's conditioning"},
+      {name:"Daily Legs", why:"Save the legs for the court"},
+    ],
+    tomorrow:"Heavy legs come right after a game: drop every lift to 3 sets and skip Jump Squat.",
+    phases:[
+      {label:"WARM-UP", exercises:[
+        {name:"Arm Circles + Scapular Push-ups", sets:1, reps:"3 min", note:"Warm the shoulders"},
+        {name:"KB Halo (6kg)", sets:1, reps:"8/direction", note:"Loosen shoulders"},
+      ]},
+      {label:"PULL-UP — MAIN LIFT", exercises:[
+        {name:"Dead Hang", sets:2, reps:"20 sec", note:"Shoulders active, not slumped", rest:60},
+        {name:"Scapular Pull-up", sets:2, reps:"5 reps", note:"Primer · arms straight, shoulder blades only", rest:60},
+        {name:"Band-Assisted Pull-up", sets:3, reps:"5 reps", note:"Deep in the band · playing within 2 hours? stop after this lift", rest:120},
+      ]},
+      {label:"PRESS + ROW — TRIMMED", exercises:[
+        {name:"DB Bench Press", sets:3, reps:"8 reps", note:"One set fewer than usual · skip if playing within 2 hours", rest:90},
+        {name:"DB Bent-Over Row", sets:3, reps:"8 reps", note:"Skip if playing within 2 hours", rest:90},
+      ]},
+      COURT_WARMUP,
+      LIVE_PLAY,
+      {label:"POST-GAME COOL-DOWN", exercises:[
+        {name:"Hip + Shoulder Stretch", sets:1, reps:"4 min", note:"Hold each 30s"},
+        {name:"Static Stretch — Legs + Hips", sets:1, reps:"5 min", note:"Legs train tomorrow"},
+        {name:"Massage Gun — Calves", sets:1, reps:"3 min", note:"Reduce soreness before leg day"},
+      ]},
+    ]
+  },
+  12:{
+    name:"Court Day // Game Is Leg Day", icon:"basketball", pillar:"FIELD APPLICATION",
+    levelText:"Game Day", duration:"10 min + game",
+    focus:"Heavy legs stood down · the game covers them",
+    accent:"#d44030", accentDark:"#a8301e",
+    rationale:"Squats and a game on the same legs, same day, is how knees and ankles get hurt. The game replaces this week's heavy leg session — Friday and Sunday courts keep the legs trained, so nothing needs making up.",
+    skip:[
+      {name:"DB Front Squat · Romanian Deadlift · Bulgarian Split Squat", why:"Heavy legs plus a game invites injury · not made up later this week"},
+      {name:"Jump Squat · KB Swing", why:"You'll jump and sprint plenty on court"},
+      {name:"Jump Rope Sprints", why:"The game is today's conditioning"},
+      {name:"Daily Legs", why:"The game covers it"},
+    ],
+    tomorrow:"Recovery day after a game: keep Zone 2 to a brisk walk, not a jog, and give the foam roller extra time.",
+    phases:[
+      {label:"BEFORE YOU LEAVE", exercises:[
+        {name:"Heating Pad — Hips / Lower Back", sets:1, reps:"10 min", note:"Optional · if stiff from teaching"},
+      ]},
+      {label:"PULL-UP PRACTICE — OPTIONAL", exercises:[
+        {name:"Scapular Pull-up", sets:2, reps:"5 reps", note:"Light technique work · skip if rushed", rest:45},
+        {name:"Band-Assisted Pull-up", sets:2, reps:"3 reps", note:"Deep in the band · easy reps keep pull-up frequency up", rest:45},
+      ]},
+      COURT_WARMUP,
+      LIVE_PLAY,
+      {label:"POST-GAME COOL-DOWN", exercises:[
+        {name:"Static Stretch — Legs + Hips", sets:1, reps:"5 min", note:"Hold each 30s"},
+        {name:"Foam Roller — Quads + Calves", sets:1, reps:"5 min", note:"Roll slow"},
+        {name:"Massage Gun — Calves", sets:1, reps:"3 min", note:"Reduce soreness"},
+      ]},
+    ]
+  },
+  13:{
+    name:"Court Day // Game Replaces Zone 2", icon:"basketball", pillar:"FIELD APPLICATION",
+    levelText:"Game Day", duration:"10 min + game + recovery",
+    focus:"Aerobic block swapped for the game · recovery moves after it",
+    accent:"#d44030", accentDark:"#a8301e",
+    rationale:"Wednesday was meant to be easy; a game isn't. It takes the place of the Zone 2 block, and the tissue work moves to after you play, when warm muscles release best.",
+    skip:[
+      {name:"Zone 2 — Easy Continuous Cardio", why:"The game is far more than today's aerobic dose"},
+      {name:"Daily Legs", why:"The game covers it"},
+    ],
+    tomorrow:"Two games in three days: keep the pull-up practice and mobility, skip the Speed Primer — legs need the day before Friday.",
+    phases:[
+      {label:"MOBILITY", exercises:[
+        {name:"Cat-Cow Stretch", sets:1, reps:"10 reps", note:"Slow, deep breaths"},
+        {name:"Standing Hip Circle", sets:1, reps:"10/direction", note:"Both sides"},
+        {name:"Shoulder Roll + Arm Circle", sets:1, reps:"2 min", note:"Relieve desk tension"},
+      ]},
+      {label:"HANG", exercises:[
+        {name:"Dead Hang", sets:2, reps:"20-30 sec", note:"Decompresses the spine · counts as pull-up practice", rest:45},
+      ]},
+      COURT_WARMUP,
+      LIVE_PLAY,
+      {label:"POST-GAME RECOVERY", exercises:[
+        {name:"Heating Pad — Lower Back / Hips", sets:1, reps:"10-15 min", note:"Use first · warm tissue releases easier under the roller"},
+        {name:"Foam Roller — Full Body", sets:1, reps:"8-10 min", note:"Focus quads · calves · shoulders"},
+        {name:"Massage Gun — Calves + Quads", sets:1, reps:"5 min", note:"Friday is another game"},
+      ]},
+    ]
+  },
+  14:{
+    name:"Court Day // Warm-Up Only", icon:"basketball", pillar:"FIELD APPLICATION",
+    levelText:"Game Day", duration:"15 min + game",
+    focus:"The game replaces the primer",
+    accent:"#d44030", accentDark:"#a8301e",
+    rationale:"Thursday's primer exists to wake you up for a game — today the game is the session. Warm up, play, recover. Everything explosive is already covered on court.",
+    skip:[
+      {name:"Speed Primer — Jump Squat · KB Swing · KB Wood Chop", why:"The game is today's explosive work"},
+      {name:"Turkish Get-Up", why:"Not needed today · back next week"},
+      {name:"Daily Legs", why:"Keep the legs for the game"},
+    ],
+    tomorrow:"Back-to-back games: if legs feel heavy or a knee or ankle is tight on waking, play lighter or sit Friday out — no make-up needed.",
+    phases:[
+      {label:"PULL-UP PRACTICE — OPTIONAL", exercises:[
+        {name:"Scapular Pull-up", sets:2, reps:"5 reps", note:"Light technique work · skip if rushed", rest:45},
+        {name:"Band-Assisted Pull-up", sets:2, reps:"3 reps", note:"Deep in the band · easy reps, never near failure", rest:45},
+      ]},
+      COURT_WARMUP,
+      LIVE_PLAY,
+      {label:"POST-GAME COOL-DOWN", exercises:[
+        {name:"Hip Flexor Stretch", sets:1, reps:"30s/side", note:"Loosen after the game"},
+        {name:"Foam Roller — Legs", sets:1, reps:"5 min", note:"Tomorrow is another game"},
+        {name:"Heating Pad — Lower Back", sets:1, reps:"10 min", note:"Optional · if the back is tight"},
+      ]},
+    ]
+  },
+  16:{
+    name:"Court Day // Tutoring + Game", icon:"basketball", pillar:"FIELD APPLICATION",
+    levelText:"Game Day", duration:"5 min + game + recovery",
+    focus:"Long day on your feet · keep everything else minimal",
+    accent:"#d44030", accentDark:"#a8301e",
+    rationale:"A full day of teaching on your feet plus a game is already a big load. Morning mobility stays; everything else waits until after you play, when recovery matters most.",
+    skip:[
+      {name:"Daily Legs", why:"A day on your feet plus a game is plenty"},
+      {name:"Easy Walk", why:"The game covers it"},
+    ],
+    tomorrow:"Back-to-back games: if legs feel heavy, tap STAND DOWN on Sunday — that's what it's there for.",
+    phases:[
+      {label:"MORNING — 5 MIN", exercises:[
+        {name:"Cat-Cow Stretch", sets:1, reps:"10 reps", note:"Wake the spine"},
+        {name:"Standing Hip Circle", sets:1, reps:"10/direction", note:"Open the hips"},
+        {name:"Shoulder Roll + Neck Stretch", sets:1, reps:"2 min", note:"Pre-teaching loosening"},
+      ]},
+      COURT_WARMUP,
+      LIVE_PLAY,
+      {label:"POST-GAME RECOVERY", exercises:[
+        {name:"Heating Pad — Lower Back", sets:1, reps:"15 min", note:"Counters a full day on your feet plus the game"},
+        {name:"Foam Roller — Legs", sets:1, reps:"5 min", note:"Roll slow"},
+        {name:"Hip Flexor Stretch", sets:1, reps:"30s/side", note:"Counter standing all day"},
+      ]},
+    ]
+  },
 };
 
-// Game days that can be swapped for a contingency plan
-const ALT_OF = {5:7, 0:8};                     // weekday → contingency plan key
-const BASE_OF = {7:5, 8:0};                    // contingency plan key → weekday
-const ALT_LABEL = {5:"RAIN PLAN", 0:"STAND DOWN"};
+// Every weekday can swap to one alternate plan — the swap applies to that date only
+const ALT_OF = {1:11, 2:12, 3:13, 4:14, 5:7, 6:16, 0:8};   // weekday → alternate plan key
+const BASE_OF = Object.fromEntries(Object.entries(ALT_OF).map(([w,k])=>[k, Number(w)]));   // alternate → weekday
+function toggleLabels(w){return w===5 ? ["COURT","RAIN PLAN"] : w===0 ? ["COURT","STAND DOWN"] : ["STANDARD","COURT DAY"]}
 function baseDay(d){return BASE_OF[d] !== undefined ? BASE_OF[d] : d}
-function planKeyFor(weekday){return state.variant && state.variant[weekday] ? ALT_OF[weekday] : weekday}
+function isOverridden(weekday){return !!(state.override && state.override[dateKey(dateForDayOfWeek(weekday))])}
+function planKeyFor(weekday){return isOverridden(weekday) ? ALT_OF[weekday] : weekday}
+// If the previous calendar day was swapped to a court day, return its next-day guidance
+function afterGameNote(d){
+  const prev = new Date(d); prev.setDate(prev.getDate()-1);
+  if(!(state.override && state.override[dateKey(prev)])) return '';
+  const alt = SCHEDULE[ALT_OF[prev.getDay()]];
+  return alt && alt.tomorrow ? alt.tomorrow : '';
+}
 
 // ════════════════════════════════════════════════════════════
 // STATE
@@ -750,8 +945,10 @@ let activeTimer = null;
 function loadState(){
   try{
     const s = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
-    return {sets:s.sets||{}, completed:s.completed||{}, variant:s.variant||{}, ...s};
-  }catch(e){return {sets:{}, completed:{}, variant:{}}}
+    const out = {...s, sets:s.sets||{}, completed:s.completed||{}, override:s.override||{}};
+    delete out.variant;   // old weekday-wide toggle — swaps now apply to a single date
+    return out;
+  }catch(e){return {sets:{}, completed:{}, override:{}}}
 }
 function saveState(){localStorage.setItem(STORAGE_KEY, JSON.stringify(state))}
 
@@ -814,22 +1011,25 @@ function renderStats(){
 }
 
 function variantToggleHTML(weekday){
-  const onAlt = !!(state.variant && state.variant[weekday]);
+  const onAlt = isOverridden(weekday);
+  const [base, alt] = toggleLabels(weekday);
   return `<div class="variant-swap">
-    <button class="swap-btn ${onAlt?'':'active'}" onclick="setVariant(${weekday},false)">COURT</button>
-    <button class="swap-btn ${onAlt?'active':''}" onclick="setVariant(${weekday},true)">${ALT_LABEL[weekday]}</button>
+    <button class="swap-btn ${onAlt?'':'active'}" onclick="setVariant(${weekday},false)">${base}</button>
+    <button class="swap-btn ${onAlt?'active':''}" onclick="setVariant(${weekday},true)">${alt}</button>
   </div>`;
 }
 
 function setVariant(weekday, useAlt){
-  if(!state.variant) state.variant = {};
-  if(!!state.variant[weekday] === !!useAlt) return;
-  state.variant[weekday] = !!useAlt;
+  const dk = dateKey(dateForDayOfWeek(weekday));
+  if(!state.override) state.override = {};
+  if(!!state.override[dk] === !!useAlt) return;
+  if(useAlt) state.override[dk] = true; else delete state.override[dk];
   saveState();
   activeDay = planKeyFor(weekday);
   renderTabs();
   renderContent();
-  toast(useAlt ? `SWITCHED TO ${ALT_LABEL[weekday]}` : 'SWITCHED TO COURT');
+  const [base, alt] = toggleLabels(weekday);
+  toast(`SWITCHED TO ${useAlt ? alt : base}`);
 }
 
 function renderContent(){
@@ -913,6 +1113,8 @@ function renderContent(){
   phasesHTML += '</div>';
 
   const pct = totalSets>0 ? Math.round((doneSets/totalSets)*100) : 0;
+  const after = activeDay === bd ? afterGameNote(d) : '';
+  const skipHTML = plan.skip ? `<div class="skip-block"><div class="skip-head">Skip today</div>${plan.skip.map(s=>`<div class="skip-item"><div class="skip-name">${s.name}</div><div class="skip-why">${s.why}</div></div>`).join('')}</div>` : '';
 
   container.innerHTML = `
     <div class="card">
@@ -928,8 +1130,11 @@ function renderContent(){
         </div>
       </div>
       ${swap}
+      ${after?`<div class="note-block after-game"><div class="note-label">After yesterday's game</div><div class="note-text">${after}</div></div>`:''}
       ${plan.rationale?`<div class="rationale"><span class="leaf">INTEL</span><div>${plan.rationale}</div></div>`:''}
+      ${skipHTML}
       ${phasesHTML}
+      ${plan.tomorrow?`<div class="note-block tomorrow"><div class="note-label">Tomorrow</div><div class="note-text">${plan.tomorrow}</div></div>`:''}
       <div class="progress-block">
         <div class="progress-head"><span class="lbl">Mission Progress</span><span class="val" id="progressText">${doneSets}/${totalSets}</span></div>
         <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:${pct}%"></div></div>
@@ -1043,11 +1248,14 @@ function resetWeek(){
   });
   // Clear all set marks across every plan (weekdays + contingency variants)
   state.sets = {};
-  // Clear completion marks for the 7 days currently shown in the tabs
+  // Clear completion marks and plan swaps for the 7 days currently shown in the tabs
   [1,2,3,4,5,6,0].forEach(d=>{
-    delete state.completed[dateKey(dateForDayOfWeek(d))];
+    const k = dateKey(dateForDayOfWeek(d));
+    delete state.completed[k];
+    if(state.override) delete state.override[k];
   });
   saveState();
+  activeDay = planKeyFor(baseDay(activeDay));
   renderTabs(); renderStats(); renderContent();
   toast('ALL DAYS RESET');
 }
